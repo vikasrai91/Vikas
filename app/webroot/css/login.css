@@ -1,0 +1,413 @@
+/** base css **/
+
+html,
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    background:url('../img/curving-road.jpg');
+}
+label.error{
+    font-size: 12px;
+    color: #A91419;
+}
+.error-message{
+    font-size: 12px;
+    color: #A91419;
+}
+.errorTxt{
+    font-size: 12px;
+    color: #A91419;
+}
+
+.tell-us2{
+    overflow: scroll;
+    height: 800px;
+}
+.tell-us3{
+    overflow: scroll;
+    height: 800px;
+}
+.text-red a {
+    color:#d83005 !important;
+}
+
+.padding-l-r {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+
+.padding-left{
+    padding-left: 0;
+}
+
+.padding-right{
+    padding-right: 0;
+}
+
+/** Top header Settings **/
+.navbar-custom {
+    background-color: #fff;
+    border: none;
+    height: 90px;
+    margin-bottom: 0;
+    padding-top: 17px;
+}
+
+.header {
+    box-shadow: 1px 2px 3px #ddd;
+    background:  #fff;
+}
+
+.navbar-custom .navbar-nav > li > a {
+    font-size: 16px;
+    color: #000;
+}
+
+
+
+/** footer **/
+
+.footer-links.list-unstyled > li {
+    display: inline;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.footer-links.list-unstyled > li a {
+    color:#000;
+}
+
+.footer-links,
+.copright-text{
+    margin-top: 22px;
+}
+
+
+
+
+/** login **/
+
+.login-wraper {
+    /*box-shadow: 0 1px 8px #ddd;*/
+    padding: 35px 0 20px;
+}
+
+.btn-fb  {
+    background-color: #3b5998;
+    color: #fff;
+    text-align: left;
+    font-size: 14px;
+    vertical-align: middle;
+    margin-bottom: 10px;
+}
+
+.btn-fb:hover,
+.btn-fb:focus,
+.btn-fb:active{
+     background-color: #375490;
+     color: #fff;
+}
+
+.btn-fb .fa-facebook {
+    font-size: 20px;
+    vertical-align: top;
+    margin-right: 8px;
+}
+
+.border-top {
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
+}
+
+.or-text {
+    background: #fff none repeat scroll 0 0;
+    left: 48%;
+    padding-left: 10px;
+    padding-right: 10px;
+    position: absolute;
+    top: -9px;
+}
+
+.btn-blue-login {
+    background-color:#34a5da;
+    color: #fff;
+    padding: 10px 60px;
+    border-radius: 0;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.btn-blue-login:hover,
+.btn-blue-login:focus,
+.btn-blue-login:active{
+    background-color:#2C8DBB;
+    color: #fff;
+}
+
+.forget-pass {
+    border-bottom: 1px solid #ccc;
+    font-size: 17px;
+    font-weight: 400;
+    padding-bottom: 23px;
+}
+
+.text-blue a {
+    color:#34a5da;
+}
+
+.dont-have {
+    font-size: 17px;
+}
+
+.login-top-margin {
+    margin-top: 90px;
+    margin-bottom: 20%;
+    background: #fff;
+}
+
+.login-top-margin h3 {
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 40px;
+    margin-top: 33px;
+}
+
+
+
+/** tell-us **/
+
+.tell-us h3 {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    margin-top: 33px;
+}
+
+.tell-us .btn-blue-login {
+    margin-top: 45px;
+}
+
+
+.top-small-heading {
+    margin-top: 20px;
+    font-size: 20px;
+}
+
+.equipment .checkbox label, .radio label {
+    width: 100%;
+}
+/** Sign Up **/
+
+
+.shipping-customer,
+.carrier {
+    margin-top: 20px;
+}
+
+.signup-text-bottom {
+    font-size: 12px;
+}
+
+.signup-text-bottom {
+    font-size: 12px;
+    margin: 0 auto;
+    text-align: center;
+    width: 378px;
+    color: #999999;
+}
+
+.help-block {
+     color: #999999;
+}
+
+
+.shipping-customer .btn-blue-login {
+    margin-bottom: 0
+}
+
+.carrier-signup {
+    margin-top: 100px;
+}
+
+.login-wraper .nav > li > a {
+    display: block;
+    /*padding: 12px 75px;*/
+    text-align: center;
+    position: relative;
+    width: 254px;
+    color: #333;
+    font-weight: 600;
+
+}
+
+.nav-tabs > li {
+    margin-bottom: 0;
+}
+
+.nav-tabs > li > a{
+    border:1px solid #ccc;
+    border-radius: 0;
+    margin-right: 0;
+
+}
+
+.nav-tabs  {
+    border-bottom: none;
+}
+
+.login-wraper .nav > li > a:hover,
+.login-wraper .nav > li > a:focus,
+.login-wraper .nav > li > a:active{
+   outline: none;
+}
+
+.sub-heading-login {
+    font-size: 18px !important;
+    margin-top: 8px;
+}
+
+
+.forget-section {
+    margin-top: 10px;
+}
+
+
+.fa-custom-user {
+    font-size: 30px;
+    margin-bottom: 3px;
+}
+
+.nav-tabs > li.active > a, 
+.nav-tabs > li.active > a:focus, 
+.nav-tabs > li.active > a:hover {
+    border-color: #ccc;
+}
+.nav-tabs > li.active > a:active,
+.nav-tabs > li.active > a:focus,
+.nav-tabs > li.active > a{
+
+    background-color: #ddd;
+
+    }
+
+.checkbox-inline, .radio-inline {
+    padding-left: 0;
+}
+
+
+
+@media only screen and (min-width: 320px) and (max-width: 1023px) {
+
+    .footer {
+        height: auto !important;
+    }
+
+    .footer-links {
+        text-align: center;
+    }
+
+    .footer-links.list-unstyled > li {
+        padding-left: 3px;
+        padding-right: 8px;
+    }
+    
+    .copright-text {
+        text-align: center;
+    }
+
+    ul {
+        margin-bottom: 0;
+    }
+
+    .footer-links{
+        margin-top: 15px;
+    }
+
+    .copright-text{
+        margin-top: 15px;
+    }
+
+    .logo {
+        width: 174px;
+    }
+     .nav-tabs > li {
+            width: 100%;
+        }
+          .login-wraper .nav > li > a {
+            display: block;
+            width: 100%;
+        }
+
+
+}
+
+
+@media only screen and (min-width: 320px) and (max-width: 767px) {
+
+        .signup-text-bottom {
+            width: auto;
+        }
+
+        .login-wraper .nav > li > a {
+            display: block;
+            width: 100%;
+        }
+
+        .nav-tabs > li {
+            width: 100%;
+        }
+        .login-top-margin {
+            padding-left: 5px;
+            padding-right: 5px;
+        }
+
+        .signup-padding {
+            padding-left: 5px;
+            padding-right: 5px;
+        }
+
+        .login-wraper {
+          /*  box-shadow: 0 1px 8px #ddd;*/
+            padding: 35px 0 10px;
+        }
+
+        .navbar-collapse{
+            border: medium none;
+            box-shadow: 1px 2px 3px #ddd;
+            margin-top: 23px;
+        }
+
+        .login-top-margin {
+            margin-bottom: 33%
+        }
+
+        /*.login-wraper .nav > li > a {
+            width: 269px;
+        }*/
+
+        .login-top-margin h3 {
+            font-size: 25px;
+            font-weight: 600;
+            padding-top: 30px;
+        }
+
+        .login-top-margin .padding-left {
+            padding-left: 15px;
+        }
+        .login-top-margin .padding-right {
+            padding-right: 15px;
+        }
+
+        .login-top-margin .padding-l-r {
+            padding-right: 15px;
+             padding-left: 15px;
+        }
+
+        .form-group div + div  {
+            margin-top: 15px;
+        }
+}

@@ -1,0 +1,45 @@
+
+.faa::before {
+	content: '';
+	display: inline-block;
+	background: url("../img/login-check-sprite.png") no-repeat 0 0;
+	padding:  12px ;
+	vertical-align: middle;
+	margin-right: 4px;
+}
+
+.faa.fa-unchecked::before {
+  content: '';
+  background-position: -8px -6px;
+}
+
+.faa.fa-checked::before {
+  content: '';
+  background-position: -40px -6px;
+}
+
+
+.works-in-ie-login label {
+	padding-left: 0;
+}
+
+/** radio custom Css **/
+
+.fa-radio::before {
+	content: '';
+	display: inline-block;
+	background: url("../img/custom-radio-sprite.png") no-repeat 0 0;
+	padding:  11px 11px;
+	vertical-align: middle;
+	margin-right: 4px;
+}
+
+.fa-radio.fa-unchecked::before {
+  content: '';
+  background-position: -48px -13px;
+}
+
+.fa-radio.fa-checked::before {
+  content: '';
+  background-position: -10px -13px;
+}

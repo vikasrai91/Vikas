@@ -1,0 +1,104 @@
+.checkbox-with-style input[type="checkbox"]
+{
+    width: 0;
+    height: 1em;
+    font-family: FontAwesome;
+    font-weight: normal;
+    font-style: normal;
+    display: inline-block;
+    text-decoration: inherit;
+    margin-right: 1em;
+    font-size: inherit;
+    color: inherit;
+    vertical-align: text-bottom;
+    visibility: hidden;
+}
+
+.checkbox-with-style input[type="checkbox"]:before
+{
+    visibility: visible;
+    content: "\f096";
+}
+
+.checkbox-with-style input[type="checkbox"]:checked:before
+{
+    content: "\f046";
+}
+
+.checkbox-with-style
+{
+    color: blue;
+    font-size: 3em;
+}
+
+.checkbox-with-moods
+{
+    color: green;
+    font-size: 1.5em;
+}
+
+.checkbox-with-moods input[type="checkbox"]:before
+{
+    content: "\f119";
+}
+
+.checkbox-with-moods input[type="checkbox"]:checked:before
+{
+    content: "\f118";
+}
+
+.works-in-ie input[type="checkbox"]:checked ~ .checked,
+.works-in-ie input[type="radio"]:checked ~ .checked
+{
+    display: inline-block;
+}
+.works-in-ie input[type="checkbox"]:checked ~ .unchecked,
+.works-in-ie input[type="radio"]:checked ~ .unchecked
+{
+    display: none;
+}
+.works-in-ie input[type="checkbox"] ~ .checked,
+.works-in-ie input[type="radio"] ~ .checked
+{
+    display: none;
+}
+.works-in-ie input[type="checkbox"] ~ .unchecked,
+.works-in-ie input[type="radio"] ~ .unchecked,
+
+{
+    display: inline-block;
+}
+
+.works-in-ie input[type="checkbox"],
+.works-in-ie input[type="radio"]
+ {
+    display: none;
+}
+
+.works-in-ie-login input[type="checkbox"]:checked ~ .checked,
+.works-in-ie-myaccount input[type="radio"]:checked ~ .checked
+{
+    display: inline-block;
+}
+.works-in-ie-login input[type="checkbox"]:checked ~ .unchecked,
+.works-in-ie-myaccount input[type="radio"]:checked ~ .unchecked
+{
+    display: none;
+}
+.works-in-ie-login input[type="checkbox"] ~ .checked,
+.works-in-ie-myaccount input[type="radio"] ~ .checked
+{
+    display: none;
+}
+.works-in-ie-login input[type="checkbox"] ~ .unchecked,
+.works-in-ie-myaccount input[type="radio"] ~ .unchecked,
+
+{
+    display: inline-block;
+}
+
+.works-in-ie-login input[type="checkbox"],
+.works-in-ie-myaccount input[type="radio"]
+ {
+    display: none;
+}
