@@ -15,7 +15,6 @@ class AppController extends Controller {
 					'userModel' => 'User',
 					'fields' => array(
 						'username' => 'username',
-						//'username' => 'email',
 						'password' => 'password'
 					)
 				)
@@ -35,14 +34,21 @@ class AppController extends Controller {
  * @created on		: 15 june 2016
 */
 	function beforefilter(){
-		
+		if ($this->request->is('post') && $this->action == 'login') {
+        $username = $this->request->data['User']['username'];
+        if (filter_var($username, FILTER_VALIDATE_EMAIL)) {
+            $this->Auth->authenticate['Form']['fields']['username'] = 'email';
+            $this->request->data['User']['email'] = $username;
+            unset($this->request->data['User']['username']);
+        }
+    }
 		// if ($this->Cookie->read('Auth.User') && !$this->Session->read("Auth.User.id")) {
 		// 		$this->redirect("/users/login");
 		// 	}
 	}
 
 /*
- * @function name	: get_mail_template
+ * @function name	: getMaildata
  * @purpose			: getting email data for various purposes
  * @arguments		: Following are the arguments to be passed:
 	 * template_for		: template_for of email templates from email_templates table
@@ -50,7 +56,7 @@ class AppController extends Controller {
  * @created on		: 14 june 2016
  * @description		: function will assign value to global variables like mailbody,from, subject which will be used while sending email
 */
-	public function get_mail_template($template_for = null){
+	public function getMaildata($template_for = null){
 		$this->loadModel('EmailTemplate');
 		$mail_data = $this->EmailTemplate->find('first', array('conditions' => array('EmailTemplate.template_for' => $template_for)));
 		if(!empty($mail_data)){
@@ -59,10 +65,10 @@ class AppController extends Controller {
 			$this->subject = $mail_data['EmailTemplate']['mail_subject'];
 		}
 	}
-//End get_mail_template
+//End getMaildata
 
 /*
- * @function name	: sendmail
+ * @function name	: sendMail
  * @purpose			: sending email for various actions
  * @arguments		: Following are the arguments to be passed:
 	 * to			: contain email address from which email is sending 
@@ -71,7 +77,7 @@ class AppController extends Controller {
  * @created on		: 14 june 2016
  * @description		: NA
 */
-	public function sendmail($to = null) {
+	public function sendMail($to = null) {
 		$fromname = 'Shipthestuff';
 		App::uses('CakeEmail', 'Network/Email');
       	$email = new CakeEmail();
@@ -86,7 +92,7 @@ class AppController extends Controller {
 		}
 		return false;
 	}
-//End sendmail
+//End sendMail
 
 }
 

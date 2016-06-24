@@ -16,12 +16,26 @@
       <![endif]-->
 	<?php
 		echo $this->Html->meta('icon');
-		echo $this->Html->css(array('bootstrap.min', 'font-awesome', 'login', 'custom-checkbox-login', 'custom-font-login', 'sticky-footer'));
+		echo $this->Html->css(array('bootstrap.min', 'font-awesome', 'sticky-footer'));
+	if($this->params['controller'] == 'users'){
+		echo $this->Html->css(array('login', 'custom-checkbox-login', 'custom-font-login'));
+		}
+	elseif($this->params['controller'] == 'ships'){
+		echo $this->Html->css(array('bootstrap-datepicker', 'style2', 'custom-switch', 'custom-checkbox', 'custom-font'));
+	}
 	?>
-	<?php echo $this->Html->script(array('jQuery-2.1.4.min', 'bootstrap.min', 'jquery.validate.min')); ?>
+	<?php echo $this->Html->script(array('jQuery-2.1.4.min', 'bootstrap.min', 'jquery.validate.min', 'bootstrap-datepicker')); 
+		echo $this->Html->script('https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places');
+	?>
 </head>
 <body>
-	 <?php echo $this->element("header"); ?>
+	 <?php 
+	 if($this->params['action'] == 'listingRequest'){
+		echo $this->element("list_header");
+	}else{
+		echo $this->element("header");
+	}
+	 ?>
      <div class="wrapper">
       <div class="container">
 			<?php echo $this->Flash->render(); ?>

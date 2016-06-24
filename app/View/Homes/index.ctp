@@ -10,9 +10,9 @@
             <div class="text-section ">
                <div class="background-text">
                   <div class="main-heading-banner">
-                     <h1>WE MAKE SHIPPING BIG STUFF EASY</h1>
+                     <h1>SHIP MORE, SPEND LESS</h1>
                   </div>
-                  <p>Looking to ship something to Bermuda? You've come to the right place! Lets get started with a few questions.</p>
+                  <p>Looking to ship something to Bermuda? You've come to the right place! We make it easy to compare shipping prices in Bermuda.</p>
                </div>
                <div class="read-more-btn">
                   <button class="btn btn-read-more">GET A FREE QUOTE</button>
@@ -21,18 +21,27 @@
          </div>
          <div class="carousel-inner" role="listbox">
             <div class="item active">
-               <!-- <img class="img-responsive" src="img/slider.png" alt="slider"> -->
-            <?php 
-            echo $this->Html->image('slider.png', array('alt' => 'slider', 'class' => 'img-responsive'));
-            ?>
+               <?php 
+               echo $this->Html->image('slider2.png', array('alt' => 'slider', 'class' => 'img-responsive'));
+               ?>
             </div>
+            <div class="item ">
+               <?php 
+                  echo $this->Html->image('slider4.png', array('alt' => 'slider', 'class' => 'img-responsive'));
+               ?>
+            </div>
+            <div class="item ">
+              <?php 
+                  echo $this->Html->image('slider3.png', array('alt' => 'slider', 'class' => 'img-responsive'));
+              ?>
+            </div>         
          </div>
       </div>
 
       <!-- What Can We Deliver -->
       <section class="what-can-we-do">
          <div class="container">
-            <h1 class="text-center">WHAT CAN WE DELIVER FOR YOU?</h1>
+            <h1 class="text-center">What are you shipping?</h1>
             <div class="col-sm-4 col-lg-2 padding-l-r-10">
                <div class="border-top-box">
                   <!-- <img class="img-responsive" alt="vehicles" src="img/vehicles.png"> -->
@@ -40,7 +49,7 @@
             echo $this->Html->image('vehicles.png', array('alt' => 'vehicles', 'class' => 'img-responsive'));
             ?>
                   <h3>Vehicles</h3>
-                  <p>Cars, Boats, Motorcycles, RVs...</p>
+                  <p>Cars, Boats, Motorcycles...</p>
                </div>
             </div>
             <div class="col-sm-4 col-lg-2 padding-l-r-10">
@@ -79,20 +88,20 @@
             <?php 
             echo $this->Html->image('freight.png', array('alt' => 'freight', 'class' => 'img-responsive'));
             ?>
-                  <h3>Freight</h3>
+                  <h3>Other Freight</h3>
                   <p>Less-than-Container, Container...</p>
                </div>
             </div>
-            <div class="col-sm-4 col-lg-2 padding-l-r-10">
-               <div class="border-top-box">
+            <!-- <div class="col-sm-4 col-lg-2 padding-l-r-10">
+               <div class="border-top-box"> -->
                   <!-- <img class="img-responsive" alt="animals" src="img/animals.png"> -->
             <?php 
-            echo $this->Html->image('animals.png', array('alt' => 'animals', 'class' => 'img-responsive'));
+            // echo $this->Html->image('animals.png', array('alt' => 'animals', 'class' => 'img-responsive'));
             ?>
-                  <h3>Animals</h3>
+                  <!-- <h3>Animals</h3>
                   <p>Dogs, Cats, Horses...</p>
                </div>
-            </div>
+            </div> -->
          </div>
       </section>
       <!-- What Can We Deliver -->
@@ -101,15 +110,19 @@
       <!-- Fast Delivery -->
       <section class="fast-delivery">
          <div class="container">
-            <div class="col-sm-6">
+            <div class=" col-lg-6 col-sm-11 col-md-6">
                <h2>
-                  Fast delivery from United States to your residence or business in Dominican Republic.
+                HOW DOES THE SERVICE WORK?
                </h2>
                <p>
-                  We are the fastest, most secure and reliable courier who specializes in international express transportation of documents and packages. Our main goal is provide the higher level of service possible with our VIP Treatement. Plus real-time package tracking information 24 hours a day, 365 days of the year (online tracking).
+                <ul class="list-unstyled">
+                   <li><i class="you-talk"></i><strong>You talk.</strong> Tell us what you would like to ship. Request a shipping quote or name your own price</li>
+                   <li><i class="you-find"></i><strong>We find.</strong> Our system matches your request with shippers to get you the best quote.</li>
+                   <li><i class="you-save"></i><strong>You save.</strong> Select the best quote, make a deposit and begin shipping. Easy!</li>
+                </ul>
                </p>
             </div>
-            <div class="col-sm-6">
+            <div class="col-sm-12 col-lg-6 col-md-6">
                <!-- <img class="img-responsive" alt="fast-delvery" src="img/fast-delvery.png"> -->
          <?php 
             echo $this->Html->image('fast-delvery.png', array('alt' => 'fast-delvery', 'class' => 'img-responsive'));
@@ -123,35 +136,36 @@
       <!-- Main Feature -->
       <section class="main-feature">
          <div class="container">
-            <h4 class="text-center">
-               Why Choose Us
-            </h4>
-            <h1 class="text-center">THE MAIN FEATURES</h1>
-            <p class="text-center">
-               Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard
-            </p>
-            <div class="col-sm-6 satisfied-customers">
-               <h5>100% SATISFIED CUSTOMERS</h5>
+            <h1 class="text-center">WHY CHOOSE US?</h1>
+      
+            <div class="col-sm-12 col-lg-6 satisfied-customers">
+               <h5>Save time</h5>
                <p>
-                  Lorem ipsum dolor sit amet elit eiusmod tempor incididunt ut labore dolore magna aliqua
+                 Get multiple shipping quotes with the click of a button. Don’t waste any more time calling around for prices.
                </p>
-               <h5>QUALITY SERVICE AFFORDABLE PRICE</h5>
+               <h5>Save money</h5>
                <p>
-                  Aorem ipsum dolor sit amet elit eiusmod tempor incididunt ut labore dolore magna aliqua
+                Shippers compete for your business so you know you’re getting the best price. With the Name Your Price option you set the terms.
                </p>
-               <h5>WORLDWIDE LOCATIONS</h5>
+               <h5>Get the full price up front</h5>
                <p>
-                  Aorem ipsum dolor sit amet elit eiusmod tempor incididunt ut labore dolore magna aliqua
+                 No hidden fees to worry about. You get a quote, not an estimate. A quote is an offer to do a job for an exact price. If you accept the quote then the seller won’t charge you more than the agreed price.
                </p>
-               <h5>MODERN VEHICLES FLEET</h5>
+               <h5>Stay up to date with the latest rates</h5>
                <p>
-                  Aorem ipsum dolor sit amet elit eiusmod tempor incididunt ut labore dolore magna aliqua
+                  Shipping prices change all the time. Be sure to check in for the best price before you ship.
                </p>
+                <h5>Assisted purchase</h5>
+               <p>
+                 If you need help ordering online ask a shipper to purchase goods on your behalf. We match you with businesses that offer the service.
+               </p>
+
+               <h5>Expedited Service</h5>
             </div>
             <div class="col-sm-6">
                <!-- <img class="img-responsive" alt="choose-us" src="img/choose-us.png"> -->
          <?php 
-            echo $this->Html->image('choose-us.png', array('alt' => 'choose-us', 'class' => 'img-responsive'));
+            echo $this->Html->image('forklift.png', array('alt' => 'choose-us', 'class' => 'img-responsive'));
          ?>
             </div>
          </div>

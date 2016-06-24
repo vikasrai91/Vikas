@@ -35,7 +35,16 @@
                             </li>
                         </ul>
                         </li>-->
-
+                      <li class="text-blue">
+                        <?php
+                              echo $this->Html->link(
+                                    'New Delivery',
+                                    '/ships/shipmentRequest',
+                                    array('class' => 'button', 'target' => '_self')
+                                 );
+                           ?>
+                        
+                     </li>
                      <li class="text-red">
                         <?php
                               echo $this->Html->link(
@@ -77,9 +86,9 @@
                      <li class="">
                         <a href="#">Home</a>
                      </li>
-                     <li>
+                     <!-- <li>
                         <a href="#">Track</a>
-                     </li>
+                     </li> -->
                      <li>
                         <a href="#">Register</a>
                      </li>

@@ -1,0 +1,832 @@
+/** base css **/
+
+html,
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.text-red a {
+    color:#d83005 !important;
+}
+.error{
+    font-size: 12px;
+    color: #A91419;
+}
+
+
+.padding-left {
+    padding-left: 0
+}
+
+.padding-right {
+    padding-right: 0
+}
+
+label {
+    font-weight: 600 !important;
+}
+
+a:focus {
+    outline: none;
+}
+
+/** Top header Settings **/
+.navbar-custom {
+    background-color: #fff;
+    border: none;
+    height: 90px;
+    margin-bottom: 0;
+    padding-top: 20px;
+}
+
+.header {
+    box-shadow: 1px 2px 3px #ddd;
+}
+
+.navbar-custom .navbar-nav > li > a {
+    font-size: 16px;
+    color: #000;
+}
+
+
+
+/** footer **/
+
+.footer-links.list-unstyled > li {
+    display: inline;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.footer-links.list-unstyled > li a {
+    color:#000;
+}
+
+.footer-links,
+.copright-text{
+    margin-top: 22px;
+}
+
+
+
+/** **/
+
+.user-image {
+    padding-right: 5px;
+}
+
+.nav-full-width {
+    background: #74bfe1 none repeat scroll 0 0;
+    height: 51px;
+    box-shadow: inset 0 20px 20px -26px rgba(0,0,0,0.8);
+}
+
+.nav-full-width .navbar-default {
+    background-color: transparent;
+    border: none;
+    color: #fff;
+} 
+
+
+.nav-full-width .navbar-nav > li > a {
+    color: #fff;
+    font-size: 16px;
+    padding-bottom: 16px;
+}
+
+.navbar-custom-menu .navbar-nav > li > a {
+    padding-top: 6px;
+}
+
+.navbar-custom-menu > .navbar-nav > .open > a, 
+.navbar-custom-menu > .navbar-nav > .open > a:focus, 
+.navbar-custom-menu > .navbar-nav > .open > a:hover {
+    background-color: transparent !important;
+    color: #555;
+}
+
+.navbar-custom-menu .dropdown-menu {
+    top: 70px;
+}
+
+.nav-full-width  .navbar-nav > .active > a, 
+.nav-full-width  .navbar-nav > .active > a:focus, 
+.nav-full-width  .navbar-nav > .active > a:hover {
+    background-color: #fff;
+    color: #555;
+}
+
+.navbar {
+    margin-bottom: 0;
+}
+
+.navbar-inverse {
+    background-color: transparent;;
+    border: none;
+}
+
+.navbar-collapse {
+    padding-left: 0;
+}
+
+
+/** dashbaord **/
+
+.header-page-top {
+    border-bottom: 1px solid #ccc;
+    margin-top: 55px;
+    padding-bottom: 10px;
+}
+
+.dashboard-heading {
+    background: url('../img/dashboard-icon.png')no-repeat;
+    width: 30px;
+    height: 40px;
+    display: inline-block;
+    padding-left: 48px;
+}
+
+.dashboard-heading > span {
+    float: left;
+    margin-top: 8px;
+    width: 300px;
+}
+
+.dasbaord-table .item-text {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.text-bold {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.dasbaord-table {
+    margin-top: 20px;
+}
+
+.dasbaord-table  > thead > tr > th {
+    border-bottom: none;
+}
+
+.dasbaord-table > tbody > tr > td, .table > tbody > tr > th, 
+.dasbaord-table > tfoot > tr > td, .table > tfoot > tr > th,
+.dasbaord-table > thead > tr > td, .table > thead > tr > th {
+    border-bottom: 1px solid #ccc;
+}
+
+.table-section-top {
+    background: #ddd none repeat scroll 0 0;
+    margin-top: 40px;
+    padding: 10px;
+    font-weight: 600;
+}
+
+.container.page-bottom-margin {
+    margin-bottom: 10%;
+}
+
+
+
+
+
+/*** Post Job/my account ***/
+
+.action-section {
+    margin-top: 20px;
+}
+
+.clasified-listing {
+    font-size: 16px;
+}
+
+.subheading {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.right-top-section {
+    margin-top: 18px;
+}
+
+.btn-blue {
+    background-color: #428bca;
+    color: #fff;
+    border-radius: 0;
+}
+
+.btn-blue:hover,
+.btn-blue:focus,
+.btn-blue:active{
+    background-color: #3977AD;
+    color: #fff;
+    border-radius: 0;
+}
+
+.my-account {
+    margin-top: 70px;
+}
+
+.delete-account {
+    margin-top: 60px;
+    margin-bottom: 40px;
+}
+
+.text-red a {
+    color: #cd5c5c;
+}
+
+.btn-default {
+    border-radius: 0;
+}
+
+.margin-right-btn {
+    margin-right: 13px;
+}
+
+
+.change-picture {
+    margin-top: 13px;
+}
+
+/* .from-group .form-control{
+    margin-bottom: 35px;
+}
+*/
+.checkbox-inline, .radio-inline { 
+    padding-left: 0;
+
+    }
+
+/** add/edit profile **/
+
+
+.footer-btn{
+   /* border-top: 1px solid #ccc;*/
+    padding-top: 43px;
+    margin-top: 40px;
+}
+
+.add-profile {
+    margin-top: 50px;
+}
+
+.company-logo-heading {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+
+
+/** Shippment Information **/
+
+.checkbox-inline + .checkbox-inline, 
+.radio-inline + .radio-inline {
+    margin-left: 0;
+}
+
+.item-info-heading {
+    background: #ececec none repeat scroll 0 0;
+    font-size: 22px;
+    font-weight: 600;
+    margin-top: 40px;
+    padding: 14px;
+}
+
+.item-img {
+    margin-top:16%;
+}
+
+.top-section-ship {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 15px;
+}
+
+.description-item {
+    cursor: pointer;
+}
+.shippment-information  .nav-tabs > li.active > a, 
+.shippment-information  .nav-tabs > li.active > a:focus, 
+.shippment-information  .nav-tabs > li.active > a:hover {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #fff;
+    border-color: #ddd #ddd transparent;
+    border-image: none;
+    border-style: solid;
+    border-width: 1px;
+    color: #555;
+    cursor: default;
+    background-color: #34a5da;
+    color: #fff;
+}
+
+.shippment-information .nav-tabs > li > a {
+    background: #ececec none repeat scroll 0 0;
+    border: 1px solid transparent;
+    border-radius: 4px 4px 0 0;
+    line-height: 1.42857;
+    margin-right: 2px;
+}
+.shippment-information .nav-tabs {
+    border:none;
+}
+
+.shippment-information {
+    margin-top: 50px;
+}
+
+.shippment-information  .nav > li > a {
+        padding:10px 75px;
+}
+
+
+
+.shipment-info h4,
+.pickup-delivery h4 {
+    margin-bottom: 0;
+}
+
+.shipment-info,
+.pickup-delivery,
+.listing-option{
+    margin-top: 30px;
+    margin-bottom: 70px;
+
+}
+
+.headertop-shipmentsection {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 15px;
+    margin-bottom: 30px;
+}
+
+.text-blue {
+    color: #34a5da;
+}
+
+.checkbox label, 
+.radio label {
+    padding-left: 0;
+}
+
+.choose-number {
+    margin-top: 20px;
+}
+
+
+/*.shipment-info-bottom .form-group {
+    margin-bottom: 5px;
+}*/
+.shipment-info-bottom {
+    background-color:  #ececec;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    margin-top: 20px;
+    margin-bottom: 25px;
+}
+
+.whatdo-youneed {
+    border-top: 1px solid #ccc;
+    margin-top: 20px;
+    padding-bottom: 30px;
+    padding-top: 28px;
+}
+
+
+
+
+.btn-fb  {
+    background-color: #3b5998;
+    color: #fff;
+    text-align: left;
+    font-size: 14px;
+    vertical-align: middle;
+    margin-bottom: 10px;
+}
+
+.btn-fb:hover,
+.btn-fb:focus,
+.btn-fb:active{
+     background-color: #375490;
+     color: #fff;
+}
+
+.btn-fb .fa-facebook {
+    font-size: 20px;
+    vertical-align: top;
+    margin-right: 8px;
+}
+
+.border-top {
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
+}
+
+.or-text {
+    background: #fff none repeat scroll 0 0;
+    left: 48%;
+    padding-left: 10px;
+    padding-right: 10px;
+    position: absolute;
+    top: -9px;
+}
+
+
+ .list-right-background {
+    background-color: #e5e5e5;
+    padding: 40px;
+    text-align: center;
+ }
+
+ .btn.btn-blue.sign-in {
+    font-size: 16px;
+    margin-top: 20px;
+    padding: 8px 40px;
+}
+
+
+
+/** complete listings **/
+
+.nav > li.disabled > a:focus, 
+.nav > li.disabled > a:hover {
+    background-color: #ececec;
+}
+
+.update-address h4 {
+     background: #34a5da none repeat scroll 0 0;
+    color: #fff;
+    font-weight: 600;
+    margin-bottom: 20px;
+    margin-top: 0;
+    padding: 10px;
+}
+
+.update-address .form-group {
+    margin-left: 0;
+    margin-right: 0;
+}
+.complete-listings .list-group-item li a {
+    color: #000;
+    font-size: 15px;
+}
+
+.complete-listings .nav > li > a {
+     padding: 10px 62px;
+}
+
+.complete-listings .well {
+    background-color: #fff;
+
+}
+.complete-listings .well-lg {
+    border-radius:4px;
+    padding: 0px;
+}
+
+.h4settings {
+    margin-bottom: 20px !important;
+    font-size: 18px;
+    font-weight: 600;
+    color: #414042;
+}
+
+.complete-listings p {
+
+    line-height: 32px;
+}
+
+.well .border-bottom {
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 20px;
+}
+
+.complete-listings .list-group-item {
+    background-color: #34a5da;
+    border: 1px solid #ddd;
+    color: #fff;
+    display: block;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: -1px;
+    padding: 17px 15px;
+    position: relative;
+}
+
+.complete-listings .list-group-item a {
+    color: #fff;
+}
+
+.well section {
+    padding: 9px;
+}
+
+.listing-basic-info th {
+    padding-right: 10px;
+    white-space: nowrap;
+    font-weight: bold;
+}
+
+.panel-default > .panel-heading {
+    background-color: #34a5da;
+    border-color: #ddd;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+ .listing-route-info-bd {
+    min-height: 51px;
+    padding-left: 40px;
+    background: url("../img/pin-pickup.png") no-repeat 2px center;
+}
+
+.listing-route-deliver {
+     min-height: 51px;
+    padding-left: 40px;
+    background: url("../img/pin-deliver.png") no-repeat 2px center;
+}
+
+.listing-route-info {
+    padding: 10px 0 10px 5px;
+    border-bottom: 1px dashed #808285;
+}
+
+.text-blue-dark a {
+    color: #1620ff;
+}
+
+.small-heading-list {
+    font-weight: 600;
+}
+
+.listing-route-info .checkbox label,
+.listing-route-info  .radio label {
+    padding-left: 20px;
+}
+
+.iteam-section {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 13px;
+    padding-top: 10px;
+    margin-bottom: 10px;
+}
+
+/*.panel-height {
+    height: 400px;
+}*/
+
+
+/** Thanku Message **/
+
+.text-center.top-header-thanks {
+    margin-top: 64px;
+    margin-bottom: 60px;
+}
+
+.top-header-thanks h3 {
+    margin-top: 40px;
+}
+
+
+.thanku-message .panel-title {
+    font-size: 26px;
+    font-weight: 600;
+    margin-bottom: 1px;
+    margin-top: 9px;
+}
+
+.thanku-message .panel-heading  {
+    background-color: #1b8480;
+}
+
+.thanku-message .panel-heading p {
+    font-weight: 600;
+}
+
+.thanku-message .heading-big {
+    border-bottom: 1px solid #ccc;
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 32px;
+    margin-bottom: 20px;
+    padding-bottom: 17px;
+}
+
+.thanku-message ul li .circle {
+    border: 1px solid #1b8480;
+    border-radius: 50%;
+    color: #1b8480;
+    content: "";
+    display: inline-block;
+    font-size: 20px;
+    font-weight: 600;
+    height: 30px;
+    left: 19px;
+    margin-left: 10px;
+    position: absolute;
+    text-align: center;
+    width: 30px;
+    margin-top: -5px;
+}
+
+.thanku-message ul li  {
+    margin-bottom: 19px;
+    margin-left: 42px;
+}
+
+.thanku-message ul {
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 40px;
+}
+
+.btn-yellow {
+    background-color: #fcd900;
+    color: #000;
+    padding: 15px 50px;
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.name-your-price{
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 101px;
+    margin-bottom: 40px;
+}
+
+.thanku-message .panel{
+   border: 2px solid #1B8480;
+}
+
+.thanku-box {
+    margin-top: 35px;
+}
+
+
+/** Update Price **/
+
+.update-price-section {
+    border: 1px solid #ccc;
+    padding: 48px;
+    border-radius: 4px;
+}
+
+.update-price-section .btn-blue {
+    margin-top: 100px;
+    margin-bottom: 20px;
+}
+/** Media queries Start hete for mobile repsonsive **/
+
+@media only screen and (min-width: 320px) and (max-width: 767px) {
+
+
+    .thanku-message ul li {
+        margin-left: 50px;
+    }
+
+  
+  .navbar-custom-menu {
+    float: right;
+    text-align: center;
+    width: 100%;
+}
+
+.navbar-brand > img {
+    margin: 0 auto;
+    
+}
+.navbar-brand {
+
+    width: 100%;
+
+}
+
+.nav-full-width .navbar-nav > li > a {
+    color: #000 !important;
+}
+
+.navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
+    border:none;
+
+}
+.navbar-toggle {
+    float: left;
+}
+
+.container.page-bottom-margin {
+    margin-bottom: 50%;
+}
+
+.nav-full-width { 
+    height: auto;
+
+    }
+
+    .nav-full-width .navbar-nav > li > a{
+        padding-left: 25px;
+    }
+
+    .right-top-section {
+        text-align: left;
+    }
+
+   .nav-tabs > li {
+      width: 100%;
+      text-align: center;
+   }
+
+   .shippment-information .nav > li > a {
+      padding: 10px 64px;
+  }
+
+ .shipment-info, 
+ .pickup-delivery, 
+ .listing-option,
+ .complete-listing{
+    margin-bottom: 75px;
+ 
+}
+
+  .whatdo-youneed .padding-left{
+    padding-left: 18px;
+  }
+
+    .form-group div +div {
+        margin-top: 10px;
+    }
+
+    .checkbox-inline + .checkbox-inline, .radio-inline + .radio-inline{
+        margin-left: 0;
+    }
+
+    .thanku-box {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .box-padding {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .price-edit-section {
+        padding-left: 0;
+    }
+}
+
+
+@media only screen and (min-width: 320px) and (max-width: 1023px) {
+
+    .footer {
+        height: auto !important;
+    }
+
+    .footer-links {
+        text-align: center;
+    }
+
+    .footer-links.list-unstyled > li {
+        padding-left: 3px;
+        padding-right: 8px;
+    }
+    
+    .copright-text {
+        text-align: center;
+    }
+
+    ul {
+        margin-bottom: 0;
+    }
+
+    .footer-links{
+        margin-top: 15px;
+    }
+
+    .copright-text{
+        margin-top: 15px;
+    }
+
+    .logo {
+        width: 174px;
+    }
+    
+
+
+}
+
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+
+            .shippment-information .nav > li > a {
+                    padding: 10px 27px;
+                }
+                 .checkbox-inline + .checkbox-inline, .radio-inline + .radio-inline{
+                    margin-left: 0;
+                }
+
+            }

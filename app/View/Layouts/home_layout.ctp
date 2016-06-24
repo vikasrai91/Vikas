@@ -17,7 +17,7 @@
       <![endif]-->
 	<?php
 		echo $this->Html->meta('icon');
-		echo $this->Html->css(array('bootstrap.min', 'font-awesome', 'sticky-footer', 'style'));
+		echo $this->Html->css(array('bootstrap.min', 'style', 'font-awesome', 'sticky-footer'));
 	?>
 	<?php echo $this->Html->script(array('jQuery-2.1.4.min', 'bootstrap.min')); ?>
 </head>

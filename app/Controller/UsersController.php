@@ -2,7 +2,7 @@
 App::uses('AppController', 'Controller');
 
 class UsersController extends AppController {
-	public $uses = array('User', 'UserDetail', 'Country', 'Equip', 'Transport');
+	public $uses = array();
 	public $layout = "frontend";
 
 
@@ -13,7 +13,7 @@ public function beforefilter() {
 				$this->login();
 			}
 		}
-		$this->Auth->allow("login", "logout", "signup","carrier_registration", "unique_username", "unique_mail");
+		$this->Auth->allow("login", "logout", "signup","carrierRegistration", "uniqueUsername", "uniqueMail");
 	}
 
 /*
@@ -30,11 +30,11 @@ public function beforefilter() {
 			$this->redirect("/");
 		}
 		if ((isset($this->request->data) && !empty($this->request->data))) {
-			$this->__login();
+			$this->__Login();
 		} elseif ($this->Cookie->read('Auth.User')) {
 			$user = $this->Session->read("Auth.User.id");
 			if (empty($user)) {
-				$this->__login();
+				$this->__Login();
 			}
 		}
 	}
@@ -42,13 +42,14 @@ public function beforefilter() {
 
 
 /*
- * @function name	: __login
+ * @function name	: __Login
  * @purpose			: to check user authentication
  * @created by		: mahavir singh
  * @created on		: 15 june 2016
  * @description		: it is a private function
  */
-	private function __login() {
+	private function __Login() {
+
 		if (isset($this->request->data) && !empty($this->request->data)) {
 			if ($this->Auth->login()) {
 				$loginedUserInfo = $this->Auth->user();				
@@ -89,8 +90,6 @@ public function beforefilter() {
 					$this->Session->delete('Message.auth');
 				}
 				//die("here");
-			} else {
-				$this->Auth->logout();
 			}
 		}
 		/* end of code */
@@ -100,7 +99,7 @@ public function beforefilter() {
 			$this->Auth->logout();
 			$this->redirect(array("action" => "/login"));
 			
-		} else{
+		} elseif($this->loginedUserInfo['user_type'] == 2){
 			$this->Session->setFlash('You are log in successfully.',
 									'default',array('class' => 'success'));
 			$this->Auth->logout();
@@ -122,6 +121,10 @@ public function beforefilter() {
  * @description		: This function is responsible to create new user account.
  */
 	public function signup() {
+		$this->loadModel('UserDetail');
+		$this->loadModel('Country');
+		$this->loadModel('Equip');
+		$this->loadModel('Transport');
 		$this->set("title_for_layout", "User Signup");
 		$countries = $this->Country->find('list', array('fields' => array('Country.country_name')));
 		$equipments = $this->Equip->find('list', array('fields' => array('Equip.name')));
@@ -130,15 +133,15 @@ public function beforefilter() {
 
 		if ($this->request->is('post') && !empty($this->request->data)){
 
-			if($this->Session->read('Form.f4') != ''){
-				$user_name = $this->request->data['User']['username'];
-				$pass_word = $this->request->data['User']['password'];
+			if($this->Session->read('Form.f4') != '' && !empty($this->request->data['User']['username'])){
+				$userName = $this->request->data['User']['username'];
+				$passWord = $this->request->data['User']['password'];
 				$this->request->data = $this->Session->read('Form.f2');
 				$this->request->data['UserDetail']['f_name'] = $this->Session->read('Form.f1.UserDetail.f_name');
 				$this->request->data['UserDetail']['l_name'] = $this->Session->read('Form.f1.UserDetail.l_name');
 				$this->request->data['User']['email'] = $this->Session->read('Form.f1.User.email');
-				$this->request->data['User']['username'] = $user_name;
-				$this->request->data['User']['password'] = $pass_word;
+				$this->request->data['User']['username'] = $userName;
+				$this->request->data['User']['password'] = $passWord;
 				$this->request->data['User']['user_type'] = 2;
 				$this->request->data['UserDetail']['phone_number'] = $this->Session->read('Form.f1.UserDetail.phone_number');
 				$this->request->data['UserDetail']['equip_id'] = serialize($this->Session->read('Form.f3.UserDetail.equip_id'));
@@ -146,35 +149,29 @@ public function beforefilter() {
 				$this->Session->delete('Form');
 			}
 
-			$email_token = md5($this->request->data['User']['email']);
-			$this->request->data['User']['email_verify_token'] = $email_token;
-			$link = '<a href="'.BASE_URL.'users/verify_mail/'.$email_token.'">Verify My Email</a>';
+			$emailToken = md5($this->request->data['User']['email']);
+			$this->request->data['User']['email_verify_token'] = $emailToken;
+			$link = '<a href="'.BASE_URL.'users/verify_mail/'.$emailToken.'">Verify My Email</a>';
 			if($this->User->save($this->request->data)){
 					$data = $this->request->data;
 					$data['UserDetail']['user_id'] = $this->User->getLastInsertId();
 					$this->UserDetail->save($data);
-					$this->get_mail_template(1);
+					$this->getMaildata(1);
 					$this->mailBody = str_replace("{NAME}", $data['UserDetail']['f_name'], $this->mailBody);
 					$this->mailBody = str_replace("{VERIFY}", $link, $this->mailBody);
-					if($this->sendmail($data['User']['email'])){
+					if($this->sendMail($data['User']['email'])){
 					$this->Session->setFlash('Registration done successfully and please check your mail.',
 											  'default',
 											  array('class' => 'success')
 											);
 				}
-			}else
-			{
-					$this->Session->setFlash('Registration not done. Please try again',
-											  'default',
-											  array('class' => 'danger')
-											);
 			}
 		}
 	}
 /*End signup function */
 
 	/*
- * @function name	: unique_mail
+ * @function name	: uniqueMail
  * @purpose			: to check the unique mail
  * @return			: true/false
  * @using			: ajax
@@ -182,20 +179,20 @@ public function beforefilter() {
  * @created on		: 13 june 2016
  * @description		: This function is responsible for return true and false.
 */
-	public function unique_mail() {
+	public function uniqueMail() {
 		$this->autoRender = false;
-		$user_email = $this->request->data['User']['email'];
-		$user_data = $this->User->findAllByEmail($user_email);
-		if(count($user_data) >= 1){
+		$userEmail = $this->request->data['User']['email'];
+		$userData = $this->User->findAllByEmail($userEmail);
+		if(count($userData) >= 1){
 			echo 'false';
 		}else{
 			echo 'true';
 		}
 	}
-/*End unique_mail function */
+/*End uniqueMail function */
 
 	/*
- * @function name	: unique_username
+ * @function name	: uniqueUsername
  * @purpose			: to check the unique username
  * @return			: true/false
  * @using			: ajax
@@ -203,20 +200,20 @@ public function beforefilter() {
  * @created on		: 13 june 2016
  * @description		: This function is responsible for return true and false.
 */
-	public function unique_username() {
+	public function uniqueUsername() {
 		$this->autoRender = false;
-		$user_name = $this->request->data['User']['username'];
-		$user_data = $this->User->findAllByUsername($user_name);
-		if(count($user_data) >= 1){
+		$userName = $this->request->data['User']['username'];
+		$userData = $this->User->findAllByUsername($userName);
+		if(count($userData) >= 1){
 			echo 'false';
 		}else{
 			echo 'true';
 		}
 	}
-/*End unique_username function */
+/*End uniqueUsername function */
 
 	/*
- * @function name	: carrier_registration
+ * @function name	: carrierRegistration
  * @purpose			: to store the form value in session 
  * @return			: true/false
  * @using			: ajax
@@ -224,23 +221,52 @@ public function beforefilter() {
  * @created on		: 13 june 2016
  * @description		: This function is responsible for store all form data of carrier in session.
 */
-	public function carrier_registration() {
+	public function carrierRegistration() {
 		$this->autoRender = false;
 		if($this->request->data['form'] == 1){
-			$this->Session->delete('Form.f1');
+			if($this->Session->read('Form.f1') != '')
+				{ $this->Session->delete('Form.f1'); }
+
 			$this->Session->write('Form.f1', $this->request->data);
 		}elseif($this->request->data['form'] == 2){
-			$this->Session->delete('Form.f2');
+			if($this->Session->read('Form.f2') != '')
+				{ $this->Session->delete('Form.f2'); }
+			
 			$this->Session->write('Form.f2', $this->request->data);
 		}elseif($this->request->data['form'] == 3){
-			$this->Session->delete('Form.f3');
+			if($this->Session->read('Form.f3') != '')
+				{ $this->Session->delete('Form.f3'); }
+
 			$this->Session->write('Form.f3', $this->request->data);
 		}elseif($this->request->data['form'] == 4){
-			$this->Session->delete('Form.f4');
+			if($this->Session->read('Form.f4') != '')
+				{ $this->Session->delete('Form.f4'); }
+			
 			$this->Session->write('Form.f4', $this->request->data);
 		}
-		//print_r($this->Session->read('Form'));
 
 	}
-/*End carrier_registration function */
+/*End carrierRegistration function */
+
+	/*
+	 * @function name	: logout
+	 * @purpose			: to logout from user panel
+	 * @arguments		: NA
+	 * @return			: none
+	 * @created by		: mahavir singh
+	 * @created on		: 23 june 2016
+	 * @description		: NA
+	 */
+
+	function logout() {
+		$this->Auth->logout();
+		if ( $this->Cookie->read("Auth.User") ) {
+			$this->Cookie->destroy();
+		}
+		$this->Session->delete("Auth");
+		$this->response->disableCache();
+		$this->redirect("/");
+	}
+
+	/* end of function */
 }
