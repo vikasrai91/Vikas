@@ -42,7 +42,7 @@ $(function() {
             "data[User][email]": {
                 required: true,
                 email: true,
-                remote:{ url: "/shipthestuff/users/uniqueMail", type : "post" }
+                remote:{ url: "/users/uniqueMail", type : "post" }
             },
             "data[User][password]": {
                 required: true,
@@ -80,7 +80,7 @@ $(function() {
             "data[User][email]": {
                 required: true,
                 email: true,
-                remote:{ url: "/shipthestuff/users/uniqueMail", type : "post" }
+                remote:{ url: "/users/uniqueMail", type : "post" }
             },
             "data[UserDetail][phone_number]": {
                 required: true,
@@ -112,7 +112,7 @@ $(function() {
             var data = $('#carrier_form1').serialize();
             //alert(data);
             $.ajax({
-					url: "/shipthestuff/users/carrier_registration", 
+					url: "/users/carrier_registration", 
 					type: "POST",             
 					data: data+'&form=1',       
 				success: function(r_data)   
@@ -151,7 +151,7 @@ $(function() {
             //alert(data);
 
             $.ajax({
-					url: "/shipthestuff/users/carrier_registration", 
+					url: "/users/carrier_registration", 
 					type: "POST",             
 					data: data+'&form=2',       
 				success: function(r_data)   
@@ -181,7 +181,7 @@ $(function() {
             //form.submit();
             var data = $('#carrier_form3').serialize();
             $.ajax({
-					url: "/shipthestuff/users/carrier_registration", 
+					url: "/users/carrier_registration", 
 					type: "POST",             
 					data: data+'&form=3',       
 				success: function(r_data)   
@@ -211,7 +211,7 @@ $(function() {
             //form.submit();
             var data = $('#carrier_form4').serialize();
             $.ajax({
-					url: "/shipthestuff/users/carrier_registration", 
+					url: "/users/carrier_registration", 
 					type: "POST",             
 					data: data+'&form=4',       
 				success: function(r_data)   
@@ -234,7 +234,7 @@ $.validator.addMethod("loginRegex", function(value, element) {
             "data[User][username]": {
             	required:true,
             	loginRegex:true,
-            	remote:{ url: "/shipthestuff/users/uniqueUsername", type : "post" }
+            	remote:{ url: "/users/uniqueUsername", type : "post" }
             },
             "data[User][password]": {
             	required:true,

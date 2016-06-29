@@ -215,10 +215,9 @@
                                        <div class="col-sm-8 col-sm-offset-2">
                                          
                                             <?php 
-                                              echo $this->Form->button('Assisted
-                                                  Purchase', array('type' => 'button','class'=>'btn btn-default'));
-                                            ?>
-
+                                                echo $this->Form->checkbox('Shipment.item_infomation.0.assisted_purchase', array('hiddenField' => false));
+                                              ?>
+                                              Assisted Purchase
                                           <div class="help-block">
                                                 <small>
                                                    NOTICE: pay service provider and
@@ -261,7 +260,7 @@
                                      Yes
                                      </label>
                                      <label class="radio-inline">
-                                     <input type="radio" checked="0" value="option2" name="data[Shipment][item_crated]">
+                                     <input type="radio" checked="0" value="0" name="data[Shipment][item_crated]">
                                      <i class="fa-radio fa-checked  checked"></i>
                                      <i class="fa-radio fa-unchecked unchecked"></i>
                                      No <small>(item is boxed in wooden or plastic crat)</small>
@@ -280,7 +279,7 @@
                                      Yes
                                      </label>
                                      <label class="radio-inline">
-                                     <input type="radio" checked="0" value="option2" name="data[Shipment][item_stackable]">
+                                     <input type="radio" checked="0" value="0" name="data[Shipment][item_stackable]">
                                      <i class="fa-radio fa-checked  checked"></i>
                                      <i class="fa-radio fa-unchecked unchecked"></i>
                                      No <small>(item has flat surfaces and can sustain the weight of another object)</small>
@@ -292,7 +291,7 @@
                              <label class="col-sm-2 control-label">Upload Pictures</label>
                              <div class="col-sm-5">
                              <?php
-                             echo $this->Form->input('form', array('name' => 'form','type' => 'hidden','div'=>false, 'value' => '1'));
+                             //echo $this->Form->input('form', array('name' => 'form','type' => 'hidden','div'=>false, 'value' => '1'));
                              ?>
                              <?php 
                                 echo $this->Form->input('upload_picture', array('type' => 'file','class'=>'form-control'));
@@ -346,7 +345,7 @@
                   <h4>Choose Pickup & Delivery</h4>
                   <div><small>*required</small></div>
                </div>
-               <?php echo $this->Form->create('Shipment', array('novalidate' => true,'class' => 'form-horizontal learfixc' , 'id' => 'shipment_form2')); ?>
+               <?php echo $this->Form->create('PickupDelivery', array('novalidate' => true,'class' => 'form-horizontal learfixc' , 'id' => 'shipment_form2')); ?>
                   <section class="clearfix">
 
                      <div class="col-sm-4">
@@ -364,7 +363,7 @@
                             <i class="fa fa-dot-circle-o" aria-hidden="true"></i> Use current location</div>
                         </div>
                         <?php
-                             echo $this->Form->input('form', array('name' => 'form','type' => 'hidden','div'=>false, 'value' => '2'));
+                             //echo $this->Form->input('form', array('name' => 'form','type' => 'hidden','div'=>false, 'value' => '2'));
                              ?>
                         <div class="form-group">
                            <label>When will the shipment be at the port?</label>
@@ -756,12 +755,11 @@
                 </section>
                   <div class="form-group url-input ">
                                          <div class="col-sm-8 col-sm-offset-2">
-                                           
-                                              <?php 
-                                                echo $this->Form->button('Assisted
-                                                    Purchase', array('type' => 'button','class'=>'btn btn-default'));
-                                              ?>
 
+                                                <?php 
+                                                echo $this->Form->checkbox('Shipment.item_infomation.0.assisted_purchase', array('hiddenField' => false));
+                                                ?>
+                                                Assisted Purchase
                                             <div class="help-block">
                                                   <small>
                                                      NOTICE: pay service provider and
@@ -774,17 +772,17 @@
 
         </div>
 <?php echo $this->Html->script('frontend/shipment-request'); ?>
-<script type="text/javascript">
-// var check = "<?php if($this->Session->read('Shipform.f1') != '') { echo '1';} ?>";
-//   if(check){
-//     $('#pickup_button').click();
-//   }
-</script>
+<center>
+<?php 
+      echo $this->Html->image('loading.gif', array('style' => 'display:none;position: fixed;top: 100px;width: 100px;margin-left: 40%;', 'alt' => '', 'class' => 'img-responsive', 'id' => 'loader'));
+?>
+</center>
+
 <style type="text/css">
-/*  .not-active {
+  .not-active {
    pointer-events: none;
    cursor: default;
-}*/
+}
 .current_location{
   background:#ccc;
   padding: 2px

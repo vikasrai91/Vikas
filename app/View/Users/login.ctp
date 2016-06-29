@@ -41,7 +41,6 @@
                      <div class="works-in-ie-login">
                         <div class="checkbox">
                            <label>
-                           <input type="checkbox" value="">
                            <?php 
                echo $this->Form->checkbox('remember_me', array('hiddenField' => false));
                            ?>
@@ -80,4 +79,7 @@
                
             </div>
          </div>
-<?php echo $this->Html->script('frontend/login'); ?>
+<?php 
+echo $this->Html->script('frontend/login');
+echo $this->element("user/forget_password");
+?>

@@ -58,8 +58,13 @@
 						<h3>Thanks for your request!</h3>
 					</div>
 						<p>There are two easy ways to get quotes for your shipment.</p>
-						<?php 
-                              echo $this->Form->button('Save Shipment', array('type' => 'button','class'=>'btn btn-blue'));
+
+                        <?php
+                           echo $this->Html->link(
+                                 'Save Shipment',
+                                 '/ships/listingRequest/save',
+                                 array('class' => 'btn btn-blue', 'target' => '_self')
+                              );
                         ?>
 						<!-- <button class="btn btn-blue">Save Shipment</button> -->
 						<h3 class="text-center">Not ready to book?</h3>

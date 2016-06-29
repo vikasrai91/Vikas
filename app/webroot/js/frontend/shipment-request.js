@@ -32,6 +32,12 @@
                    //console.log(element_name);
                    //console.log(change_name);
               });
+              $('#item_info_'+index+' checkbox').each(function(){
+                   var element_name = $(this).attr( "name" );
+                   var change_name = element_name.replace("[item_infomation][0]", "[item_infomation]["+index+"]")
+                   $(this).attr("name",change_name);
+
+              });
                   index++;
                };
           })
@@ -59,28 +65,30 @@
           $('#online_no').click(function() {
                  $('.url-input').hide();
           });
-          $(document).on('keyup', '.imperial-attr', function() {
-              key = window.event.keyCode;
-              if(key < 57 && key > 48){
-                alert('true');
-              }
-              else if(key < 105 && key > 96){
-                alert('true');
+          $(document).on('keypress', '.imperial-attr', function(key) {
+              //key = window.event.keyCode;
+              //console.log(key.charCode);
+              if(key.charCode < 57 && key.charCode > 48){
+                return true;
               }
               else{
-                alert('false');
+                return false;
               }
           });
-          $(document).on('keyup', '.imperial-attr-next', function() {
-              key = window.event.keyCode;
-              if(key < 57 && key > 48){
-                alert('true');
-              }
-              else if(key < 105 && key > 96){
-                alert('true');
+          $(document).on('keypress', '.imperial-attr-next', function(key) {
+              if(key.charCode < 57 && key.charCode > 48){
+                return true;
               }
               else{
-                alert('false');
+                return false;
+              }
+          });
+          $(document).on('keypress', '.weight', function(key) {
+              if(key.charCode < 57 && key.charCode > 48){
+                return true;
+              }
+              else{
+                return false;
               }
           });
           $('#UserAccountType').change(function(){
@@ -95,7 +103,7 @@
 
 //google api
           function init() {
-                        var input = document.getElementById('ShipmentPickupLocation');
+                        var input = document.getElementById('PickupDeliveryPickupLocation');
                         var autocomplete = new google.maps.places.Autocomplete(input);
                       }
 
@@ -120,7 +128,7 @@
           // $('#ShipmentPickupLocation').blur(function(e){
           //   $('.current_location').hide();
           // });
-          $('#ShipmentPickupLocation').click(function(e){
+          $('#PickupDeliveryPickupLocation').click(function(e){
             $('.current_location').toggleClass('hide');
           });
           
@@ -140,19 +148,20 @@
                   type: "POST",
                   success:function(res){
                         ddata = JSON.parse(JSON.stringify(res));
-                        $('#ShipmentPickupLocation').val(ddata.results[0].formatted_address);
+                        $('#PickupDeliveryPickupLocation').val(ddata.results[0].formatted_address);
                         $('.current_location').toggleClass('hide');
                   }
             });
             }
 
-          $('#ShipmentDeliverOnType').change(function(){
+          $('#PickupDeliveryDeliverOnType').change(function(){
               var data_value = $(this).val();
               if(data_value == 'Between'){ $('.between_date').show(); }
               else{ $('.between_date').hide(); }
           });
 
       $(function () {
+
         $('#shipment_form1').on('submit', function (e) {
           var get_element = $('.item-information-box-hide input:text').prop('name');
           var ShipmentNoOfItems = $("#ShipmentNoOfItems").val();
@@ -180,30 +189,31 @@
                         var rep_id = rep_id.replace('0', '');
                         //alert(rep_id);
                       }
+                      $(".all-error").show();
                        }
-                    $(".all-error").show();
+                    
                     var measure_type = $(this).attr( "placeholder" );
 
                     if(measure_type == 'ft.'){
                       $(".all-error").append('<div class="errors">* Please enter a '+rep_id+' for Furniture '+ii+' (ft and/or in).<div>');
-                    }
+                    flag = 0;}
                     else if(measure_type == 'lbs'){
                       $(".all-error").append('<div class="errors">* Please enter a '+rep_id+' for Furniture '+ii+' (lb).<div>');
-                    }
+                    flag = 0;}
                     else if(measure_type == 'm.'){
                       $(".all-error").append('<div class="errors">* Please enter a '+rep_id+' for Furniture '+ii+' (m).<div>');
-                    }
+                    flag = 0;
+                  }
                     else if(measure_type == 'kg'){
                       $(".all-error").append('<div class="errors">* Please enter a '+rep_id+' for Furniture '+ii+' (kg).<div>');
-                    }
                     flag = 0;
+                  }else if(flag == 1){
+                    $(".all-error").hide();
+                  }
+                    
                     error_count++;
                  }
-                 else
-                 {
-                  $(".all-error").css("display", "none");
-                  //$(".all-error").hide();
-                 }
+                 
               });
           }
           if(flag == 0){
@@ -212,9 +222,17 @@
           }
           var data1 = $('#shipment_form1').serialize();
               $.ajax({
-            url: "/shipthestuff/ships/shipmentRequest", 
+            url: "/ships/shipmentRequest", 
             type: "POST",             
-            data: data1+'&form=1',       
+            data: data1+'&form=1',
+          beforeSend: function(){
+                $('body').append('<div class="modal-backdrop fade in" ></div>');
+                $('#loader').show();
+            },
+          complete: function(){
+                $('.modal-backdrop').remove();
+                $('#loader').hide();
+            },       
           success: function(r_data)   
             {
               console.log(r_data);
@@ -230,22 +248,33 @@
         $("#shipment_form2").validate({
 
         rules: {
-            "data[Shipment][pickup_location]": "required",
-            "data[Shipment][pickup_date]": "required",
-            "data[Shipment][deliver_date]": "required"
+            "data[PickupDelivery][pickup_location]": "required",
+            "data[PickupDelivery][pickup_date]": "required",
+            "data[PickupDelivery][deliver_date]": "required"
         },
         
         submitHandler: function(form) {
             //form.submit();
-            var data1 = $('#shipment_form1').serialize();
+            var data1 = $('#shipment_form2').serialize();
               $.ajax({
-            url: "/shipthestuff/ships/shipmentRequest", 
+            url: "/ships/shipmentRequest", 
             type: "POST",             
-            data: data1+'&form=1',       
+            data: data1+'&form=2', 
+            beforeSend: function(){
+                $('body').append('<div class="modal-backdrop fade in" ></div>');
+                $('#loader').show();
+            },
+          complete: function(){
+                $('.modal-backdrop').remove();
+                $('#loader').hide();
+            },       
           success: function(r_data)   
             {
-              console.log(r_data);
+              if(r_data){
+                window.location.href = "/ships/listingRequest";
+              }else{
               $('#listing_option').click();
+              }
               
             }
           });
@@ -262,7 +291,7 @@
             "data[User][email]": {
                 required: true,
                 email: true,
-                remote:{ url: "/shipthestuff/users/uniqueMail", type : "post" }
+                remote:{ url: "/users/uniqueMail", type : "post" }
             },
             "data[User][password]": {
                 required: true,
@@ -291,9 +320,17 @@
             //form.submit();
             var data = $('#UserSignupForm').serialize();
             $.ajax({
-              url: "/shipthestuff/users/signup", 
+              url: "/users/signup", 
               type: "POST",             
-              data: data,       
+              data: data,
+              beforeSend: function(){
+                $('body').append('<div class="modal-backdrop fade in" ></div>');
+                $('#loader').show();
+            },
+          complete: function(){
+                $('.modal-backdrop').remove();
+                $('#loader').hide();
+            },        
             success: function(r_data)   
             { 
               console.log(r_data);

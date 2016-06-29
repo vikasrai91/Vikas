@@ -13,7 +13,7 @@ public function beforefilter() {
 				$this->login();
 			}
 		}
-		$this->Auth->allow("login", "logout", "signup","carrierRegistration", "uniqueUsername", "uniqueMail");
+		$this->Auth->allow("login", "logout", "signup","carrierRegistration", "uniqueUsername", "uniqueMail", "verifyMail", "forgetPassword");
 	}
 
 /*
@@ -52,7 +52,10 @@ public function beforefilter() {
 
 		if (isset($this->request->data) && !empty($this->request->data)) {
 			if ($this->Auth->login()) {
-				$loginedUserInfo = $this->Auth->user();				
+				$loginedUserInfo = $this->Auth->user();		
+				$this->Session->setFlash('Logged in successfully.',
+										'default', array('class' => 'success')
+											);		
 			} else {
 				$this->Session->setFlash('Invalid Email or Password.',
 										'default', array('class' => 'danger')
@@ -66,8 +69,8 @@ public function beforefilter() {
 		//condition to check if remember me checkbox is checked or not, if checked a cookie Auth.Member will be written
 		if (isset($this->request->data['User']['remember_me']) && !empty($this->request->data['User']['remember_me']) && !empty($loginedUserInfo)) {
 			$cookie = array();
-			$cookie['remeber_token'] = md5($this->request->data['User']['username']) . "^" . base64_encode($this->request->data['User']['password']);
-			$data['User']['remeber_token'] = md5($this->request->data['User']['username']);
+			$cookie['remeber_token'] = md5($this->request->data['User']['email']) . "^" . base64_encode($this->request->data['User']['password']);
+			$data['User']['remeber_token'] = md5($this->request->data['User']['email']);
 			$this->User->create();
 			$this->User->id = $loginedUserInfo['id'];
 			$this->User->save($data);
@@ -79,7 +82,7 @@ public function beforefilter() {
 			if (!is_null($cookie)) {
 				$cookie = explode("^", $cookie['remeber_token']);
 				$this->User->recursive = 0;
-				$user = $this->User->find("first", array("conditions" => array("User.remeber_token" => $cookie[0]), "fields" => array("User.username", "User.password")));
+				$user = $this->User->find("first", array("conditions" => array("User.remeber_token" => $cookie[0]), "fields" => array("User.email", "User.password")));
 				$user['User']['password'] = base64_decode($cookie[1]);
 				unset($user['User']['id']);
 				$this->request->data = $user;
@@ -151,11 +154,12 @@ public function beforefilter() {
 
 			$emailToken = md5($this->request->data['User']['email']);
 			$this->request->data['User']['email_verify_token'] = $emailToken;
-			$link = '<a href="'.BASE_URL.'users/verify_mail/'.$emailToken.'">Verify My Email</a>';
+			
 			if($this->User->save($this->request->data)){
 					$data = $this->request->data;
 					$data['UserDetail']['user_id'] = $this->User->getLastInsertId();
 					$this->UserDetail->save($data);
+					$link = '<a href="'.BASE_URL.'users/verifyMail/'.$data['UserDetail']['user_id'].'/'.$emailToken.'">Verify My Email</a>';
 					$this->getMaildata(1);
 					$this->mailBody = str_replace("{NAME}", $data['UserDetail']['f_name'], $this->mailBody);
 					$this->mailBody = str_replace("{VERIFY}", $link, $this->mailBody);
@@ -248,6 +252,84 @@ public function beforefilter() {
 	}
 /*End carrierRegistration function */
 
+/*
+ * @function name	: verifyMail
+ * @purpose			: for verify mail
+ * @arguments		: token
+ * @return			: none
+ * @created by		: mahavir singh
+ * @created on		: 27 june 2016
+ * @description		: NA
+ */
+	function verifyMail($id = null, $token = null) {
+		$checkUser = $this->User->findAllById($id);
+		if($token == $checkUser[0]['User']['email_verify_token']){
+			$this->User->updateAll(array('User.email_verify_token' => 'null', 'User.status' => '1'), array('User.id' => $id));
+			$this->Session->setFlash('Your mail has verified successfully.',
+											  'default',
+											  array('class' => 'success')
+											);
+		}elseif($checkUser[0]['User']['status'] == '1'){
+			$this->Session->setFlash('Your mail has already verified successfully.',
+											  'default',
+											  array('class' => 'info')
+											);
+		}
+		else{
+			$this->Session->setFlash('Did you really think you are allowed to see that?',
+											  'default',
+											  array('class' => 'warning')
+											);
+		}
+		$this->redirect("/users/login");
+	}
+
+/* end of function */
+
+	/*
+	 * @function name	: forgetPassword
+	 * @purpose			: to send the mail with password
+	 * @arguments		: NA
+	 * @return			: none
+	 * @created by		: mahavir singh
+	 * @created on		: 28 june 2016
+	 * @description		: NA
+	 */
+
+	function forgetPassword() {
+		$this->autoRender = false;
+		if ($this->request->is('post') && !empty($this->request->data)){
+			$userData = $this->User->findAllByEmail($this->request->data['User']['email']);
+			if(!empty($userData)){
+
+				$newPass = rand(100000, 999999);
+				$newPassword = AuthComponent::password($newPass);
+
+				$update = $this->User->updateAll(array('User.password' => "'$newPassword'"), array('User.id' => $userData[0]['User']['id']));
+				if($update){
+					$this->getMaildata(2);
+					$this->mailBody = str_replace("{NAME}", '', $this->mailBody);
+					$this->mailBody = str_replace("{PASSWORD}", $newPass, $this->mailBody);
+					if($this->sendMail($userData[0]['User']['email'])){
+					$this->Session->setFlash('Your new password has been send to your mail.',
+											  'default',
+											  array('class' => 'success')
+											);
+					$this->redirect("/users/login");
+					}
+				}
+			}	else{
+				$this->Session->setFlash('Your email is not register.',
+											  'default',
+											  array('class' => 'warning')
+											);
+					$this->redirect("/users/login");
+			}
+		}
+	}
+
+	/* end of function */
+
 	/*
 	 * @function name	: logout
 	 * @purpose			: to logout from user panel
@@ -263,7 +345,8 @@ public function beforefilter() {
 		if ( $this->Cookie->read("Auth.User") ) {
 			$this->Cookie->destroy();
 		}
-		$this->Session->delete("Auth");
+		//$this->Session->delete("Auth");
+		$this->Session->destroy();
 		$this->response->disableCache();
 		$this->redirect("/");
 	}

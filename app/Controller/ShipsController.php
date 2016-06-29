@@ -7,7 +7,7 @@ class ShipsController extends AppController {
 
 	public function beforefilter() {
 	parent::beforefilter();
-		$this->Auth->allow("shipmentRequest", "uploadMulti");
+		$this->Auth->allow("shipmentRequest");
 	}
 
 /*
@@ -28,22 +28,40 @@ class ShipsController extends AppController {
 				if($this->Session->read('Shipform.f2') != '')
 				{ $this->Session->delete('Shipform.f2'); }
 				$this->Session->write('Shipform.f2', $this->request->data);
+						if($this->Session->read('Auth.User') != '' && $this->Session->read('Shipform.f1') != '' && $this->Session->read('Shipform.f2') != ''){
+							echo 'true';
+							}
 			}
-		}
-		if($this->Session->read('Auth.User.id') != ''){
-			$this->redirect('/ships/listingRequest');
 		}
 		
 	}
 /*
  * @function name	: listingRequest
- * @purpose			: to list the request
+ * @purpose			: to save the request data from session
  * @created by		: mahavir singh
  * @created on		: 24 june 2016
  * @description		: NA
  */
-	public function listingRequest() {
-
+	public function listingRequest($requestSave = null) {
+		$this->loadModel('Shipment');
+		$this->loadModel('PickupDelivery');
+		if($requestSave == 'save'){
+			$shipmentData = $this->Session->read('Shipform.f1');
+			$pickupData = $this->Session->read('Shipform.f2');
+			$shipmentData['Shipment']['item_infomation'] = serialize($shipmentData['Shipment']['item_infomation']);
+			$shipmentData['Shipment']['user_id'] = $this->Session->read('Auth.User.id');
+			if($this->Shipment->save($shipmentData)){
+				$pickupData['PickupDelivery']['shipment_id'] = $this->Shipment->getLastInsertId();
+				if($this->PickupDelivery->save($pickupData)){
+					$this->Session->delete("Shipform");
+					$this->Session->setFlash('Thanks for your request!',
+											  'default',
+											  array('class' => 'success')
+											);
+					$this->redirect("/");
+				}
+			}
+		}
 	}
 
 

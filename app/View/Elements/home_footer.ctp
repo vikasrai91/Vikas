@@ -55,7 +55,7 @@
             <div class="col-sm-6 col-md-6 col-lg-3 get-touch">
                <h4>GET IN TOUCH</h4>
                <ul class="list-unstyled list-inline">
-                  <li><i class="glyphicon glyphicon-map-marker"></i> Lorance Road 542B, Tailstoi Town 5248 MT,Worldwide Country</li>
+                  <li><i style="float: left;" class="glyphicon glyphicon-map-marker"></i> <span style="float: right;margin-left: 21px;margin-top: -18px;">Lorance Road 542B, Tailstoi Town 5248 MT,Worldwide Country</span></li>
                   <li><i class="glyphicon glyphicon-earphone"></i> 01865 524 8503</li>
                   <li><i class="glyphicon glyphicon-envelope"></i> Contact@yopmail.com</li>
                   <li><i class="glyphicon glyphicon-globe"></i> http://shipthestuff.com</li>
