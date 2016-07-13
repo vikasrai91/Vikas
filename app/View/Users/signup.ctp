@@ -17,18 +17,21 @@
                   <div class="tab-content">
                      <div id="shipping-customer" class=" shipping-customer tab-pane fade in active">
                   <!-- <form> -->
-            <?php echo $this->Form->create('User', array('novalidate' => true)); ?>
+            
+
+                        <div class="form-group clearfix">
+                           <div class="col-sm-12 padding-l-r">
+                              <?php
+                                 echo $this->Form->button('<i class="fa fa-facebook" aria-hidden="true"> </i> Sign in with Facebook', array('type' => 'button', 'onclick' => 'checkLoginState(1);', 'class' => 'btn btn-fb btn-block'));
+                                 ?>
+                           </div>
+                        </div>
+                  <?php echo $this->Form->create('User', array('novalidate' => true)); ?>
                                  <?php echo $this->Form->input('user_type', array(
                                              'type' => 'hidden',
                                              'div' => false,
                                              'value' => 1
                                  )); ?>
-
-                        <div class="form-group clearfix">
-                           <div class="col-sm-12 padding-l-r">
-                              <button class="btn btn-fb btn-block"><i class="fa fa-facebook" aria-hidden="true"> </i> Sign in with Facebook</button>
-                           </div>
-                        </div>
                         <div class="form-group clearfix">
                            <div class="col-sm-12 padding-l-r ">
                               <div class="border-top">
@@ -140,18 +143,29 @@
 
                       <!-- Shipping Carrier Signup Start here -->
                      <div id="carrier" class=" carrier tab-pane fade">
-               <?php echo $this->Form->create('User', array('novalidate' => true, 'id' => 'carrier_form1')); ?>
+               
+                        <div class="form-group clearfix">
+                           <div class="col-sm-12 padding-l-r">
+                              <?php
+                                 echo $this->Form->button('<i class="fa fa-facebook" aria-hidden="true"> </i> Sign in with Facebook', array('type' => 'button', 'onclick' => 'checkLoginState(3);', 'class' => 'btn btn-fb btn-block', 'id' => 'facebookbutton1'));
+                              ?>
+                           </div>
+                        </div>
+                        <?php echo $this->Form->create('User', array('novalidate' => true, 'id' => 'carrier_form1')); ?>
                                  <?php echo $this->Form->input('user_type', array(
                                              'type' => 'hidden',
                                              'div' => false,
                                              'value' => 2
                                  )); ?>
-                        <div class="form-group clearfix">
-                           <div class="col-sm-12 padding-l-r">
-                              <button class="btn btn-fb btn-block"><i class="fa fa-facebook" aria-hidden="true"> </i> Sign in with Facebook</button>
-                           </div>
-                        </div>
-                        <div class="form-group clearfix">
+                                 <?php echo $this->Form->input('facebook_id', array(
+                                             'type' => 'hidden',
+                                             'div' => false
+                                 )); ?>
+                                 <?php echo $this->Form->input('UserDetail.profile_picture', array(
+                                             'type' => 'hidden',
+                                             'div' => false
+                                 )); ?>
+                        <div class="form-group clearfix ddivider">
                            <div class="col-sm-12 padding-l-r ">
                               <div class="border-top">
                                  <div class="or-text">Or</div>
@@ -165,7 +179,9 @@
                                     'placeholder' => 'First Name', 
                                     'div' => false, 
                                     'label' => false, 
-                                    'class' => 'form-control'));
+                                    'class' => 'form-control',
+                                    'id' => 'UserDetailFName1'
+                                    ));
                               ?>
                            </div>
                            <div class="col-sm-6 padding-right">
@@ -174,7 +190,8 @@
                                     'placeholder' => 'Last Name', 
                                     'div' => false, 
                                     'label' => false, 
-                                    'class' => 'form-control'));
+                                    'class' => 'form-control',
+                                    'id' => 'UserDetailLName1'));
                               ?>
                            </div>
                         </div>
@@ -186,7 +203,8 @@
                                     'placeholder' => 'Email Address', 
                                     'div' => false, 
                                     'label' => false, 
-                                    'class' => 'form-control'));
+                                    'class' => 'form-control',
+                                    'id' => 'UserEmail1'));
                               ?>
                            </div>
                         </div>
@@ -405,18 +423,7 @@
                   </h3>
                   <div class="login-wraper clearfix">
                      <div class="col-sm-12 signup-padding">
-                        <div class="form-group clearfix">
-                           <div class="col-sm-12 padding-l-r">
-                              
-                              <?php 
-                                 echo $this->Form->input('username', array(
-                                    'placeholder' => 'Create a Username', 
-                                    'div' => false, 
-                                    'label' => false, 
-                                    'class' => 'form-control'));
-                              ?>
-                           </div>
-                        </div>
+                       
                         <div class="form-group clearfix">
                            <div class="col-sm-12 padding-l-r">
                               <?php 

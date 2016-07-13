@@ -8,11 +8,6 @@ body {
 .text-red a {
     color:#d83005 !important;
 }
-.error{
-    font-size: 12px;
-    color: #A91419;
-}
-
 
 .padding-left {
     padding-left: 0
@@ -237,9 +232,9 @@ a:focus {
     color: #cd5c5c;
 }
 
-.btn-default {
+/*.btn-default {
     border-radius: 0;
-}
+}*/
 
 .margin-right-btn {
     margin-right: 13px;
@@ -270,6 +265,10 @@ a:focus {
 
 .add-profile {
     margin-top: 50px;
+}
+
+.complete-profile {
+    margin-top: 30px;
 }
 
 .company-logo-heading {
@@ -830,3 +829,130 @@ a:focus {
                 }
 
             }
+
+
+
+/** My Account **/
+.my-account-settings {
+    margin-top: 20px;
+}
+
+.my-account-settings .panel-info > .panel-heading {
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.my-account-settings .panel-body ul li {
+    line-height: 28px;
+}
+
+.complete-profile .panel-info > .panel-heading {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.complete-profile h5 {
+   font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 20px; 
+}
+
+/** inbox**/
+.compose-messgae {
+    margin-top: 18px;
+    margin-bottom: 20px;
+}
+
+.search {
+    margin-top: 17px;
+    margin-bottom: 10px;
+}
+
+.mailbox-messages  tbody > tr > td, 
+.mailbox-messages  tbody > tr > th,
+.mailbox-messages  tfoot > tr > td, 
+.mailbox-messages  tfoot > tr > th, 
+.mailbox-messages  thead > tr > td, 
+.mailbox-messages  thead > tr > th {
+    padding: 13px;
+}
+
+.new-message {
+    margin-top: 30px;
+}
+
+.new-message textarea {
+    max-width: 529px;
+}
+
+.unread-message {
+    background: #f5f5f5 none repeat scroll 0 0;
+}
+.mailbox-read-message {
+    margin-top: 25px;
+}
+
+.box-footer{
+    border-top: 1px solid #ddd;
+    padding-top: 20px;
+}
+
+
+/** delivery **/
+
+.filter-header  {
+    margin-top: 20px;
+    padding-bottom: 20px;
+    margin-bottom: 50px;
+    background-color: #d9edf7;
+    border-color: #bce8f1; 
+    padding: 10px;
+    border-radius: 6px;
+}
+
+.orign-map {
+        color: #298F01;
+}
+
+.destination-map {
+        color: #902929;
+}
+.advanced-filter {
+    margin-bottom: 30px;
+}
+
+.no-result-text {
+    font-size: 16px;
+    padding-top: 27px !important;
+}
+
+.result-info h4 {
+    font-size: 25px;
+    margin:0;
+}
+
+.filter-header .form-control {
+    height: 42px;
+}
+
+.filter-header  .btn {
+    font-size: 16px;
+    padding: 8px 20px;
+}
+
+.form-control + .input-group-btn {
+    display: inline-block;
+    position: absolute;
+    right: 41px;
+    top: 64px;
+}
+
+.clear-filters {
+    font-size: 19px;
+    margin-top: 25px;
+}
+
+.btn.btn-white.advanced-search {
+    background: #fff none repeat scroll 0 0;
+    border: 1px solid #333;
+}

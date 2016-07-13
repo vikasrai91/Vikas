@@ -3,7 +3,10 @@
             <div class="login-wraper">
                <div class="form-group clearfix">
                   <div class="col-sm-12">
-                     <button class="btn btn-fb btn-block"><i class="fa fa-facebook" aria-hidden="true"> </i> Sign in with Facebook</button>
+                     <?php
+                     echo $this->Form->button('<i class="fa fa-facebook" aria-hidden="true"> </i> Sign in with Facebook', array('type' => 'button', 'onclick' => 'checkLoginState(1);', 'class' => 'btn btn-fb btn-block'));
+                     ?>
+
                   </div>
                </div>
                <div class="form-group clearfix">
@@ -17,8 +20,8 @@
                <div class="form-group clearfix">
                   <div class="col-sm-12">
                      <?php 
-                                 echo $this->Form->input('username', array(
-                                    'placeholder' => 'Email Address or Username', 
+                                 echo $this->Form->input('email', array(
+                                    'placeholder' => 'Email Address', 
                                     'div' => false, 
                                     'label' => false, 
                                     'class' => 'form-control'));
@@ -29,7 +32,7 @@
                   <div class="col-sm-12">
                      <?php 
                                  echo $this->Form->input('password', array(
-                                    'placeholder' => 'Shipthestuff Password', 
+                                    'placeholder' => 'Password', 
                                     'div' => false, 
                                     'label' => false, 
                                     'class' => 'form-control'));

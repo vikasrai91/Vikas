@@ -14,7 +14,7 @@ class AppController extends Controller {
 				'Form' => array(
 					'userModel' => 'User',
 					'fields' => array(
-						'username' => 'username',
+						'username' => 'email',
 						'password' => 'password'
 					)
 				)
@@ -34,17 +34,9 @@ class AppController extends Controller {
  * @created on		: 15 june 2016
 */
 	function beforefilter(){
-		if ($this->request->is('post') && $this->action == 'login') {
-        $username = $this->request->data['User']['username'];
-        if (filter_var($username, FILTER_VALIDATE_EMAIL)) {
-            $this->Auth->authenticate['Form']['fields']['username'] = 'email';
-            $this->request->data['User']['email'] = $username;
-            unset($this->request->data['User']['username']);
-        }
-    }
-		// if ($this->Cookie->read('Auth.User') && !$this->Session->read("Auth.User.id")) {
-		// 		$this->redirect("/users/login");
-		// 	}
+		if ($this->Cookie->read('Auth.User') && !$this->Session->read("Auth.User.id")) {
+				$this->redirect("/users/login");
+			}
 	}
 
 /*
@@ -93,6 +85,20 @@ class AppController extends Controller {
 		return false;
 	}
 //End sendMail
+
+/*
+ * @function name	: getFormateUserData
+ * @purpose			: getting user data like auth components 
+ * @arguments		: Following are the arguments to be passed:
+ * @created by		: Mahavir singh
+ * @created on		: 14 june 2016
+*/
+	public function getFormateUserData($userData = null){
+		$newData['User'] = $userData['User'];
+		$newData['User']['UserDetail'] = $userData['UserDetail'];
+		$this->Session->write('Auth', $newData);
+	}
+//End getFormateUserData
 
 }
 
