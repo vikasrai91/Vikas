@@ -11,24 +11,57 @@
           </div>
         </div>
          <div class="col-md-12">
-              <div class="box box-primary">          
-                <form class="new-message">
+              <div class="box box-primary">  
+               <?php echo $this->Form->create('User', array('novalidate' => true, 'class' => 'new-message', 'type' => 'file','action' => 'myCompose')); ?>
+
+                
               <div class="form-group clearfix ">
                  <label class="col-sm-1">To </label>
                  <div class="col-sm-6">
-                 <input type="text" class="form-control">
+                  <?php 
+                        echo $this->Form->input('messages.message_to', array(
+                            'placeholder' => 'To', 
+                            'div' => false, 
+                            'label' => false, 
+                            'class' => 'form-control'));
+                              ?>
+
+                              <?php 
+                        echo $this->Form->input('messages.message_from', array(
+                            'type'=>'hidden',
+                            'div' => false, 
+                            'label' => false,
+                            'value' =>  $this->Session->read('Auth.User.id'),
+                            'class' => 'form-control'));
+                              ?>
+                
                   </div>
               </div>
                    <div class="form-group clearfix ">
                  <label class="col-sm-1">Subject </label>
                  <div class="col-sm-6">
-                 <input type="text" class="form-control">
+                 <?php 
+                                 echo $this->Form->input('messages.subject', array(
+                                    'placeholder' => 'Subject', 
+                                    'div' => false, 
+                                    'label' => false, 
+                                    'class' => 'form-control'));
+                              ?>
                   </div>
               </div>
               <div class="form-group clearfix ">
                  <label class="col-sm-1">Message </label>
                  <div class="col-sm-6">
-                  <textarea class="form-control" rows="6"></textarea>
+                  <?php 
+                                 echo $this->Form->input('messages.message', array(
+                                    'placeholder' => 'Message', 
+                                    'type' => 'textarea',
+                                    'row'=>'6',
+                                    'div' => false, 
+                                    'label' => false, 
+                                    'class' => 'form-control'));
+                              ?>
+                  <!--<textarea class="form-control" rows="6"></textarea>-->
                   </div>
               </div>       
                 <div class="form-group clearfix">
@@ -37,7 +70,7 @@
                 </div>
                   
                 </div><!-- /.box-footer -->
-                 </form>
+               <?php echo $this->Form->end(); ?>
                     </div><!-- /.box-body -->           
             </div>
       </div>

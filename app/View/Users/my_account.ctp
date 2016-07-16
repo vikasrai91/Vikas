@@ -17,7 +17,7 @@
                //echo  $row_user['UserDetail']['id']
                ?> 
 
-                  <?php echo $this->Form->input('userId', array(
+                  <?php echo $this->Form->input('UserDetail.user_id', array(
                                              'type' => 'hidden',
                                              'div' => false,
                                              'value' => $row_user['UserDetail']['id']
@@ -27,7 +27,7 @@
                         <label class="col-sm-3 control-label">Name</label>
                         <div class="col-sm-4">
                             <?php 
-                                    echo $this->Form->input('f_name', array(
+                                    echo $this->Form->input('UserDetail.f_name', array(
                                                     'div' => false, 
                                                     'label' => false,
                                                     'value'=> $row_user['UserDetail']['f_name'], 
@@ -38,7 +38,7 @@
                         </div>
                         <div class="col-sm-4">
                             <?php 
-                                    echo $this->Form->input('l_name', array(
+                                    echo $this->Form->input('UserDetail.l_name', array(
                                                     'div' => false, 
                                                     'label' => false,
                                                     'value'=> $row_user['UserDetail']['l_name'],
@@ -52,7 +52,7 @@
                         <label class="col-sm-3 control-label">Mobile Number </label>
                         <div class="col-sm-8">
                             <?php 
-                                    echo $this->Form->input('phone_number', array(
+                                    echo $this->Form->input('UserDetail.phone_number', array(
                                                     'div' => false, 
                                                     'label' => false,
                                                     'value'=> $row_user['UserDetail']['phone_number'],
@@ -65,7 +65,7 @@
                     <div class="form-group">
                         <label  class="col-sm-3 control-label">Profile Picture</label>
                         <div class="col-sm-1">
-                        <?php echo $this->Form->input('profile_picture', array(
+                        <?php echo $this->Form->input('UserDetail.profile_picture', array(
                                              'type' => 'hidden',
                                              'div' => false,
                                              'value' => $row_user['UserDetail']['profile_picture']
@@ -90,7 +90,7 @@
                                 Male
                                 </label>
                                 <label class="radio-inline">
-                                <input type="radio" name="gender"  <?php if($row_user['UserDetail']['gender']==2){ ?>checked="checked" value="2" <?php } ?>>
+                                <input type="radio" name="gender"  <?php if($row_user['UserDetail']['gender']==2){ ?> checked="checked" value="2" <?php } ?>>
                                 <i class="fa-radio fa-checked  checked"></i>
                                 <i class="fa-radio fa-unchecked unchecked"></i>
                                 Female
@@ -133,6 +133,76 @@
                 <?php echo $this->Form->end(); ?>
             </div>
                     <?php //echo $this->Html->script('frontend/editMyAccount'); ?>
+        </div>
+
+         <div class="modal fade" id="change-password" tabindex="-1" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">Change Password </h4>
+                    </div>
+                    <div class="modal-body">
+                  <?php echo $this->Form->create('User', array('novalidate' => true, 'class' => 'form-horizontal complete-profile','action' => 'changeMyPassword')); ?>
+
+                            <div class="form-group clearfix">
+                                
+                                <div class="col-sm-12">
+                  <?php 
+                    echo $this->Form->input('current_password', array(
+                                    'div' => false, 
+                                    'place-holder'=>'Current Password',
+                                    'label' => 'Current Password', 
+                                    'class' => 'form-control',
+                                    'type' => 'password'
+                                    ));
+                  ?>
+
+                                
+                                </div>
+                            </div>
+                            <div class="form-group clearfix">
+                               
+                                <div class="col-sm-12">
+                 <?php 
+                    echo $this->Form->input('password', array(
+                                    'div' => false, 
+                                    'place-holder'=>'New Password',
+                                    'label' => 'New Password', 
+                                    'class' => 'form-control',
+                                    'type' => 'password'
+                                    ));
+                  ?>
+                                   
+                                </div>
+                            </div>
+                            <div class="form-group clearfix">
+                                
+                                <div class="col-sm-12">
+                 <?php 
+                    echo $this->Form->input('confirm_password', array(
+                                    'div' => false, 
+                                    'place-holder'=>'Re-Enter New Password',
+                                    'label' => 'Re-Enter New Password', 
+                                    'class' => 'form-control',
+                                    'type' => 'password'
+                                    ));
+                  ?>
+                                   
+                                </div>
+                            </div>
+                    </div>
+                    <div class="modal-footer">
+                    <?php
+                      echo $this->Form->button('Update Password', array('type' => 'submit','class'=>'btn btn-primary'));
+                     ?>
+                    <?php 
+                      echo $this->Form->button('Cancel', array('onclick' => 'window.history.back();', 'class'=>'btn btn-default'));
+                  ?>
+                    </div>
+                      <?php echo $this->Form->end(); ?>
+                </div>
+            </div>
         </div>
 
 <style type="text/css">

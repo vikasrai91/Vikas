@@ -425,6 +425,7 @@ public function beforefilter() {
 		$this->loadModel('Country');
 		$this->loadModel('Currency');
 		$this->loadModel('Timezone');
+		$this->loadModel('User');
 		$countries = $this->Country->find('list', array('fields' => array('Country.country_name')));
 		
 		$this->set('countries', $countries);
@@ -459,10 +460,12 @@ public function beforefilter() {
 
 			$this->render('update_phone');
 		}
+
 		elseif($settingType == 4){
+
 			if($this->request->is('post') && !empty($this->request->data)){
 			  $this->User->create();
-			  $this->User->id = $this->Session->read('Auth.User.User.id');
+			   $this->User->id = $this->Session->read('Auth.User.UserDetail.user_id');
 			  if($this->User->save($this->request->data)){
 			  	$this->redirect('/users/settings');
 			  }		
@@ -485,6 +488,7 @@ public function beforefilter() {
 		elseif($settingType == 6){
 
 			if($this->request->is('post') && !empty($this->request->data)){
+
 			  $this->UserDetail->create();
 			  $this->UserDetail->id = $this->Session->read('Auth.User.UserDetail.id');
 			  if($this->UserDetail->save($this->request->data)){
@@ -521,31 +525,63 @@ public function beforefilter() {
 	}
 
 
+	/*End editMyAccount function */
+
+	/*
+	 * @function name	: editMyAccount
+	 * @purpose			: to update the records 
+	 * @arguments		: NA
+	 * @return			: none
+	 * @created by		: nitish kumar
+	 * @created on		: 13 july 2016
+	 */
+
+ public function editMyAccount() {
+           $this->loadModel('UserDetail');
+
+  $user_id = $this->request->data['UserDetail']['user_id'];
+  $f_name = $this->request->data['UserDetail']['f_name'];
+  $l_name = $this->request->data['UserDetail']['l_name'];
+  $phone_number = $this->request->data['UserDetail']['phone_number'];
+  /*$profile_picture = $this->request->data['UserDetail']['profile_picture'];*/
+  $gender = $this->request->data['UserDetail']['gender'];
+  $notification_by_email = $this->request->data['UserDetail']['notification_by_email'];
+  $notification_by_sms = $this->request->data['UserDetail']['notification_by_sms'];
+  
 
 
- public  function editMyAccount($id = null) {
-        
-        $this->User->id = $id;
-        if (empty($this->request->data))
-        {
-            $this->data = $this->User->read();
-          print_r($this->request->data);
- 	                 exit;
-        }
-        else 
-        {
-            if ($this->User->save($this->request->data)) 
-            {
-                $this->Session->setFlash('Your user with id: '.$id.' has been updated.');
-                $this->redirect(array('action' => 'myAccount'));
+    if($this->request->is('post') && !empty($this->request->data)){
+ $this->UserDetail->create();
+$data = array('UserDetail' => array('f_name' => $f_name, 'l_name' => $l_name, 'phone_number' => $phone_number, 'gender' =>$gender, 'notification_by_email'=>$notification_by_email, 'notification_by_sms' =>$notification_by_sms));
 
-                	print_r($this->request->data);
- 	                 exit;
-            }
-        }
-    }
-    
+$this->UserDetail->id=$user_id;   
+if($this->UserDetail->save($data)){
+    $this->Session->setFlash('Your user with id: '.$user_id.' has been updated.');
+    $this->redirect('/users/MyAccount');
 
+}
+						  
+}
+		 
+}
+
+public function changeMyPassword() {
+	//echo"changeMyPassword";die;
+
+		$myacountdetails = $this->User->find('all',array('conditions'=>array('UserDetail.id'=>$this->Session->read('Auth.User.UserDetail.id'))));
+		if($this->request->is('post') && !empty($this->request->data)){
+			  $this->User->create();
+			   $this->User->id = $this->Session->read('Auth.User.UserDetail.user_id');
+			  if($this->User->save($this->request->data)){
+			  	$this->Session->setFlash('Hello '.$myacountdetails[0]['UserDetail']['f_name'].'  '.$myacountdetails[0]['UserDetail']['l_name'].'Your Password has been updated successfully.');
+			  	$this->redirect('/users/MyAccount');
+			  }		
+			}
+
+
+		// $this->render('my_account');
+
+	}
 
 	/*End inbox function */
 
@@ -577,12 +613,20 @@ public function beforefilter() {
 	 */
 
 	public function myCompose() {
+		  $this->loadModel('UserDetail');
+          $this->loadModel('Message');
 
-		
-
+         if (!empty($this->data)) {
+         	print_r($this->data);
+         	if ($this->Message->save($this->data)) {
+                $this->Session->setFlash('Your user data has been saved.');
+                $this->redirect(array('action' => 'myInbox'));
+            }
+        }
 	}
 
 
+	
 	/*End deliveries function */
 
 	/*
@@ -595,7 +639,23 @@ public function beforefilter() {
 	 */
 
 	public function myDeliveries() {
+          /*  $this->loadModel('Shipment');
+            $this->loadModel('PickupDelivery');
 
+		$myshiment = $this->Shipment->find('all',array('conditions'=>array('Shipment.user_id'=>$this->Session->read('Auth.User.UserDetail.user_id'))));
+		foreach ($myshiment as  $value) {
+
+		$shiemen_id = $value['Shipment']['id'];
+
+		$myDelivery  = $this->PickupDelivery->find('all',array('conditions'=>array('PickupDelivery.shipment_id'=>$shiemen_id)));
+	     //  $this->set('pickup_delive',$myDelivery);
+		}
+		//print_r($myDelivery);
+	   //exit;
+
+   
+		$this->render('my_account');
+*/
 		
 	}
 
@@ -628,6 +688,25 @@ public function beforefilter() {
 	 */
 
 	public function dashboard() {
+
+		 $this->loadModel('Shipment');
+          
+	$dashboardopenjob = $this->Shipment->find('all',array('conditions'=>array(
+           'status'=>'1'),
+           'limit'=>5, 
+           'order'=>array('Shipment.id ASC')));
+
+		$this->set('userDeshbord',$dashboardopenjob);
+		
+    $dashboardRunningjob = $this->Shipment->find('all',array('conditions'=>array(
+           'status'=>'0'),
+           'limit'=>5, 
+           'order'=>array('Shipment.id ASC')));
+
+		$this->set('userDeshbordRunningjob',$dashboardRunningjob);
+
+
+		$this->render('dashboard');
 
 	}
 
