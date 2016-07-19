@@ -1,3 +1,7 @@
+<?php /*foreach ($myDelivery as  $value) {
+print_r($value)
+}
+ exit;*/  ?>
 <div class="container page-bottom-margin">
          <div class="col-sm-12">
             <div class="header-page-top clearfix">

@@ -18,31 +18,39 @@
                             </tr>
                         </thead>
                         <tbody>
+                         <?php  foreach ($userDeshbord as  $openjob) {
+                          //  print_r($openjob);
+                         ?>
                             <tr>
                                 <td>
-                                    <div class="item-text">American Freight Forwarders Required</div>
+                                    <div class="item-text"><?php echo $openjob['Shipment']['brief_description']; ?></div>
                                     <div>
-                                        <small>Posted 3 hours ago</small>
+                                        <small>Posted <?php echo $openjob['Shipment']['created_on'];  ?></small>
                                     </div>
                                 </td>
                                 <td>14</td>
                                 <td>4</td>
-                                <td><a href="#">Edit</a></td>
-                                <td>Job detail</td>
+                                <td>
+                                     <?php
+                              echo $this->Html->link("Edit",
+                                        array('controller' => 'ships', 'action' => 'editShipment', base64_encode($openjob['Shipment']['id'])),
+                                        array('escape' => false)
+                                    );
+                                      ?>
+
+                                <!-- <a href="#">Edit</a> --></td>
+                                <td>
+                                <?php
+                              echo $this->Html->link("Job detail",
+                                        array('controller' => 'ships', 'action' => 'completeListing', base64_encode($openjob['Shipment']['id'])),
+                                        array('escape' => false)
+                                    );
+                                 ?>
+                                <!-- Job detail --></td>
                                
                             </tr>
-                            <tr>
-                                <td>
-                                    <div class="item-text">American Freight Forwarders Required</div>
-                                    <div>
-                                        <small>Posted 3 hours ago</small>
-                                    </div>
-                                </td>
-                                <td>14</td>
-                                <td>4</td>
-                                <td><a href="#">Edit</a></td>
-                                <td>Job detail</td>
-                            </tr>
+                            
+                            <?php  } ?>
                         </tbody>
                     </table>
                 </div>
@@ -64,13 +72,17 @@
                             </tr>
                         </thead>
                         <tbody>
+                        <?php  foreach ($userDeshbordRunningjob as  $rowRunning) {
+                         
+
+                         ?>
                             <tr>
                                 <td>
                                     <div class="item-text">
-                                       American Freight Forwarders Required
+                                      <?php echo $rowRunning['Shipment']['brief_description'];  ?>
                                     </div>
                                     <div>
-                                        <small>Posted 15 May, 2015 </small>
+                                        <small>Posted <?php echo $rowRunning['Shipment']['created_on'];  ?> </small>
                                     </div>
                                 </td>
                                 <td>
@@ -82,30 +94,26 @@
                                     </div>
                                 </td>
                                 <td>Shipped</td>
-                                <td><a href="#">Edit</a></td>
-                                <td>Job detail</td>
-                            </tr>
-                            <tr>
                                 <td>
-                                    <div class="item-text">
-                                      American Freight Forwarders Required
-                                    </div>
-                                    <div>
-                                        <small>Posted 15 May, 2015 </small>
-                                    </div>
-                                </td>
+                                 <?php
+                              echo $this->Html->link("Edit",
+                                        array('controller' => 'ships', 'action' => 'editShipment', base64_encode($openjob['Shipment']['id'])),
+                                        array('escape' => false)
+                                    );
+                                      ?>
+                                <!-- <a href="#">Edit</a> --></td>
                                 <td>
-                                    <div class="text-bold">
-                                      Alisha J. Simmons 
-                                    </div>
-                                    <div>
-                                      <small>2 Jun, 2015</small>
-                                    </div>
-                                </td>
-                                <td>Shipped</td>
-                                <td><a href="#">Edit</a></td>
-                                <td>Job detail</td>
+                                <?php
+                              echo $this->Html->link("Job detail",
+                                        array('controller' => 'ships', 'action' => 'completeListing', base64_encode($openjob['Shipment']['id'])),
+                                        array('escape' => false)
+                                    );
+                                 ?>
+
+                                <!-- Job detail --></td>
                             </tr>
+                          
+                            <?php  } ?>
                         </tbody>
                     </table>
                 </div>

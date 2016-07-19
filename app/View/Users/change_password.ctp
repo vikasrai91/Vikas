@@ -14,7 +14,7 @@
         <?php echo $this->Form->create('User', array('novalidate' => true, 'class' => 'form-horizontal complete-profile')); ?>
 
           <div class="panel panel-info">
-            <div class="panel-heading">Account Information</div>
+            <div class="panel-heading">Account Information </div>
             <div class="panel-body">
             <h5>Change Password:-</h5>
               <div class="form-group">

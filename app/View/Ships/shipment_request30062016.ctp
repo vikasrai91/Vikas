@@ -4,16 +4,16 @@
          <i class="fa fa-info-circle" aria-hidden="true"></i> Error
       </div>
          <li class="active">
-            <a id="shipinfo_button" data-toggle="tab" href="#shippment-info" >Shipment Informatioin</a>
+            <a data-toggle="tab" href="#shippment-info" >Shipment Informatioin</a>
          </li>
          <li>
             <a id="pickup_button" data-toggle="tab" href="#pickup-delivery" <?php if($this->Session->read('Shipform.f1') == '') { echo 'class="not-active"';}  ?>>Pickup & Delivery</a>
          </li>
          <li>
-            <a id="listing_option" data-toggle="tab" href="#listing-option" class="not-active">Listing Options</a>
+            <a id="listing_button" data-toggle="tab" href="#listing-option" <?php if($this->Session->read('Shipform.f1') == '') { echo 'class="not-active"';} elseif($this->Session->read('Shipform.f2') == '') { echo 'class="not-active"';}  ?>>Listing Options</a>
          </li>
          <li>
-            <a data-toggle="tab" href="#complete-listing" class="not-active">Complete Listing</a>
+            <a data-toggle="tab" href="#complete-listing" <?php if($this->Session->read('Shipform.f1') == '') { echo 'class="not-active"';} elseif($this->Session->read('Shipform.f2') == '') { echo 'class="not-active"';}elseif($this->Session->read('Shipform.f3') == '') { echo 'class="not-active"';}  ?>>Complete Listing</a>
          </li>
       </ul>
       <div class="tab-content">
@@ -72,7 +72,7 @@
                                           <div class="col-sm-8 col-sm-offset-2">
                                             <div class="radio">
                                                 <label>
-                                                    <input class="is_online" id="online_no" type="radio" name="data[Shipment][item_infomation][0][option]" value="0" checked="checked">
+                                                    <input id="online_no" type="radio" name="data[Shipment][item_infomation][0][option]" value="0" checked="checked">
                                                     <i class="fa-radio fa-checked  checked"></i>
                                                     <i class="fa-radio fa-unchecked unchecked"></i>
                                                     No this is not an online listing.
@@ -80,7 +80,7 @@
                                             </div>
                                             <div class="radio">
                                                 <label>
-                                                    <input class="is_online" id="online_yes" type="radio" name="data[Shipment][item_infomation][0][option]" value="1">
+                                                    <input id="online_yes" type="radio" name="data[Shipment][item_infomation][0][option]" value="1">
                                                     <i class="fa-radio fa-checked  checked"></i>
                                                     <i class="fa-radio fa-unchecked unchecked"></i>
                                                     Yes, this item can be found at
@@ -118,13 +118,13 @@
                                  <div class="works-in-ie-myaccount">
                                     <div class="col-sm-8 col-sm-offset-3">
                                        <label class="radio-inline">
-                                          <input type="radio" id="imperial_rad" name="data[Shipment][item_infomation][0][measure_type]"  class="metric" value="1" checked="checked">
+                                          <input type="radio" name="data[Shipment][item_infomation][0][measure_type]"  class="metric" value="1" checked="checked">
                                           <i class="fa-radio fa-checked  checked"></i>
                                           <i class="fa-radio fa-unchecked unchecked"></i>
                                           Imperial
                                        </label>
                                        <label class="radio-inline">
-                                          <input type="radio" id="metric_rad" name="data[Shipment][item_infomation][0][measure_type]" class="metric" value="2">
+                                          <input type="radio" name="data[Shipment][item_infomation][0][measure_type]" class="metric" value="2">
                                           <i class="fa-radio fa-checked  checked"></i>
                                           <i class="fa-radio fa-unchecked unchecked"></i>
                                           Metric
@@ -186,8 +186,7 @@
                                             echo $this->Form->input('Shipment.item_infomation.0.quantity', array(
                                                 'options' => $options,
                                                 'class' => 'form-control',
-                                                'label' => false,
-                                                'div' => false
+                                                'label' => false
                                             ));
                                         ?>
                                       </div>
@@ -213,13 +212,11 @@
                                </div>
                         </section>
                      </div>
-                     
-                  </div>
-                  <div class="form-group url-input ">
+                     <div class="form-group url-input ">
                                        <div class="col-sm-8 col-sm-offset-2">
                                          
                                             <?php 
-                                                echo $this->Form->checkbox('assisted_purchase', array('hiddenField' => false));
+                                                echo $this->Form->checkbox('Shipment.item_infomation.0.assisted_purchase', array('hiddenField' => false));
                                               ?>
                                               Assisted Purchase
                                           <div class="help-block">
@@ -230,6 +227,7 @@
                                           </div>
                                        </div>
                       </div>
+                  </div>
                       
                       <section class="clearfix shipment-info-bottom">
                          <div class="col-sm-12">
@@ -297,14 +295,9 @@
                              //echo $this->Form->input('form', array('name' => 'form','type' => 'hidden','div'=>false, 'value' => '1'));
                              ?>
                              <?php 
-                                echo $this->Form->input('upload_picture', array('type' => 'hidden','label'=>false));
-                             ?>
-                             <?php 
-                                echo $this->Form->input('choose_picture', array('type' => 'file','class'=>'form-control','label'=>false));
+                                echo $this->Form->input('upload_picture', array('type' => 'file','class'=>'form-control'));
                              ?>
                              </div>
-                             <br>
-                             <div class="col-sm-10 col-md-offset-2 show_image"></div>
                              <div class="help-block col-sm-10 col-sm-offset-2">
                                 <small>
                                 TIP: Listings with pictures get 63% more bids than listings without pictures! 
@@ -404,8 +397,10 @@
                           </div>
                      </div>
                   </div>
+                  
                      <div class="col-sm-12">
-                           
+                     
+                        
                            <div class="col-sm-4 padding-left">
                            <div class="form-group clearfix">
                            <label class="control-label">When do you need your shipment delivered?</label>
@@ -418,10 +413,9 @@
                                     <span class="glyphicon glyphicon-calendar"></span>
                                  </div>
                               </div>
-                              </div>
+                           </div>
                            </div>
                            <div class="col-sm-4 padding-left between_date" style="display: none;">
-                           <div class=" padding-left " >
                            <label class="control-label">&nbsp;</label>
                               <div class="input-group" >
                                   <?php 
@@ -432,11 +426,8 @@
                                  </div>
                               </div>
                            </div>
-                           </div>
-                      </div>
-                  <div class="col-sm-12">
-                           
-                           <div class="col-sm-2 form-group padding-left">
+
+                           <div class="col-sm-2  padding-left">
                            <label class="control-label">&nbsp;</label>
                            <?php
                            $class=array('class'=>'form-control','empty' => false);
@@ -462,12 +453,12 @@
                               TIP: Remember to confirm the terms of shipment with your chosen Service Provider, including additional services or insurance.
                               </small>
                            </div>
-                       
+                        </div>
                         <div class="footer-btn">
                            <div class="form-group">
                               <div class=" col-sm-10">
                               <?php 
-                                        echo $this->Form->button('Back', array('onclick' => 'backButton();', 'class'=>'btn btn-default margin-right-btn'));
+                                        echo $this->Form->button('Back', array('type' => 'submit','class'=>'btn btn-default margin-right-btn'));
                               ?>
                               <?php 
                                 echo $this->Form->button('Continue', array('type' => 'submit','class'=>'btn btn-blue'));
@@ -498,10 +489,7 @@
                   <div class="col-sm-6">
                      <div class="form-group clearfix">
                         <div class="col-sm-12">
-                           <!-- <button class="btn btn-fb btn-block"><i aria-hidden="true" class="fa fa-facebook"> </i> Sign in with Facebook</button> -->
-                          <?php
-                                echo $this->Form->button('<i class="fa fa-facebook" aria-hidden="true"> </i> Sign in with Facebook', array('type' => 'button', 'onclick' => 'checkLoginState(1);', 'class' => 'btn btn-fb btn-block'));
-                          ?>
+                           <button class="btn btn-fb btn-block"><i aria-hidden="true" class="fa fa-facebook"> </i> Sign in with Facebook</button>
                         </div>
                      </div>
                      <div class="form-group clearfix">
@@ -647,7 +635,7 @@
                                           <div class="col-sm-8 col-sm-offset-2">
                                             <div class="radio">
                                                 <label>
-                                                    <input class="is_online" type="radio" name="data[Shipment][item_infomation][0][option]" value="0" checked="checked">
+                                                    <input type="radio" name="data[Shipment][item_infomation][0][option]" value="0" checked="checked">
                                                     <i class="fa-radio fa-checked  checked"></i>
                                                     <i class="fa-radio fa-unchecked unchecked"></i>
                                                     No this is not an online listing.
@@ -655,7 +643,7 @@
                                             </div>
                                             <div class="radio">
                                                 <label>
-                                                    <input class="is_online" type="radio" name="data[Shipment][item_infomation][0][option]" value="1">
+                                                    <input type="radio" name="data[Shipment][item_infomation][0][option]" value="1">
                                                     <i class="fa-radio fa-checked  checked"></i>
                                                     <i class="fa-radio fa-unchecked unchecked"></i>
                                                     Yes, this item can be found at
@@ -673,7 +661,7 @@
                                           ?>
                                        </div>
                                     </div>
-                                    <div class="form-group url-input found-check" style="display: none;">
+                                    <div class="form-group url-input found-check">
                                        <div class="col-sm-8 col-sm-offset-2">
                                           <label for="exampleInputEmail1">Copy website URL here:</label>
                                             <?php 
@@ -761,8 +749,7 @@
                                             echo $this->Form->input('Shipment.item_infomation.0.quantity', array(
                                                 'options' => $options,
                                                 'class' => 'form-control',
-                                                'label' => false,
-                                                'div' => false
+                                                'label' => false
                                             ));
                                         ?>
                                       </div>
@@ -788,7 +775,21 @@
                             ?>
                         </div>
                 </section>
-                  
+                  <div class="form-group url-input ">
+                                         <div class="col-sm-8 col-sm-offset-2">
+
+                                                <?php 
+                                                echo $this->Form->checkbox('Shipment.item_infomation.0.assisted_purchase', array('hiddenField' => false));
+                                                ?>
+                                                Assisted Purchase
+                                            <div class="help-block">
+                                                  <small>
+                                                     NOTICE: pay service provider and
+                                                        they purchase what you need.
+                                                  </small>
+                                            </div>
+                                         </div>
+              </div>
             </div>
 
         </div>
@@ -807,9 +808,6 @@
 .current_location{
   background:#ccc;
   padding: 2px
-}
-.show_image{
-  padding: 10px;
 }
 </style>
 

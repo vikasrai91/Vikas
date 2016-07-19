@@ -40,27 +40,59 @@
                      <table class="table table-hover ">
                         <tbody>
                            <tr class="unread-message">
-                              <td class="mailbox-name "><a href="read-mail.html">Alexander Pierce</a></td>
+                              <td class="mailbox-name ">
+                               <?php
+                           echo $this->Html->link(
+                                 'Alexander Pierce',
+                                 '/users/readmail',
+                                 array('class' => 'button', 'target' => '_self')
+                              );
+                          ?>
+                              </td>
                               <td class="mailbox-subject"><b>AdminLTE 2.0 Issue</b> - Trying to find a solution to this problem...</td>
                               <td class="mailbox-date">5 mins ago</td>
                            </tr>
                            <tr>
-                              <td class="mailbox-name"><a href="read-mail.html">Alexander Pierce</a></td>
+                              <td class="mailbox-name"><?php
+                           echo $this->Html->link(
+                                 'Alexander Pierce',
+                                 '/users/readmail',
+                                 array('class' => 'button', 'target' => '_self')
+                              );
+                          ?></td>
                               <td class="mailbox-subject"><b>AdminLTE 2.0 Issue</b> - Trying to find a solution to this problem...</td>
                               <td class="mailbox-date">5 mins ago</td>
                            </tr>
                            <tr>
-                              <td class="mailbox-name"><a href="read-mail.html">Alexander Pierce</a></td>
+                              <td class="mailbox-name"><?php
+                           echo $this->Html->link(
+                                 'Alexander Pierce',
+                                 '/users/readmail',
+                                 array('class' => 'button', 'target' => '_self')
+                              );
+                          ?></td>
                               <td class="mailbox-subject"><b>AdminLTE 2.0 Issue</b> - Trying to find a solution to this problem...</td>
                               <td class="mailbox-date">5 mins ago</td>
                            </tr>
                            <tr>
-                              <td class="mailbox-name"><a href="read-mail.html">Alexander Pierce</a></td>
+                              <td class="mailbox-name"><?php
+                           echo $this->Html->link(
+                                 'Alexander Pierce',
+                                 '/users/readmail',
+                                 array('class' => 'button', 'target' => '_self')
+                              );
+                          ?></td>
                               <td class="mailbox-subject"><b>AdminLTE 2.0 Issue</b> - Trying to find a solution to this problem...</td>
                               <td class="mailbox-date">5 mins ago</td>
                            </tr>
                            <tr>
-                              <td class="mailbox-name"><a href="read-mail.html">Alexander Pierce</a></td>
+                              <td class="mailbox-name"><?php
+                           echo $this->Html->link(
+                                 'Alexander Pierce',
+                                 '/users/readmail',
+                                 array('class' => 'button', 'target' => '_self')
+                              );
+                          ?></td>
                               <td class="mailbox-subject"><b>AdminLTE 2.0 Issue</b> - Trying to find a solution to this problem...</td>
                               <td class="mailbox-date">5 mins ago</td>
                            </tr>

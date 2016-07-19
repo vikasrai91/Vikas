@@ -517,9 +517,28 @@ public function beforefilter() {
 	 */
 
 	public function myAccount() {
+        $this->loadModel('UserDetail');
+		$this->loadModel('User');
 
+
+        $this->loadModel('User');
 		$myacountdetails = $this->User->find('all',array('conditions'=>array('UserDetail.id'=>$this->Session->read('Auth.User.UserDetail.id'))));
 		$this->set('user_details',$myacountdetails);
+
+	if($this->request->is('post') && !empty($this->request->data)){
+
+			  $this->UserDetail->create();
+			  $this->UserDetail->id = $this->Session->read('Auth.User.UserDetail.id');
+			  if($this->UserDetail->save($this->request->data)){
+			  	$this->User->create();
+			  	$this->User->id = $this->Session->read('Auth.User.id');
+			  	$this->User->save($this->request->data);
+			  	$currentUserData = $this->User->find('first' ,array('conditions' => array('User.id' => $this->Session->read('Auth.User.id'))));
+				$this->Session->write('Auth.User.UserDetail.profile_picture', $currentUserData['UserDetail']['profile_picture']);
+				$this->Session->write('Auth.User.account_type', $currentUserData['User']['account_type']);
+			  	$this->redirect('/users/myAccount');
+			  }				
+			}
 		$this->render('my_account');
 
 	}
@@ -544,12 +563,19 @@ public function beforefilter() {
   $l_name = $this->request->data['UserDetail']['l_name'];
   $phone_number = $this->request->data['UserDetail']['phone_number'];
   /*$profile_picture = $this->request->data['UserDetail']['profile_picture'];*/
-  $gender = $this->request->data['UserDetail']['gender'];
+   $gender = $this->request->data['UserDetail']['gender'];
+
+
   $notification_by_email = $this->request->data['UserDetail']['notification_by_email'];
+
+	if($notification_by_email=='on'){
+	  $notification_by_email='1';
+	}
   $notification_by_sms = $this->request->data['UserDetail']['notification_by_sms'];
+	if($notification_by_sms=='on'){
+	  $notification_by_sms='1';
+	}
   
-
-
     if($this->request->is('post') && !empty($this->request->data)){
  $this->UserDetail->create();
 $data = array('UserDetail' => array('f_name' => $f_name, 'l_name' => $l_name, 'phone_number' => $phone_number, 'gender' =>$gender, 'notification_by_email'=>$notification_by_email, 'notification_by_sms' =>$notification_by_sms));
@@ -564,24 +590,6 @@ if($this->UserDetail->save($data)){
 }
 		 
 }
-
-public function changeMyPassword() {
-	//echo"changeMyPassword";die;
-
-		$myacountdetails = $this->User->find('all',array('conditions'=>array('UserDetail.id'=>$this->Session->read('Auth.User.UserDetail.id'))));
-		if($this->request->is('post') && !empty($this->request->data)){
-			  $this->User->create();
-			   $this->User->id = $this->Session->read('Auth.User.UserDetail.user_id');
-			  if($this->User->save($this->request->data)){
-			  	$this->Session->setFlash('Hello '.$myacountdetails[0]['UserDetail']['f_name'].'  '.$myacountdetails[0]['UserDetail']['l_name'].'Your Password has been updated successfully.');
-			  	$this->redirect('/users/MyAccount');
-			  }		
-			}
-
-
-		// $this->render('my_account');
-
-	}
 
 	/*End inbox function */
 
@@ -639,23 +647,7 @@ public function changeMyPassword() {
 	 */
 
 	public function myDeliveries() {
-          /*  $this->loadModel('Shipment');
-            $this->loadModel('PickupDelivery');
 
-		$myshiment = $this->Shipment->find('all',array('conditions'=>array('Shipment.user_id'=>$this->Session->read('Auth.User.UserDetail.user_id'))));
-		foreach ($myshiment as  $value) {
-
-		$shiemen_id = $value['Shipment']['id'];
-
-		$myDelivery  = $this->PickupDelivery->find('all',array('conditions'=>array('PickupDelivery.shipment_id'=>$shiemen_id)));
-	     //  $this->set('pickup_delive',$myDelivery);
-		}
-		//print_r($myDelivery);
-	   //exit;
-
-   
-		$this->render('my_account');
-*/
 		
 	}
 
@@ -734,5 +726,37 @@ public function changeMyPassword() {
 	}
 
 	/* end of function */
+
+
+	/*
+	 * @function name	: delete
+	 * @purpose			: to delete from user account
+	 * @arguments		: NA
+	 * @return			: none
+	 * @created by		: nitish kumar
+	 * @created on		: 18 july 2016
+	 * @description		: NA
+	 */
+	function deleteAccount()
+    {
+    	$this->loadModel('UserDetail');
+		$this->loadModel('User');
+		$this->loadModel('Shipment');
+
+    	 $id = $this->Session->read('Auth.User.id');
+    	 if($id!=''){
+    	 	$this->User->delete($id);
+    	 }
+      $user_id = $this->Session->read('Auth.User.UserDetail.id');
+       // $user_id = $this->Session->read('Auth.User.Shipment.id');
+     if($user_id!=''){
+     	$this->UserDetail->delete($user_id);
+     	//$this->Shipment->delete($user_id);
+     }
+         $this->Session->setFlash('The user with id: '.$id.' has been deleted.');
+         $this->logout();
+         exit;
+        $this->redirect(array('action' => 'myAccount'));
+    }
 }
 ?>
