@@ -11,7 +11,6 @@
                   </div>
                   <div class="collapse navbar-collapse" id="myNavbar">
                      <ul class="nav navbar-nav">
-                     
                         <li class="active">
                         <?php
                            echo $this->Html->link(

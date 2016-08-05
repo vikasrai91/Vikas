@@ -34,9 +34,26 @@ class AppController extends Controller {
  * @created on		: 15 june 2016
 */
 	function beforefilter(){
+		//echo"html". $this->Html->url( null, true );
+		//$url= $this->request->params['controller'];
+		if(!defined('SITE_LINK')) {
+				define("SITE_LINK", "http://".$_SERVER['SERVER_NAME'].$this->params->base."/");
+				define("FILE_LINK", "http://".$_SERVER['SERVER_NAME'].$this->params->base."/");
+			}
+			
+			
+		if ($this->params['controller'] == 'admins' || $this->params['prefix'] == 'admin') {
+			$this->Auth->allow();
+			$this->layout="admin";
+		}	
+		else
+		{	
 		if ($this->Cookie->read('Auth.User') && !$this->Session->read("Auth.User.id")) {
 				$this->redirect("/users/login");
 			}
+		}
+		
+		
 	}
 
 /*
@@ -100,6 +117,23 @@ class AppController extends Controller {
 	}
 //End getFormateUserData
 
+/*public function admin(){
+    $this->redirect(array('controller' => 'admin', 'action' => 'index'));
+}*/
+
+
+	function checklogin($action = array()) {
+		if ($this->params['controller'] == 'admins' || (isset($this->params['prefix']) && $this->params['prefix'] == 'admin')) {
+			$currentAction = $this->params['action'];
+			if (!in_array($currentAction,$action)) {
+				if($this->Session->read('admin.Admin')) {
+					
+				} else {
+					$this->redirect("/admin");
+				}
+			}
+		} 
+	}
 }
 
 

@@ -4,6 +4,80 @@ $('#radio_business').click(function(){
 $('#radio_personal').click(function(){
 	 $('.company-name').hide();
 });
+
+window.fbAsyncInit = function() {
+ //Initiallize the facebook using the facebook javascript sdk
+    FB.init({ 
+        appId:'531914513686414', // App ID 
+        cookie:true, // enable cookies to allow the server to access the session
+        status:true, // check login status
+        xfbml:true, // parse XFBML
+        oauth : true //enable Oauth 
+    });
+  };
+  //Read the baseurl from the config.php file
+  (function(d){
+          var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+          if (d.getElementById(id)) {return;}
+          js = d.createElement('script'); js.id = id; js.async = true;
+          js.src = "//connect.facebook.net/en_US/all.js";
+          ref.parentNode.insertBefore(js, ref);
+        }(document));
+//Onclick for fb login
+    function checkLoginState(user_type){
+
+        FB.login(function(response) {
+        if (response.authResponse) {
+                 FB.api('/me?fields=first_name,last_name,email,picture', function(response) {
+                   if(response.id != '' && response.id != null){
+                        console.log(response);
+                        if(user_type == 3){
+                            $('#UserDetailFName1').val(response.first_name);
+                            $('#UserDetailFName1').attr('type','hidden');
+                            $('#UserDetailLName1').val(response.last_name);
+                            $('#UserDetailLName1').attr('type','hidden');
+                            $('#UserEmail1').val(response.email);
+                            $('#UserEmail1').attr('type','hidden');
+                            $('#facebookbutton1').hide();
+                            $('.ddivider').hide();
+                            $('#UserFacebookId').val(response.id);
+                            $('#UserDetailProfilePicture').val(response.picture.data.url);
+                            $('#carrier_form5').attr('action', '/users/facebookLogin/2');
+                        }
+                        $.ajax({
+                            url:'/users/facebookLogin/'+user_type,
+                            type:'POST',
+                            data:JSON.stringify(response),
+                            contentType: "application/json; charset=utf-8",
+                            traditional: true,
+                            success:function(res_data){
+                                //console.log(res_data);
+                                if(res_data != '' && res_data != null){
+                                    var get_data = JSON.parse(res_data);
+                                    if(get_data.order){
+                                        window.location.href = "/ships/listingRequest/";
+                                    }
+                                    else if(get_data.already == 1){
+                                        if(get_data.user_type == 1){
+                                        window.location.href = "/";
+                                        }else{
+                                        window.location.href = "/";
+                                        }
+                                    }else if(get_data.already == 0){
+                                        window.location.href = "/";
+                                    }
+                                }
+                            }
+                        });
+                      
+                   }
+                 });
+                } else {
+                 console.log('User cancelled login or did not fully authorize.');
+                }
+        }, {scope: 'email,user_likes'});
+    }
+
 $(document).on('change','.main-checkbox',function() {
          $('.row-checkbox').prop('checked',false);
          $('.del-button').addClass('hide');
@@ -112,7 +186,7 @@ $(function() {
             var data = $('#carrier_form1').serialize();
             //alert(data);
             $.ajax({
-					url: "/users/carrier_registration", 
+					url: "/users/carrierRegistration", 
 					type: "POST",             
 					data: data+'&form=1',       
 				success: function(r_data)   
@@ -151,7 +225,7 @@ $(function() {
             //alert(data);
 
             $.ajax({
-					url: "/users/carrier_registration", 
+					url: "/users/carrierRegistration", 
 					type: "POST",             
 					data: data+'&form=2',       
 				success: function(r_data)   
@@ -181,7 +255,7 @@ $(function() {
             //form.submit();
             var data = $('#carrier_form3').serialize();
             $.ajax({
-					url: "/users/carrier_registration", 
+					url: "/users/carrierRegistration", 
 					type: "POST",             
 					data: data+'&form=3',       
 				success: function(r_data)   
@@ -211,7 +285,7 @@ $(function() {
             //form.submit();
             var data = $('#carrier_form4').serialize();
             $.ajax({
-					url: "/users/carrier_registration", 
+					url: "/users/carrierRegistration", 
 					type: "POST",             
 					data: data+'&form=4',       
 				success: function(r_data)   
@@ -224,18 +298,11 @@ $(function() {
         }
     });
 
-$.validator.addMethod("loginRegex", function(value, element) {
-        return this.optional(element) || /^[a-z0-9\-]+$/i.test(value);
-    }, "Username must contain only letters, numbers, or dashes.");
+
 
     $("#carrier_form5").validate({
 
         rules: {
-            "data[User][username]": {
-            	required:true,
-            	loginRegex:true,
-            	remote:{ url: "/users/uniqueUsername", type : "post" }
-            },
             "data[User][password]": {
             	required:true,
             	minlength:6
@@ -244,20 +311,13 @@ $.validator.addMethod("loginRegex", function(value, element) {
         
         // Specify the validation error messages
         messages: {
-
-            "data[User][username]": {
-            	required:"Username is required.",
-            	loginRegex:"Please enter letters and numbers only",
-            	remote: "That username is already taken, please use another one."
-            },
             "data[User][password]": {
             	required:"Passwords must be at least 6 characters.",
             	minlength:"Passwords must be at least 6 characters."
             },
         },
         submitHandler: function(form) {
-            form.submit();
-            
+            form.submit();  
         }
     });
 

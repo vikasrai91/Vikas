@@ -25,7 +25,29 @@
  * its action called 'display', and we pass a param to select the view file
  * to use (in this case, /app/View/Pages/home.ctp)...
  */
+	//
 	Router::connect('/', array('controller' => 'homes'));
+	
+	Router::connect('/admin', array('controller' => 'admins', 'action' => 'login'));
+	Router::connect('/admin/dashboard', array('controller' => 'admins', 'action' => 'dashboard'));
+	Router::connect('/admin/forgotpassword', array('controller' => 'admins', 'action' => 'forgotpassword'));
+	Router::connect('/admin/changepassword', array('controller' => 'admins', 'action' => 'changepassword'));
+	Router::connect('/admin/confirmation/*', array('controller' => 'admins', 'action' => 'confirmation'));
+	Router::connect('/admin/configurations/*', array('controller' => 'admins', 'action' => 'configurations'));
+	Router::connect('/admin/editprofile', array('controller' => 'admins', 'action' => 'editprofile'));
+	Router::connect('/admin/newsletter', array('controller' => 'admins', 'action' => 'newsletter'));
+	Router::connect('/admin/logout', array('controller' => 'admins', 'action' => 'logout'));
+	Router::connect('/admin/user', array('controller' => 'admins', 'action' => 'userData'));
+	
+	Router::connect('/update-email', array('controller' => 'users', 'action' => 'settings',1));
+	Router::connect('/update-address', array('controller' => 'users', 'action' => 'settings',2));
+	Router::connect('/update-phone', array('controller' => 'users', 'action' => 'settings',3));
+	Router::connect('/change-password', array('controller' => 'users', 'action' => 'settings',4));
+	Router::connect('/regional-setting', array('controller' => 'users', 'action' => 'settings',5));
+	Router::connect('/edit-profile', array('controller' => 'users', 'action' => 'settings',6));
+	Router::connect('/', array('controller' => 'admin', 'action' => 'myaction'));
+	//Router::connect('/', array('controller' => 'admins', 'action' =>  'adminLogin'));
+ 
 /**
  * ...and connect the rest of 'Pages' controller's URLs.
  */

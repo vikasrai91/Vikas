@@ -2,35 +2,34 @@
 
                $("#item-info").find('.item-information-box-hide').remove();
                var index = 1;
-
+               var check_first = $("#online_no").is(':checked');
+               var check_second = $("#online_yes").is(':checked');
+               var check_imperial = $("#imperial_rad").is(':checked');
+               var check_metric = $("#metric_rad").is(':checked');
+               
                for (var i = 1; i < this.value; i++) {
                  
                   $('#info-hide').children(".item-information-box-hide").clone().appendTo("#item-info").attr("id","item_info_" + index);
                   $('#item-info').children('div.item-information-box-hide').last().find('.item-info-heading').html("Item " + (index+1) + " Informatioin");
-                  //$('#item_info_'+index+' input[type="text"]').val(index);
+
               $('#item_info_'+index+' input').each(function(){
-                   //var class_name = $(this).closest('div').parent().attr('class').split(' ')[1];
-                   //if(class_name == 'Length'){ $(this).attr("name",index); }
-                   // console.log(class_name);
+                  
                    var element_name = $(this).attr( "name" );
                    var change_name = element_name.replace("[item_infomation][0]", "[item_infomation]["+index+"]")
                    $(this).attr("name",change_name);
-                   //console.log(element_name);
-                   //console.log(change_name);
+
               });
               $('#item_info_'+index+' select').each(function(){
                    var element_name = $(this).attr( "name" );
                    var change_name = element_name.replace("[item_infomation][0]", "[item_infomation]["+index+"]")
                    $(this).attr("name",change_name);
-                   //console.log(element_name);
-                   //console.log(change_name);
+
               });
               $('#item_info_'+index+' textarea').each(function(){
                    var element_name = $(this).attr( "name" );
                    var change_name = element_name.replace("[item_infomation][0]", "[item_infomation]["+index+"]")
                    $(this).attr("name",change_name);
-                   //console.log(element_name);
-                   //console.log(change_name);
+
               });
               $('#item_info_'+index+' checkbox').each(function(){
                    var element_name = $(this).attr( "name" );
@@ -40,9 +39,16 @@
               });
                   index++;
                };
+               if(check_first){ $("#online_no").click(); }
+               if(check_second){ $("#online_yes").click(); }
+               if(check_imperial){ $("#imperial_rad").click(); }
+               if(check_metric){ $("#metric_rad").click(); }
+
           })
 
          $(document).on('change', '.metric', function() {
+
+
                   $(".imperial-attr").attr("placeholder", "m.");
                   $(".weight").attr("placeholder", "kg");
                   $(".imperial-attr-next").attr("placeholder", "cm.");
@@ -55,20 +61,22 @@
           });   
 
           $(document).on('change', '.found-select', function() {
-                 $(this).parents(".form-group").next().show();
-                 $('#online_yes').attr("checked","checked");
+                 //$(this).parents(".form-group").next().show();
+                 $(this).parents('.form-group').prev().find(".is_online").click();
+
           });
 
-          $('#online_yes').click(function() {
-                 $('.url-input').show();
+          $(document).on('change', '.is_online', function(){
+              if(this.value == 1){
+               $(this).parents('.form-group').next().next().show();
+              }else{
+                $(this).parents('.form-group').next().next().hide();
+              }
           });
-          $('#online_no').click(function() {
-                 $('.url-input').hide();
-          });
+
           $(document).on('keypress', '.imperial-attr', function(key) {
-              //key = window.event.keyCode;
-              //console.log(key.charCode);
-              if(key.charCode < 57 && key.charCode > 48){
+
+              if(key.charCode < 57 && key.charCode > 47){
                 return true;
               }
               else{
@@ -76,7 +84,7 @@
               }
           });
           $(document).on('keypress', '.imperial-attr-next', function(key) {
-              if(key.charCode < 57 && key.charCode > 48){
+              if(key.charCode < 57 && key.charCode > 47){
                 return true;
               }
               else{
@@ -100,11 +108,14 @@
             
           });
 
+          
 
 //google api
           function init() {
                         var input = document.getElementById('PickupDeliveryPickupLocation');
                         var autocomplete = new google.maps.places.Autocomplete(input);
+                        var input2 = document.getElementById('PickupDeliveryDeliveryLocation');
+                        var autocomplete = new google.maps.places.Autocomplete(input2);
                       }
 
                       google.maps.event.addDomListener(window, 'load', init);
@@ -125,20 +136,11 @@
               startDate: '+1d'
           });
 
-          // $('#ShipmentPickupLocation').blur(function(e){
-          //   $('.current_location').hide();
-          // });
-          $('#PickupDeliveryPickupLocation').click(function(e){
-            $('.current_location').toggleClass('hide');
-          });
-          
 
-          $('.current_location').click(function(){
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(showPosition);
-            } 
-          });
-
+          function backButton(){
+            $("#shipinfo_button").click();
+            return false;
+          }
 
         function showPosition(position){
               var address = address;
@@ -149,7 +151,7 @@
                   success:function(res){
                         ddata = JSON.parse(JSON.stringify(res));
                         $('#PickupDeliveryPickupLocation').val(ddata.results[0].formatted_address);
-                        $('.current_location').toggleClass('hide');
+
                   }
             });
             }
@@ -158,6 +160,51 @@
               var data_value = $(this).val();
               if(data_value == 'Between'){ $('.between_date').show(); }
               else{ $('.between_date').hide(); }
+          });
+//Upload image with ajax
+          $('#ShipmentChoosePicture').change(function(){
+            result = this.files[0];
+            if(result == '' || result == null || result == undefined){
+              alert(result);
+              return false;
+            }
+            var formData = new FormData($('#shipment_form1')[0]);
+          //formData.append('file', $('input[type=file]')[0].files[0]);
+              $.ajax({
+                    url:'/ships/uploadImage',
+                    data: formData,
+                    type: 'post',
+                    contentType: false,
+                    processData: false,
+                    beforeSend: function(){
+                        $('body').append('<div class="modal-backdrop fade in" ></div>');
+                        $('#loader').show();
+                    },
+                  complete: function(){
+                        $('.modal-backdrop').remove();
+                        $('#loader').hide();
+                    },
+                    success: function(responseData){
+                        var imgData = $.parseJSON(responseData);
+                        if(imgData.success){
+                          var firstValue = $('#ShipmentUploadPicture').val();
+                          if(firstValue == '' || firstValue == null){
+                            $('#ShipmentUploadPicture').val(imgData.name);
+                            
+                          }
+                          else{ $('#ShipmentUploadPicture').val(firstValue+','+imgData.name); }
+                          var nameofFile = "'"+imgData.name+"'";
+                          var elementId = imgData.name.split('_');
+                          $('.show_image').append('<div class="col-md-3" style="text-align:center;" id="'+elementId[0]+'"><img style="width:100px;padding:5px;" src="/img/uploads/'+imgData.name+'"><div onclick="deleteFile('+nameofFile+', '+elementId[0]+');" class="deleteFile" >Delete</div></div>');
+                        }else{
+                          alert(imgData.msg);
+                        }
+                    },
+                  error:function(){
+                    $('.modal-backdrop').remove();
+                        $('#loader').hide();
+                  }
+              });
           });
 
       $(function () {
@@ -219,6 +266,8 @@
           if(flag == 0){
             $('body').animate({scrollTop : 0},800);
             return false;
+          }else{
+            $(".all-error").hide();
           }
           var data1 = $('#shipment_form1').serialize();
               $.ajax({
@@ -243,20 +292,37 @@
               return false;
         });
         
-
+        $.validator.addMethod("greaterStart", function (value, element, params) {
+              return this.optional(element) || new Date(value) >= new Date($(params).val());
+          },'Must be greater than pickup date.');
 
         $("#shipment_form2").validate({
 
         rules: {
             "data[PickupDelivery][pickup_location]": "required",
             "data[PickupDelivery][pickup_date]": "required",
-            "data[PickupDelivery][deliver_date]": "required"
+            "data[PickupDelivery][deliver_date]": {
+                required: true,
+                greaterStart: "#PickupDeliveryPickupDate"
+              },
+            "data[PickupDelivery][deliver_date2]": {
+                required: true,
+                greaterStart: "#PickupDeliveryDeliverDate"
+              },
+            "data[PickupDelivery][delivery_location]": "required"
+        },
+
+        messages: {
+
+            "data[PickupDelivery][deliver_date2]": {
+                greaterStart: "Must be greater than first date."
+            }
         },
         
         submitHandler: function(form) {
             //form.submit();
             var data1 = $('#shipment_form2').serialize();
-              $.ajax({
+            $.ajax({
             url: "/ships/shipmentRequest", 
             type: "POST",             
             data: data1+'&form=2', 
@@ -270,13 +336,17 @@
             },       
           success: function(r_data)   
             {
-              if(r_data){
-                window.location.href = "/ships/listingRequest";
+              if(r_data == 'true'){
+                window.location.href = "/ships/listingRequest/";
               }else{
               $('#listing_option').click();
               }
               
-            }
+            },
+          error:function(){
+            $('.modal-backdrop').remove();
+                $('#loader').hide();
+          }
           });
         }
     });
@@ -317,26 +387,85 @@
         },
         
         submitHandler: function(form) {
-            //form.submit();
-            var data = $('#UserSignupForm').serialize();
-            $.ajax({
-              url: "/users/signup", 
-              type: "POST",             
-              data: data,
-              beforeSend: function(){
-                $('body').append('<div class="modal-backdrop fade in" ></div>');
-                $('#loader').show();
-            },
-          complete: function(){
-                $('.modal-backdrop').remove();
-                $('#loader').hide();
-            },        
-            success: function(r_data)   
-            { 
-              console.log(r_data);
+          form.submit();
 
-            }
-            });
         }
     });
-      });
+  });
+
+          function deleteFile(fileName, id){
+
+              $.ajax({
+                url: "/ships/deleteuploadFile", 
+                type: "POST",             
+                data: 'fileName='+fileName,        
+                success: function(r_data)   
+                 {
+                    if(r_data == 1){
+                      var getValue = $('#ShipmentUploadPicture').val();
+                        //alert(getValue);
+                      var splitValue = getValue.split(',');
+                      splitValue.splice( $.inArray(fileName,splitValue) ,1 );
+                      //alert(splitValue);
+                      $('#ShipmentUploadPicture').val(splitValue);
+                      $('#'+id).hide();
+                    }  
+                }
+              });
+          }
+window.fbAsyncInit = function() {
+ //Initiallize the facebook using the facebook javascript sdk
+    FB.init({ 
+        appId:'531914513686414', // App ID 
+        cookie:true, // enable cookies to allow the server to access the session
+        status:true, // check login status
+        xfbml:true, // parse XFBML
+        oauth : true //enable Oauth 
+    });
+  };
+  //Read the baseurl from the config.php file
+  (function(d){
+          var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+          if (d.getElementById(id)) {return;}
+          js = d.createElement('script'); js.id = id; js.async = true;
+          js.src = "//connect.facebook.net/en_US/all.js";
+          ref.parentNode.insertBefore(js, ref);
+        }(document));
+//Onclick for fb login
+    function checkLoginState(user_type){
+        FB.login(function(response) {
+        if (response.authResponse) {
+                 FB.api('/me?fields=first_name,last_name,email,picture', function(response) {
+                   if(response.id != '' && response.id != null){
+                        console.log(response);
+                        $.ajax({
+                            url:'/users/facebookLogin/'+user_type,
+                            type:'POST',
+                            data:JSON.stringify(response),
+                            contentType: "application/json; charset=utf-8",
+                            traditional: true,
+                            success:function(res_data){
+                                   if(res_data != '' && res_data != null){
+                                    var get_data = JSON.parse(res_data);
+                                    if(get_data.order){
+                                        window.location.href = "/ships/listingRequest/";
+                                    }
+                                    else if(get_data.already == 1){
+                                        if(get_data.user_type == 1){
+                                        window.location.href = "/";
+                                        }else{
+                                        window.location.href = "/";
+                                        }
+                                    }else if(get_data.already == 0){
+                                        window.location.href = "/";
+                                    }
+                                }
+                            }
+                        });
+                   }
+                 });
+                } else {
+                 console.log('User cancelled login or did not fully authorize.');
+                }
+        }, {scope: 'email,user_likes'});
+    }

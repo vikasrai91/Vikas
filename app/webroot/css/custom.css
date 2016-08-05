@@ -1,0 +1,15 @@
+.deleteFile{
+	border: none;
+    background: brown;
+    color: #fff;
+    cursor: pointer;
+    padding: 5px;
+    text-align: center;
+}
+textarea{
+	resize: none;
+}
+.delivery-button{
+	padding-top: 15px !important;
+}
+

@@ -12,3 +12,325 @@
 [27-Jun-2016 13:02:58 Etc/GMT] PHP Parse error:  syntax error, unexpected '' (T_ENCAPSED_AND_WHITESPACE), expecting identifier (T_STRING) or variable (T_VARIABLE) or number (T_NUM_STRING) in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 75
 [27-Jun-2016 13:03:06 Etc/GMT] PHP Parse error:  syntax error, unexpected '' (T_ENCAPSED_AND_WHITESPACE), expecting identifier (T_STRING) or variable (T_VARIABLE) or number (T_NUM_STRING) in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 75
 [28-Jun-2016 11:15:13 Etc/GMT] PHP Fatal error:  Call to a member function save() on a non-object in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/ShipsController.php on line 52
+[29-Jun-2016 08:52:23 Etc/GMT] PHP Parse error:  syntax error, unexpected '}' in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/ShipsController.php on line 34
+[29-Jun-2016 08:52:47 Etc/GMT] PHP Parse error:  syntax error, unexpected '}' in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/ShipsController.php on line 34
+[29-Jun-2016 08:52:49 Etc/GMT] PHP Parse error:  syntax error, unexpected '}' in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/ShipsController.php on line 34
+[29-Jun-2016 08:59:36 Etc/GMT] PHP Parse error:  syntax error, unexpected '&&' (T_BOOLEAN_AND), expecting ',' or ')' in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/ShipsController.php on line 52
+[29-Jun-2016 09:00:08 Etc/GMT] PHP Parse error:  syntax error, unexpected '&&' (T_BOOLEAN_AND), expecting ',' or ')' in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/ShipsController.php on line 52
+[29-Jun-2016 09:00:10 Etc/GMT] PHP Parse error:  syntax error, unexpected '&&' (T_BOOLEAN_AND), expecting ',' or ')' in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/ShipsController.php on line 52
+[29-Jun-2016 10:32:39 Etc/GMT] PHP Fatal error:  Call to a member function findAllById() on a non-object in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/ShipsController.php on line 79
+[30-Jun-2016 08:43:59 Etc/GMT] PHP Fatal error:  Can't use method return value in write context in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 177
+[30-Jun-2016 10:40:09 Etc/GMT] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO) in /home/theapxsk/public_html/projects/shipthestuff/app/View/Ships/complete_listing.ctp on line 5
+[30-Jun-2016 11:38:36 Etc/GMT] PHP Fatal error:  Function name must be a string in /home/theapxsk/public_html/projects/shipthestuff/app/View/Ships/complete_listing.ctp on line 115
+[30-Jun-2016 11:39:11 Etc/GMT] PHP Fatal error:  Function name must be a string in /home/theapxsk/public_html/projects/shipthestuff/app/View/Ships/complete_listing.ctp on line 115
+[30-Jun-2016 12:42:02 Etc/GMT] PHP Parse error:  syntax error, unexpected ';' in /home/theapxsk/public_html/projects/shipthestuff/app/View/Ships/shipment_request.ctp on line 471
+[30-Jun-2016 13:01:13 Etc/GMT] PHP Parse error:  syntax error, unexpected '{' in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/ShipsController.php on line 60
+[02-Jul-2016 11:43:31 Etc/GMT] PHP Parse error:  syntax error, unexpected ',' in /home/theapxsk/public_html/projects/shipthestuff/app/View/Errors/error400.ctp on line 21
+[02-Jul-2016 11:43:34 Etc/GMT] PHP Parse error:  syntax error, unexpected ',' in /home/theapxsk/public_html/projects/shipthestuff/app/View/Errors/error400.ctp on line 21
+[02-Jul-2016 11:43:40 Etc/GMT] PHP Parse error:  syntax error, unexpected ',' in /home/theapxsk/public_html/projects/shipthestuff/app/View/Errors/error400.ctp on line 21
+[02-Jul-2016 11:44:04 Etc/GMT] PHP Parse error:  syntax error, unexpected ')' in /home/theapxsk/public_html/projects/shipthestuff/app/View/Errors/error400.ctp on line 23
+[02-Jul-2016 12:28:46 Etc/GMT] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO) in /home/theapxsk/public_html/projects/shipthestuff/app/View/Elements/header.ctp on line 55
+[02-Jul-2016 12:28:47 Etc/GMT] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO) in /home/theapxsk/public_html/projects/shipthestuff/app/View/Elements/header.ctp on line 55
+[02-Jul-2016 12:28:47 Etc/GMT] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO) in /home/theapxsk/public_html/projects/shipthestuff/app/View/Elements/header.ctp on line 55
+[02-Jul-2016 12:28:48 Etc/GMT] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO) in /home/theapxsk/public_html/projects/shipthestuff/app/View/Elements/header.ctp on line 55
+[02-Jul-2016 12:28:48 Etc/GMT] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO) in /home/theapxsk/public_html/projects/shipthestuff/app/View/Elements/header.ctp on line 55
+[02-Jul-2016 12:30:19 Etc/GMT] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO) in /home/theapxsk/public_html/projects/shipthestuff/app/View/Elements/header.ctp on line 55
+[02-Jul-2016 12:30:20 Etc/GMT] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO) in /home/theapxsk/public_html/projects/shipthestuff/app/View/Elements/header.ctp on line 55
+[02-Jul-2016 12:30:21 Etc/GMT] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO) in /home/theapxsk/public_html/projects/shipthestuff/app/View/Elements/header.ctp on line 55
+[02-Jul-2016 12:30:21 Etc/GMT] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO) in /home/theapxsk/public_html/projects/shipthestuff/app/View/Elements/header.ctp on line 55
+[02-Jul-2016 12:30:38 Etc/GMT] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO) in /home/theapxsk/public_html/projects/shipthestuff/app/View/Elements/header.ctp on line 55
+[02-Jul-2016 12:30:38 Etc/GMT] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO) in /home/theapxsk/public_html/projects/shipthestuff/app/View/Elements/header.ctp on line 55
+[02-Jul-2016 12:30:39 Etc/GMT] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO) in /home/theapxsk/public_html/projects/shipthestuff/app/View/Elements/header.ctp on line 55
+[02-Jul-2016 12:30:39 Etc/GMT] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO) in /home/theapxsk/public_html/projects/shipthestuff/app/View/Elements/header.ctp on line 55
+[02-Jul-2016 12:30:40 Etc/GMT] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO) in /home/theapxsk/public_html/projects/shipthestuff/app/View/Elements/header.ctp on line 55
+[02-Jul-2016 12:30:56 Etc/GMT] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO) in /home/theapxsk/public_html/projects/shipthestuff/app/View/Elements/header.ctp on line 55
+[02-Jul-2016 12:30:56 Etc/GMT] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO) in /home/theapxsk/public_html/projects/shipthestuff/app/View/Elements/header.ctp on line 55
+[02-Jul-2016 12:30:57 Etc/GMT] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO) in /home/theapxsk/public_html/projects/shipthestuff/app/View/Elements/header.ctp on line 55
+[02-Jul-2016 12:30:57 Etc/GMT] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO) in /home/theapxsk/public_html/projects/shipthestuff/app/View/Elements/header.ctp on line 55
+[02-Jul-2016 12:33:09 Etc/GMT] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO) in /home/theapxsk/public_html/projects/shipthestuff/app/View/Elements/header.ctp on line 55
+[04-Jul-2016 10:40:23 Etc/GMT] PHP Parse error:  syntax error, unexpected ''default'' (T_CONSTANT_ENCAPSED_STRING), expecting ')' in /home/theapxsk/public_html/projects/shipthestuff/app/View/Ships/listing_request.ctp on line 119
+[04-Jul-2016 10:41:44 Etc/GMT] PHP Parse error:  syntax error, unexpected '?' in /home/theapxsk/public_html/projects/shipthestuff/app/View/Ships/listing_request.ctp on line 113
+[04-Jul-2016 10:42:44 Etc/GMT] PHP Parse error:  syntax error, unexpected ''default'' (T_CONSTANT_ENCAPSED_STRING), expecting ')' in /home/theapxsk/public_html/projects/shipthestuff/app/View/Ships/listing_request.ctp on line 121
+[04-Jul-2016 10:42:52 Etc/GMT] PHP Parse error:  syntax error, unexpected ''default'' (T_CONSTANT_ENCAPSED_STRING), expecting ')' in /home/theapxsk/public_html/projects/shipthestuff/app/View/Ships/listing_request.ctp on line 121
+[04-Jul-2016 10:43:40 Etc/GMT] PHP Parse error:  syntax error, unexpected ''default'' (T_CONSTANT_ENCAPSED_STRING), expecting ')' in /home/theapxsk/public_html/projects/shipthestuff/app/View/Ships/listing_request.ctp on line 121
+[04-Jul-2016 10:44:24 Etc/GMT] PHP Parse error:  syntax error, unexpected ''default'' (T_CONSTANT_ENCAPSED_STRING), expecting ')' in /home/theapxsk/public_html/projects/shipthestuff/app/View/Ships/listing_request.ctp on line 121
+[05-Jul-2016 07:28:37 Etc/GMT] PHP Parse error:  syntax error, unexpected 'if' (T_IF) in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 347
+[05-Jul-2016 09:08:42 Etc/GMT] PHP Fatal error:  Call to a member function save() on a non-object in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 367
+[06-Jul-2016 10:37:03 Etc/GMT] PHP Fatal error:  Call to undefined function render() in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 414
+[06-Jul-2016 10:38:24 Etc/GMT] PHP Fatal error:  Call to undefined function render() in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 414
+[06-Jul-2016 10:38:27 Etc/GMT] PHP Fatal error:  Call to undefined function render() in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 414
+[06-Jul-2016 10:40:08 Etc/GMT] PHP Fatal error:  Call to undefined function render() in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 414
+[06-Jul-2016 10:40:23 Etc/GMT] PHP Fatal error:  Call to undefined function render() in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 414
+[06-Jul-2016 12:26:10 Etc/GMT] PHP Parse error:  syntax error, unexpected ''default'' (T_CONSTANT_ENCAPSED_STRING), expecting ')' in /home/theapxsk/public_html/projects/shipthestuff/app/View/Users/update_email.ctp on line 33
+[06-Jul-2016 12:35:45 Etc/GMT] PHP Fatal error:  Call to a member function save() on a non-object in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 415
+[06-Jul-2016 12:36:51 Etc/GMT] PHP Fatal error:  Call to a member function save() on a non-object in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 415
+[06-Jul-2016 12:39:18 Etc/GMT] PHP Fatal error:  Call to a member function create() on a non-object in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 415
+[06-Jul-2016 12:47:52 Etc/GMT] PHP Parse error:  syntax error, unexpected '=>' (T_DOUBLE_ARROW) in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 421
+[07-Jul-2016 06:57:29 Etc/GMT] PHP Parse error:  syntax error, unexpected 'Account' (T_STRING) in /home/theapxsk/public_html/projects/shipthestuff/app/View/Users/change_password.ctp on line 7
+[07-Jul-2016 10:52:23 Etc/GMT] PHP Parse error:  syntax error, unexpected ':' in /home/theapxsk/public_html/projects/shipthestuff/app/View/Users/regional_setting.ctp on line 5
+[07-Jul-2016 10:52:30 Etc/GMT] PHP Parse error:  syntax error, unexpected ':' in /home/theapxsk/public_html/projects/shipthestuff/app/View/Users/regional_setting.ctp on line 5
+[07-Jul-2016 10:55:04 Etc/GMT] PHP Parse error:  syntax error, unexpected ':' in /home/theapxsk/public_html/projects/shipthestuff/app/View/Users/regional_setting.ctp on line 5
+[07-Jul-2016 10:56:05 Etc/GMT] PHP Parse error:  syntax error, unexpected ':' in /home/theapxsk/public_html/projects/shipthestuff/app/View/Users/regional_setting.ctp on line 5
+[07-Jul-2016 11:42:15 Etc/GMT] PHP Parse error:  syntax error, unexpected ':' in /home/theapxsk/public_html/projects/shipthestuff/app/View/Users/edit_profile.ctp on line 24
+[07-Jul-2016 12:14:49 Etc/GMT] PHP Parse error:  syntax error, unexpected '(', expecting ')' in /home/theapxsk/public_html/projects/shipthestuff/app/Model/UserDetail.php on line 8
+[07-Jul-2016 12:15:07 Etc/GMT] PHP Parse error:  syntax error, unexpected '(', expecting ')' in /home/theapxsk/public_html/projects/shipthestuff/app/Model/UserDetail.php on line 8
+[07-Jul-2016 12:16:42 Etc/GMT] PHP Parse error:  syntax error, unexpected '(', expecting ')' in /home/theapxsk/public_html/projects/shipthestuff/app/Model/UserDetail.php on line 8
+[11-Jul-2016 05:45:03 Etc/GMT] PHP Fatal error:  Call to a member function find() on a non-object in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 507
+[11-Jul-2016 05:46:03 Etc/GMT] PHP Fatal error:  Call to a member function find() on a non-object in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 507
+[11-Jul-2016 05:46:05 Etc/GMT] PHP Fatal error:  Call to a member function find() on a non-object in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 507
+[11-Jul-2016 05:46:05 Etc/GMT] PHP Fatal error:  Call to a member function find() on a non-object in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 507
+[11-Jul-2016 05:46:05 Etc/GMT] PHP Fatal error:  Call to a member function find() on a non-object in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 507
+[11-Jul-2016 05:46:06 Etc/GMT] PHP Fatal error:  Call to a member function find() on a non-object in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 507
+[11-Jul-2016 05:46:06 Etc/GMT] PHP Fatal error:  Call to a member function find() on a non-object in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 507
+[11-Jul-2016 05:46:06 Etc/GMT] PHP Fatal error:  Call to a member function find() on a non-object in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 507
+[11-Jul-2016 06:01:28 Etc/GMT] PHP Fatal error:  Call to a member function find() on a non-object in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 509
+[11-Jul-2016 06:02:39 Etc/GMT] PHP Fatal error:  Call to a member function find() on a non-object in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 509
+[11-Jul-2016 06:02:42 Etc/GMT] PHP Fatal error:  Call to a member function find() on a non-object in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 509
+[11-Jul-2016 06:02:43 Etc/GMT] PHP Fatal error:  Call to a member function find() on a non-object in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 509
+[11-Jul-2016 06:03:19 Etc/GMT] PHP Fatal error:  Call to a member function find() on a non-object in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 509
+[11-Jul-2016 06:03:19 Etc/GMT] PHP Fatal error:  Call to a member function find() on a non-object in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 509
+[11-Jul-2016 06:03:21 Etc/GMT] PHP Fatal error:  Call to a member function find() on a non-object in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 509
+[11-Jul-2016 06:03:54 Etc/GMT] PHP Fatal error:  Call to a member function find() on a non-object in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 509
+[11-Jul-2016 06:03:56 Etc/GMT] PHP Fatal error:  Call to a member function find() on a non-object in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 509
+[11-Jul-2016 06:03:56 Etc/GMT] PHP Fatal error:  Call to a member function find() on a non-object in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 509
+[11-Jul-2016 06:03:56 Etc/GMT] PHP Fatal error:  Call to a member function find() on a non-object in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 509
+[11-Jul-2016 06:03:56 Etc/GMT] PHP Fatal error:  Call to a member function find() on a non-object in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 509
+[11-Jul-2016 06:04:47 Etc/GMT] PHP Fatal error:  Call to a member function find() on a non-object in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 509
+[11-Jul-2016 06:04:48 Etc/GMT] PHP Fatal error:  Call to a member function find() on a non-object in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 509
+[11-Jul-2016 06:04:49 Etc/GMT] PHP Fatal error:  Call to a member function find() on a non-object in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 509
+[11-Jul-2016 06:04:49 Etc/GMT] PHP Fatal error:  Call to a member function find() on a non-object in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 509
+[11-Jul-2016 06:04:49 Etc/GMT] PHP Fatal error:  Call to a member function find() on a non-object in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 509
+[11-Jul-2016 06:04:49 Etc/GMT] PHP Fatal error:  Call to a member function find() on a non-object in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 509
+[11-Jul-2016 06:04:50 Etc/GMT] PHP Fatal error:  Call to a member function find() on a non-object in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 509
+[11-Jul-2016 06:04:50 Etc/GMT] PHP Fatal error:  Call to a member function find() on a non-object in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 509
+[11-Jul-2016 06:04:50 Etc/GMT] PHP Fatal error:  Call to a member function find() on a non-object in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 509
+[11-Jul-2016 06:04:50 Etc/GMT] PHP Fatal error:  Call to a member function find() on a non-object in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 509
+[11-Jul-2016 06:04:50 Etc/GMT] PHP Fatal error:  Call to a member function find() on a non-object in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 509
+[11-Jul-2016 06:04:51 Etc/GMT] PHP Fatal error:  Call to a member function find() on a non-object in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 509
+[11-Jul-2016 06:04:51 Etc/GMT] PHP Fatal error:  Call to a member function find() on a non-object in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 509
+[11-Jul-2016 06:04:51 Etc/GMT] PHP Fatal error:  Call to a member function find() on a non-object in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 509
+[11-Jul-2016 06:04:52 Etc/GMT] PHP Fatal error:  Call to a member function find() on a non-object in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 509
+[11-Jul-2016 06:04:52 Etc/GMT] PHP Fatal error:  Call to a member function find() on a non-object in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 509
+[11-Jul-2016 06:11:14 Etc/GMT] PHP Fatal error:  Call to a member function find() on a non-object in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 509
+[11-Jul-2016 06:11:16 Etc/GMT] PHP Fatal error:  Call to a member function find() on a non-object in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 509
+[11-Jul-2016 06:11:16 Etc/GMT] PHP Fatal error:  Call to a member function find() on a non-object in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 509
+[11-Jul-2016 06:11:16 Etc/GMT] PHP Fatal error:  Call to a member function find() on a non-object in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 509
+[11-Jul-2016 06:11:17 Etc/GMT] PHP Fatal error:  Call to a member function find() on a non-object in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 509
+[11-Jul-2016 06:11:17 Etc/GMT] PHP Fatal error:  Call to a member function find() on a non-object in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 509
+[11-Jul-2016 06:11:17 Etc/GMT] PHP Fatal error:  Call to a member function find() on a non-object in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 509
+[11-Jul-2016 06:11:17 Etc/GMT] PHP Fatal error:  Call to a member function find() on a non-object in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 509
+[11-Jul-2016 06:11:18 Etc/GMT] PHP Fatal error:  Call to a member function find() on a non-object in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 509
+[11-Jul-2016 06:11:18 Etc/GMT] PHP Fatal error:  Call to a member function find() on a non-object in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 509
+[11-Jul-2016 06:11:51 Etc/GMT] PHP Fatal error:  Call to a member function find() on a non-object in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 509
+[11-Jul-2016 06:11:53 Etc/GMT] PHP Fatal error:  Call to a member function find() on a non-object in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 509
+[11-Jul-2016 06:11:53 Etc/GMT] PHP Fatal error:  Call to a member function find() on a non-object in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 509
+[11-Jul-2016 06:24:24 Etc/GMT] PHP Parse error:  syntax error, unexpected ';' in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 514
+[11-Jul-2016 07:22:27 Etc/GMT] PHP Parse error:  syntax error, unexpected end of file in /home/theapxsk/public_html/projects/shipthestuff/app/View/Users/my_account.ctp on line 125
+[11-Jul-2016 07:22:42 Etc/GMT] PHP Parse error:  syntax error, unexpected end of file in /home/theapxsk/public_html/projects/shipthestuff/app/View/Users/my_account.ctp on line 125
+[11-Jul-2016 07:22:45 Etc/GMT] PHP Parse error:  syntax error, unexpected end of file in /home/theapxsk/public_html/projects/shipthestuff/app/View/Users/my_account.ctp on line 125
+[11-Jul-2016 07:22:45 Etc/GMT] PHP Parse error:  syntax error, unexpected end of file in /home/theapxsk/public_html/projects/shipthestuff/app/View/Users/my_account.ctp on line 125
+[11-Jul-2016 07:22:45 Etc/GMT] PHP Parse error:  syntax error, unexpected end of file in /home/theapxsk/public_html/projects/shipthestuff/app/View/Users/my_account.ctp on line 125
+[11-Jul-2016 07:22:45 Etc/GMT] PHP Parse error:  syntax error, unexpected end of file in /home/theapxsk/public_html/projects/shipthestuff/app/View/Users/my_account.ctp on line 125
+[11-Jul-2016 07:22:46 Etc/GMT] PHP Parse error:  syntax error, unexpected end of file in /home/theapxsk/public_html/projects/shipthestuff/app/View/Users/my_account.ctp on line 125
+[11-Jul-2016 07:22:46 Etc/GMT] PHP Parse error:  syntax error, unexpected end of file in /home/theapxsk/public_html/projects/shipthestuff/app/View/Users/my_account.ctp on line 125
+[11-Jul-2016 07:22:46 Etc/GMT] PHP Parse error:  syntax error, unexpected end of file in /home/theapxsk/public_html/projects/shipthestuff/app/View/Users/my_account.ctp on line 125
+[11-Jul-2016 07:22:47 Etc/GMT] PHP Parse error:  syntax error, unexpected end of file in /home/theapxsk/public_html/projects/shipthestuff/app/View/Users/my_account.ctp on line 125
+[11-Jul-2016 07:22:47 Etc/GMT] PHP Parse error:  syntax error, unexpected end of file in /home/theapxsk/public_html/projects/shipthestuff/app/View/Users/my_account.ctp on line 125
+[11-Jul-2016 07:22:47 Etc/GMT] PHP Parse error:  syntax error, unexpected end of file in /home/theapxsk/public_html/projects/shipthestuff/app/View/Users/my_account.ctp on line 125
+[11-Jul-2016 07:22:47 Etc/GMT] PHP Parse error:  syntax error, unexpected end of file in /home/theapxsk/public_html/projects/shipthestuff/app/View/Users/my_account.ctp on line 125
+[11-Jul-2016 07:22:47 Etc/GMT] PHP Parse error:  syntax error, unexpected end of file in /home/theapxsk/public_html/projects/shipthestuff/app/View/Users/my_account.ctp on line 125
+[11-Jul-2016 08:25:59 Etc/GMT] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO) in /home/theapxsk/public_html/projects/shipthestuff/app/View/Users/my_account.ctp on line 27
+[11-Jul-2016 08:27:13 Etc/GMT] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO) in /home/theapxsk/public_html/projects/shipthestuff/app/View/Users/my_account.ctp on line 27
+[11-Jul-2016 09:48:56 Etc/GMT] PHP Parse error:  syntax error, unexpected '}' in /home/theapxsk/public_html/projects/shipthestuff/app/View/Users/my_account.ctp on line 119
+[12-Jul-2016 13:23:27 Etc/GMT] PHP Parse error:  syntax error, unexpected ''userId'' (T_CONSTANT_ENCAPSED_STRING), expecting ']' in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 529
+[13-Jul-2016 05:35:18 Etc/GMT] PHP Parse error:  syntax error, unexpected '=', expecting ')' in /home/theapxsk/public_html/projects/shipthestuff/app/View/Users/my_account.ctp on line 72
+[13-Jul-2016 06:09:10 Etc/GMT] PHP Fatal error:  Call to a member function save() on a non-object in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 536
+[13-Jul-2016 06:09:47 Etc/GMT] PHP Fatal error:  Call to a member function save() on a non-object in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 537
+[13-Jul-2016 06:11:38 Etc/GMT] PHP Fatal error:  Call to a member function save() on a non-object in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 537
+[13-Jul-2016 06:13:35 Etc/GMT] PHP Fatal error:  Call to a member function save() on a non-object in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 537
+[13-Jul-2016 06:13:43 Etc/GMT] PHP Fatal error:  Call to a member function save() on a non-object in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 537
+[13-Jul-2016 06:19:59 Etc/GMT] PHP Fatal error:  Call to a member function save() on a non-object in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 537
+[13-Jul-2016 06:21:49 Etc/GMT] PHP Fatal error:  Call to a member function save() on a non-object in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 527
+[13-Jul-2016 06:36:27 Etc/GMT] PHP Parse error:  syntax error, unexpected '}' in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 545
+[13-Jul-2016 06:36:30 Etc/GMT] PHP Parse error:  syntax error, unexpected '}' in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 545
+[13-Jul-2016 06:36:34 Etc/GMT] PHP Parse error:  syntax error, unexpected '}' in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 545
+[13-Jul-2016 06:36:39 Etc/GMT] PHP Parse error:  syntax error, unexpected '}' in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 545
+[13-Jul-2016 11:31:47 Etc/GMT] PHP Parse error:  syntax error, unexpected 'public' (T_PUBLIC) in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 563
+[13-Jul-2016 11:31:51 Etc/GMT] PHP Parse error:  syntax error, unexpected 'public' (T_PUBLIC) in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 563
+[13-Jul-2016 11:32:34 Etc/GMT] PHP Parse error:  syntax error, unexpected 'public' (T_PUBLIC) in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 563
+[13-Jul-2016 11:32:38 Etc/GMT] PHP Parse error:  syntax error, unexpected 'public' (T_PUBLIC) in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 563
+[13-Jul-2016 11:32:47 Etc/GMT] PHP Parse error:  syntax error, unexpected 'public' (T_PUBLIC) in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 563
+[13-Jul-2016 11:34:04 Etc/GMT] PHP Parse error:  syntax error, unexpected 'public' (T_PUBLIC) in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 563
+[13-Jul-2016 11:34:07 Etc/GMT] PHP Parse error:  syntax error, unexpected 'public' (T_PUBLIC) in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 563
+[13-Jul-2016 11:34:10 Etc/GMT] PHP Parse error:  syntax error, unexpected 'public' (T_PUBLIC) in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 563
+[13-Jul-2016 11:34:15 Etc/GMT] PHP Parse error:  syntax error, unexpected 'public' (T_PUBLIC) in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 563
+[13-Jul-2016 12:20:16 Etc/GMT] PHP Parse error:  syntax error, unexpected ';', expecting ')' in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 532
+[14-Jul-2016 04:49:28 Etc/GMT] PHP Parse error:  syntax error, unexpected 'exit' (T_EXIT), expecting ',' or ';' in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 597
+[14-Jul-2016 04:50:06 Etc/GMT] PHP Parse error:  syntax error, unexpected 'exit' (T_EXIT), expecting ',' or ';' in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 597
+[14-Jul-2016 04:50:08 Etc/GMT] PHP Parse error:  syntax error, unexpected 'exit' (T_EXIT), expecting ',' or ';' in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 597
+[14-Jul-2016 04:50:08 Etc/GMT] PHP Parse error:  syntax error, unexpected 'exit' (T_EXIT), expecting ',' or ';' in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 597
+[14-Jul-2016 04:50:09 Etc/GMT] PHP Parse error:  syntax error, unexpected 'exit' (T_EXIT), expecting ',' or ';' in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 597
+[14-Jul-2016 04:50:09 Etc/GMT] PHP Parse error:  syntax error, unexpected 'exit' (T_EXIT), expecting ',' or ';' in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 597
+[14-Jul-2016 04:50:09 Etc/GMT] PHP Parse error:  syntax error, unexpected 'exit' (T_EXIT), expecting ',' or ';' in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 597
+[14-Jul-2016 04:50:10 Etc/GMT] PHP Parse error:  syntax error, unexpected 'exit' (T_EXIT), expecting ',' or ';' in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 597
+[14-Jul-2016 04:50:10 Etc/GMT] PHP Parse error:  syntax error, unexpected 'exit' (T_EXIT), expecting ',' or ';' in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 597
+[14-Jul-2016 05:02:27 Etc/GMT] PHP Fatal error:  Call to a member function error() on a non-object in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 587
+[14-Jul-2016 05:03:37 Etc/GMT] PHP Fatal error:  Call to a member function error() on a non-object in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 587
+[14-Jul-2016 05:08:01 Etc/GMT] PHP Fatal error:  Call to a member function error() on a non-object in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 587
+[14-Jul-2016 05:22:05 Etc/GMT] PHP Fatal error:  Cannot redeclare User::$validate in /home/theapxsk/public_html/projects/shipthestuff/app/Model/User.php on line 74
+[14-Jul-2016 05:22:09 Etc/GMT] PHP Fatal error:  Cannot redeclare User::$validate in /home/theapxsk/public_html/projects/shipthestuff/app/Model/User.php on line 74
+[14-Jul-2016 05:23:29 Etc/GMT] PHP Parse error:  syntax error, unexpected 'var' (T_VAR), expecting variable (T_VARIABLE) in /home/theapxsk/public_html/projects/shipthestuff/app/Model/User.php on line 53
+[14-Jul-2016 05:23:29 Etc/GMT] PHP Parse error:  syntax error, unexpected 'var' (T_VAR), expecting variable (T_VARIABLE) in /home/theapxsk/public_html/projects/shipthestuff/app/Model/User.php on line 53
+[14-Jul-2016 06:14:16 Etc/GMT] PHP Fatal error:  Call to a member function create() on a non-object in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 582
+[14-Jul-2016 06:27:29 Etc/GMT] PHP Fatal error:  Call to a member function create() on a non-object in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 582
+[14-Jul-2016 06:27:39 Etc/GMT] PHP Fatal error:  Call to a member function create() on a non-object in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 582
+[14-Jul-2016 06:49:25 Etc/GMT] PHP Fatal error:  Cannot redeclare class User in /home/theapxsk/public_html/projects/shipthestuff/app/Model/Messaging.php on line 30
+[14-Jul-2016 06:49:27 Etc/GMT] PHP Fatal error:  Cannot redeclare class User in /home/theapxsk/public_html/projects/shipthestuff/app/Model/Messaging.php on line 30
+[14-Jul-2016 06:49:32 Etc/GMT] PHP Fatal error:  Cannot redeclare class User in /home/theapxsk/public_html/projects/shipthestuff/app/Model/Messaging.php on line 30
+[14-Jul-2016 06:55:16 Etc/GMT] PHP Fatal error:  Cannot redeclare class User in /home/theapxsk/public_html/projects/shipthestuff/app/Model/Messaging.php on line 30
+[14-Jul-2016 06:56:45 Etc/GMT] PHP Fatal error:  Call to a member function create() on a non-object in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 583
+[14-Jul-2016 06:56:46 Etc/GMT] PHP Fatal error:  Call to a member function create() on a non-object in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 583
+[14-Jul-2016 06:56:47 Etc/GMT] PHP Fatal error:  Call to a member function create() on a non-object in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 583
+[14-Jul-2016 06:56:55 Etc/GMT] PHP Fatal error:  Call to a member function create() on a non-object in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 583
+[14-Jul-2016 06:57:48 Etc/GMT] PHP Fatal error:  Call to a member function save() on a non-object in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 584
+[14-Jul-2016 06:57:49 Etc/GMT] PHP Fatal error:  Call to a member function save() on a non-object in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 584
+[14-Jul-2016 06:57:57 Etc/GMT] PHP Fatal error:  Call to a member function save() on a non-object in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 584
+[14-Jul-2016 07:04:40 Etc/GMT] PHP Fatal error:  Call to a member function save() on a non-object in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 586
+[14-Jul-2016 07:05:53 Etc/GMT] PHP Fatal error:  Call to a member function save() on a non-object in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 586
+[14-Jul-2016 07:06:19 Etc/GMT] PHP Fatal error:  Call to a member function save() on a non-object in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 586
+[14-Jul-2016 07:16:49 Etc/GMT] PHP Fatal error:  Call to a member function save() on a non-object in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 586
+[14-Jul-2016 08:55:41 Etc/GMT] PHP Fatal error:  Call to a member function find() on a non-object in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 581
+[14-Jul-2016 08:55:46 Etc/GMT] PHP Fatal error:  Call to a member function find() on a non-object in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 581
+[14-Jul-2016 09:23:14 Etc/GMT] PHP Parse error:  syntax error, unexpected 'if' (T_IF) in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 586
+[14-Jul-2016 09:42:58 Etc/GMT] PHP Parse error:  syntax error, unexpected 'exit' (T_EXIT) in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 589
+[14-Jul-2016 09:43:03 Etc/GMT] PHP Parse error:  syntax error, unexpected 'exit' (T_EXIT) in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 589
+[14-Jul-2016 09:43:24 Etc/GMT] PHP Fatal error:  Call to a member function query() on a non-object in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 586
+[14-Jul-2016 09:43:48 Etc/GMT] PHP Fatal error:  Call to a member function query() on a non-object in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 586
+[14-Jul-2016 09:44:29 Etc/GMT] PHP Fatal error:  Call to a member function query() on a non-object in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 586
+[14-Jul-2016 10:28:38 Etc/GMT] PHP Fatal error:  Call to a member function save() on a non-object in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 583
+[14-Jul-2016 10:37:12 Etc/GMT] PHP Fatal error:  Call to a member function save() on a non-object in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 585
+[14-Jul-2016 10:49:40 Etc/GMT] PHP Fatal error:  Call to a member function save() on a non-object in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 585
+[14-Jul-2016 12:02:08 Etc/GMT] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO) in /home/theapxsk/public_html/projects/shipthestuff/app/View/Users/my_compose.ctp on line 35
+[14-Jul-2016 12:02:12 Etc/GMT] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO) in /home/theapxsk/public_html/projects/shipthestuff/app/View/Users/my_compose.ctp on line 35
+[14-Jul-2016 12:02:15 Etc/GMT] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO) in /home/theapxsk/public_html/projects/shipthestuff/app/View/Users/my_compose.ctp on line 35
+[14-Jul-2016 12:13:17 Etc/GMT] PHP Fatal error:  Call to a member function save() on a non-object in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 585
+[15-Jul-2016 03:51:47 Etc/GMT] PHP Fatal error:  Call to a member function save() on a non-object in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 586
+[15-Jul-2016 04:37:21 Etc/GMT] PHP Fatal error:  Call to a member function save() on a non-object in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 585
+[15-Jul-2016 06:04:56 Etc/GMT] PHP Parse error:  syntax error, unexpected 'exit' (T_EXIT) in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 618
+[15-Jul-2016 07:36:54 Etc/GMT] PHP Parse error:  syntax error, unexpected ';' in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 661
+[15-Jul-2016 09:30:22 Etc/GMT] PHP Parse error:  syntax error, unexpected 'public' (T_PUBLIC) in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 556
+[15-Jul-2016 09:30:24 Etc/GMT] PHP Parse error:  syntax error, unexpected 'public' (T_PUBLIC) in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 556
+[15-Jul-2016 09:30:25 Etc/GMT] PHP Parse error:  syntax error, unexpected 'public' (T_PUBLIC) in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 556
+[15-Jul-2016 09:30:25 Etc/GMT] PHP Parse error:  syntax error, unexpected 'public' (T_PUBLIC) in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 556
+[15-Jul-2016 09:30:25 Etc/GMT] PHP Parse error:  syntax error, unexpected 'public' (T_PUBLIC) in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 556
+[15-Jul-2016 09:30:26 Etc/GMT] PHP Parse error:  syntax error, unexpected 'public' (T_PUBLIC) in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 556
+[15-Jul-2016 09:30:26 Etc/GMT] PHP Parse error:  syntax error, unexpected 'public' (T_PUBLIC) in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 556
+[15-Jul-2016 09:30:27 Etc/GMT] PHP Parse error:  syntax error, unexpected 'public' (T_PUBLIC) in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 556
+[15-Jul-2016 09:30:56 Etc/GMT] PHP Parse error:  syntax error, unexpected 'public' (T_PUBLIC) in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 556
+[15-Jul-2016 09:30:58 Etc/GMT] PHP Parse error:  syntax error, unexpected 'public' (T_PUBLIC) in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 556
+[15-Jul-2016 09:30:59 Etc/GMT] PHP Parse error:  syntax error, unexpected 'public' (T_PUBLIC) in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 556
+[15-Jul-2016 09:31:03 Etc/GMT] PHP Parse error:  syntax error, unexpected 'public' (T_PUBLIC) in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 556
+[15-Jul-2016 09:32:01 Etc/GMT] PHP Fatal error:  Call to a member function create() on a non-object in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 530
+[15-Jul-2016 09:38:52 Etc/GMT] PHP Fatal error:  Call to a member function create() on a non-object in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 531
+[15-Jul-2016 10:00:46 Etc/GMT] PHP Fatal error:  Call to a member function error() on a non-object in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 544
+[15-Jul-2016 10:01:33 Etc/GMT] PHP Fatal error:  Call to a member function error() on a non-object in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 547
+[15-Jul-2016 10:01:47 Etc/GMT] PHP Fatal error:  Call to a member function error() on a non-object in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 547
+[15-Jul-2016 10:04:10 Etc/GMT] PHP Fatal error:  Call to a member function error() on a non-object in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 547
+[15-Jul-2016 10:42:52 Etc/GMT] PHP Parse error:  syntax error, unexpected 'elseif' (T_ELSEIF) in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 463
+[15-Jul-2016 10:43:01 Etc/GMT] PHP Parse error:  syntax error, unexpected 'elseif' (T_ELSEIF) in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 463
+[15-Jul-2016 10:43:04 Etc/GMT] PHP Parse error:  syntax error, unexpected 'elseif' (T_ELSEIF) in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 463
+[15-Jul-2016 10:43:05 Etc/GMT] PHP Parse error:  syntax error, unexpected 'elseif' (T_ELSEIF) in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 463
+[15-Jul-2016 10:43:08 Etc/GMT] PHP Parse error:  syntax error, unexpected 'elseif' (T_ELSEIF) in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 463
+[15-Jul-2016 10:43:11 Etc/GMT] PHP Parse error:  syntax error, unexpected 'elseif' (T_ELSEIF) in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 463
+[15-Jul-2016 13:14:46 Etc/GMT] PHP Parse error:  syntax error, unexpected '?' in /home/theapxsk/public_html/projects/shipthestuff/app/View/Users/my_account.ctp on line 146
+[15-Jul-2016 13:14:54 Etc/GMT] PHP Parse error:  syntax error, unexpected '?' in /home/theapxsk/public_html/projects/shipthestuff/app/View/Users/my_account.ctp on line 146
+[18-Jul-2016 04:15:21 Etc/GMT] PHP Parse error:  syntax error, unexpected '=' in /home/theapxsk/public_html/projects/shipthestuff/app/View/Users/my_account.ctp on line 12
+[18-Jul-2016 04:15:25 Etc/GMT] PHP Parse error:  syntax error, unexpected '=' in /home/theapxsk/public_html/projects/shipthestuff/app/View/Users/my_account.ctp on line 12
+[18-Jul-2016 05:37:39 Etc/GMT] PHP Parse error:  syntax error, unexpected '=', expecting ')' in /home/theapxsk/public_html/projects/shipthestuff/app/View/Users/my_account.ctp on line 130
+[18-Jul-2016 05:38:21 Etc/GMT] PHP Parse error:  syntax error, unexpected '=', expecting ')' in /home/theapxsk/public_html/projects/shipthestuff/app/View/Users/my_account.ctp on line 130
+[18-Jul-2016 05:39:31 Etc/GMT] PHP Parse error:  syntax error, unexpected '=', expecting ')' in /home/theapxsk/public_html/projects/shipthestuff/app/View/Users/my_account.ctp on line 130
+[18-Jul-2016 05:40:02 Etc/GMT] PHP Parse error:  syntax error, unexpected '=', expecting ')' in /home/theapxsk/public_html/projects/shipthestuff/app/View/Users/my_account.ctp on line 130
+[18-Jul-2016 05:40:05 Etc/GMT] PHP Parse error:  syntax error, unexpected '=', expecting ')' in /home/theapxsk/public_html/projects/shipthestuff/app/View/Users/my_account.ctp on line 130
+[18-Jul-2016 05:40:56 Etc/GMT] PHP Parse error:  syntax error, unexpected '=', expecting ')' in /home/theapxsk/public_html/projects/shipthestuff/app/View/Users/my_account.ctp on line 130
+[18-Jul-2016 05:40:58 Etc/GMT] PHP Parse error:  syntax error, unexpected '=', expecting ')' in /home/theapxsk/public_html/projects/shipthestuff/app/View/Users/my_account.ctp on line 130
+[18-Jul-2016 05:40:59 Etc/GMT] PHP Parse error:  syntax error, unexpected '=', expecting ')' in /home/theapxsk/public_html/projects/shipthestuff/app/View/Users/my_account.ctp on line 130
+[18-Jul-2016 05:40:59 Etc/GMT] PHP Parse error:  syntax error, unexpected '=', expecting ')' in /home/theapxsk/public_html/projects/shipthestuff/app/View/Users/my_account.ctp on line 130
+[18-Jul-2016 05:41:00 Etc/GMT] PHP Parse error:  syntax error, unexpected '=', expecting ')' in /home/theapxsk/public_html/projects/shipthestuff/app/View/Users/my_account.ctp on line 130
+[18-Jul-2016 05:41:00 Etc/GMT] PHP Parse error:  syntax error, unexpected '=', expecting ')' in /home/theapxsk/public_html/projects/shipthestuff/app/View/Users/my_account.ctp on line 130
+[18-Jul-2016 05:41:11 Etc/GMT] PHP Parse error:  syntax error, unexpected '=', expecting ')' in /home/theapxsk/public_html/projects/shipthestuff/app/View/Users/my_account.ctp on line 130
+[18-Jul-2016 05:41:38 Etc/GMT] PHP Parse error:  syntax error, unexpected '=', expecting ')' in /home/theapxsk/public_html/projects/shipthestuff/app/View/Users/my_account.ctp on line 130
+[18-Jul-2016 05:41:40 Etc/GMT] PHP Parse error:  syntax error, unexpected '=', expecting ')' in /home/theapxsk/public_html/projects/shipthestuff/app/View/Users/my_account.ctp on line 130
+[18-Jul-2016 05:41:41 Etc/GMT] PHP Parse error:  syntax error, unexpected '=', expecting ')' in /home/theapxsk/public_html/projects/shipthestuff/app/View/Users/my_account.ctp on line 130
+[18-Jul-2016 05:41:41 Etc/GMT] PHP Parse error:  syntax error, unexpected '=', expecting ')' in /home/theapxsk/public_html/projects/shipthestuff/app/View/Users/my_account.ctp on line 130
+[18-Jul-2016 05:41:41 Etc/GMT] PHP Parse error:  syntax error, unexpected '=', expecting ')' in /home/theapxsk/public_html/projects/shipthestuff/app/View/Users/my_account.ctp on line 130
+[18-Jul-2016 05:41:42 Etc/GMT] PHP Parse error:  syntax error, unexpected '=', expecting ')' in /home/theapxsk/public_html/projects/shipthestuff/app/View/Users/my_account.ctp on line 130
+[18-Jul-2016 05:41:42 Etc/GMT] PHP Parse error:  syntax error, unexpected '=', expecting ')' in /home/theapxsk/public_html/projects/shipthestuff/app/View/Users/my_account.ctp on line 130
+[18-Jul-2016 05:41:42 Etc/GMT] PHP Parse error:  syntax error, unexpected '=', expecting ')' in /home/theapxsk/public_html/projects/shipthestuff/app/View/Users/my_account.ctp on line 130
+[18-Jul-2016 05:42:05 Etc/GMT] PHP Parse error:  syntax error, unexpected '=', expecting ')' in /home/theapxsk/public_html/projects/shipthestuff/app/View/Users/my_account.ctp on line 130
+[18-Jul-2016 05:53:58 Etc/GMT] PHP Parse error:  syntax error, unexpected ''options'' (T_CONSTANT_ENCAPSED_STRING), expecting ')' in /home/theapxsk/public_html/projects/shipthestuff/app/View/Users/my_account.ctp on line 131
+[18-Jul-2016 05:54:00 Etc/GMT] PHP Parse error:  syntax error, unexpected ''options'' (T_CONSTANT_ENCAPSED_STRING), expecting ')' in /home/theapxsk/public_html/projects/shipthestuff/app/View/Users/my_account.ctp on line 131
+[18-Jul-2016 05:54:01 Etc/GMT] PHP Parse error:  syntax error, unexpected ''options'' (T_CONSTANT_ENCAPSED_STRING), expecting ')' in /home/theapxsk/public_html/projects/shipthestuff/app/View/Users/my_account.ctp on line 131
+[18-Jul-2016 05:54:02 Etc/GMT] PHP Parse error:  syntax error, unexpected ''options'' (T_CONSTANT_ENCAPSED_STRING), expecting ')' in /home/theapxsk/public_html/projects/shipthestuff/app/View/Users/my_account.ctp on line 131
+[18-Jul-2016 09:15:31 Etc/GMT] PHP Fatal error:  Call to a member function logout() on a non-object in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 753
+[18-Jul-2016 09:21:39 Etc/GMT] PHP Fatal error:  Call to a member function logout() on a non-object in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 753
+[19-Jul-2016 08:52:38 Etc/GMT] PHP Parse error:  syntax error, unexpected '$openjob' (T_VARIABLE) in /home/theapxsk/public_html/projects/shipthestuff/app/View/Users/dashboard.ctp on line 37
+[19-Jul-2016 08:52:41 Etc/GMT] PHP Parse error:  syntax error, unexpected '$openjob' (T_VARIABLE) in /home/theapxsk/public_html/projects/shipthestuff/app/View/Users/dashboard.ctp on line 37
+[19-Jul-2016 09:10:39 Etc/GMT] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/ShipsController.php on line 138
+[19-Jul-2016 09:10:46 Etc/GMT] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/ShipsController.php on line 138
+[19-Jul-2016 09:10:49 Etc/GMT] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/ShipsController.php on line 138
+[19-Jul-2016 09:11:21 Etc/GMT] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/ShipsController.php on line 138
+[19-Jul-2016 09:11:22 Etc/GMT] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/ShipsController.php on line 138
+[19-Jul-2016 09:11:49 Etc/GMT] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/ShipsController.php on line 138
+[19-Jul-2016 09:11:50 Etc/GMT] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/ShipsController.php on line 138
+[19-Jul-2016 09:11:50 Etc/GMT] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/ShipsController.php on line 138
+[19-Jul-2016 09:11:51 Etc/GMT] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/ShipsController.php on line 138
+[19-Jul-2016 09:11:51 Etc/GMT] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/ShipsController.php on line 138
+[19-Jul-2016 09:11:51 Etc/GMT] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/ShipsController.php on line 138
+[19-Jul-2016 09:11:51 Etc/GMT] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/ShipsController.php on line 138
+[19-Jul-2016 09:11:52 Etc/GMT] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/ShipsController.php on line 138
+[19-Jul-2016 09:11:52 Etc/GMT] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/ShipsController.php on line 138
+[19-Jul-2016 09:11:52 Etc/GMT] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/ShipsController.php on line 138
+[19-Jul-2016 09:11:52 Etc/GMT] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/ShipsController.php on line 138
+[19-Jul-2016 09:11:52 Etc/GMT] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/ShipsController.php on line 138
+[19-Jul-2016 09:11:57 Etc/GMT] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/ShipsController.php on line 138
+[19-Jul-2016 09:12:02 Etc/GMT] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/ShipsController.php on line 138
+[19-Jul-2016 09:13:27 Etc/GMT] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/ShipsController.php on line 138
+[19-Jul-2016 09:15:01 Etc/GMT] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/ShipsController.php on line 138
+[19-Jul-2016 09:15:04 Etc/GMT] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/ShipsController.php on line 138
+[19-Jul-2016 09:17:43 Etc/GMT] PHP Parse error:  syntax error, unexpected 'public' (T_PUBLIC) in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/ShipsController.php on line 158
+[19-Jul-2016 09:17:49 Etc/GMT] PHP Parse error:  syntax error, unexpected 'public' (T_PUBLIC) in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/ShipsController.php on line 158
+[20-Jul-2016 11:44:22 Etc/GMT] PHP Parse error:  syntax error, unexpected end of file in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 437
+[20-Jul-2016 12:33:41 Etc/GMT] PHP Parse error:  syntax error, unexpected end of file in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 437
+[21-Jul-2016 04:42:01 Etc/GMT] PHP Fatal error:  Call to a member function save() on a non-object in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 641
+[21-Jul-2016 07:09:22 Etc/GMT] PHP Fatal error:  Call to a member function save() on a non-object in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 648
+[21-Jul-2016 07:17:51 Etc/GMT] PHP Fatal error:  Call to a member function create() on a non-object in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 638
+[21-Jul-2016 09:44:14 Etc/GMT] PHP Parse error:  syntax error, unexpected '*' in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 671
+[21-Jul-2016 09:48:41 Etc/GMT] PHP Parse error:  syntax error, unexpected '->read(' in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 437
+[21-Jul-2016 10:44:44 Etc/GMT] PHP Fatal error:  Call to a member function save() on a non-object in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 675
+[21-Jul-2016 11:07:54 Etc/GMT] PHP Parse error:  syntax error, unexpected end of file in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 437
+[22-Jul-2016 05:49:53 Etc/GMT] PHP Fatal error:  Call to a member function create() on a non-object in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 676
+[22-Jul-2016 05:54:45 Etc/GMT] PHP Fatal error:  Call to a member function create() on a non-object in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 676
+[22-Jul-2016 05:55:06 Etc/GMT] PHP Fatal error:  Call to a member function create() on a non-object in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 676
+[22-Jul-2016 05:55:30 Etc/GMT] PHP Fatal error:  Call to a member function create() on a non-object in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 676
+[22-Jul-2016 05:56:03 Etc/GMT] PHP Fatal error:  Call to a member function save() on a non-object in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 677
+[22-Jul-2016 05:57:09 Etc/GMT] PHP Fatal error:  Call to a member function save() on a non-object in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 660
+[22-Jul-2016 07:02:22 Etc/GMT] PHP Parse error:  syntax error, unexpected '<' in /home/theapxsk/public_html/projects/shipthestuff/app/View/Users/my_inbox.ctp on line 45
+[22-Jul-2016 07:02:23 Etc/GMT] PHP Parse error:  syntax error, unexpected '<' in /home/theapxsk/public_html/projects/shipthestuff/app/View/Users/my_inbox.ctp on line 45
+[22-Jul-2016 07:02:23 Etc/GMT] PHP Parse error:  syntax error, unexpected '<' in /home/theapxsk/public_html/projects/shipthestuff/app/View/Users/my_inbox.ctp on line 45
+[22-Jul-2016 07:02:24 Etc/GMT] PHP Parse error:  syntax error, unexpected '<' in /home/theapxsk/public_html/projects/shipthestuff/app/View/Users/my_inbox.ctp on line 45
+[22-Jul-2016 07:02:31 Etc/GMT] PHP Parse error:  syntax error, unexpected '<' in /home/theapxsk/public_html/projects/shipthestuff/app/View/Users/my_inbox.ctp on line 45
+[22-Jul-2016 07:03:42 Etc/GMT] PHP Parse error:  syntax error, unexpected '<' in /home/theapxsk/public_html/projects/shipthestuff/app/View/Users/my_inbox.ctp on line 47
+[22-Jul-2016 07:12:59 Etc/GMT] PHP Parse error:  syntax error, unexpected '<' in /home/theapxsk/public_html/projects/shipthestuff/app/View/Users/my_inbox.ctp on line 47
+[22-Jul-2016 07:17:52 Etc/GMT] PHP Parse error:  syntax error, unexpected '<' in /home/theapxsk/public_html/projects/shipthestuff/app/View/Users/my_inbox.ctp on line 47
+[22-Jul-2016 07:18:12 Etc/GMT] PHP Parse error:  syntax error, unexpected '<' in /home/theapxsk/public_html/projects/shipthestuff/app/View/Users/my_inbox.ctp on line 47
+[22-Jul-2016 12:40:29 Etc/GMT] PHP Fatal error:  Cannot redeclare UsersController::addCompose() in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 730
+[25-Jul-2016 05:08:32 Etc/GMT] PHP Parse error:  syntax error, unexpected '$options' (T_VARIABLE), expecting function (T_FUNCTION) in /home/theapxsk/public_html/projects/shipthestuff/app/Model/Message.php on line 15
+[25-Jul-2016 05:09:24 Etc/GMT] PHP Parse error:  syntax error, unexpected '$options' (T_VARIABLE), expecting function (T_FUNCTION) in /home/theapxsk/public_html/projects/shipthestuff/app/Model/Message.php on line 15
+[25-Jul-2016 05:11:32 Etc/GMT] PHP Parse error:  syntax error, unexpected '$options' (T_VARIABLE), expecting function (T_FUNCTION) in /home/theapxsk/public_html/projects/shipthestuff/app/Model/Message.php on line 15
+[25-Jul-2016 05:12:09 Etc/GMT] PHP Parse error:  syntax error, unexpected '$options' (T_VARIABLE), expecting function (T_FUNCTION) in /home/theapxsk/public_html/projects/shipthestuff/app/Model/Message.php on line 15
+[25-Jul-2016 11:57:17 Etc/GMT] PHP Parse error:  syntax error, unexpected '$dashboardopenjob' (T_VARIABLE) in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 822
+[25-Jul-2016 11:58:10 Etc/GMT] PHP Parse error:  syntax error, unexpected '$dashboardopenjob' (T_VARIABLE) in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 822
+[25-Jul-2016 12:05:58 Etc/GMT] PHP Fatal error:  Call to a member function find() on a non-object in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 826
+[26-Jul-2016 11:25:56 Etc/GMT] PHP Parse error:  syntax error, unexpected 'die' (T_EXIT) in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 848
+[26-Jul-2016 12:24:59 Etc/GMT] PHP Fatal error:  Call to a member function find() on a non-object in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 635
+[27-Jul-2016 05:27:48 Etc/GMT] PHP Parse error:  syntax error, unexpected ')' in /home/theapxsk/public_html/projects/shipthestuff/app/Controller/UsersController.php on line 833
