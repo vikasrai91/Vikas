@@ -338,7 +338,7 @@
           success: function(r_data)   
             {
               if(r_data == 'true'){
-                window.location.href = "/ships/listingRequest/";
+                window.location.href = BASE_URL + "/ships/listingRequest/";
               }else{
               $('#listing_option').click();
               }

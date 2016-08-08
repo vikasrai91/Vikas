@@ -55,16 +55,16 @@ window.fbAsyncInit = function() {
                                 if(res_data != '' && res_data != null){
                                     var get_data = JSON.parse(res_data);
                                     if(get_data.order){
-                                        window.location.href = "/ships/listingRequest/";
+                                        window.location.href = BASE_URL + "/ships/listingRequest/";
                                     }
                                     else if(get_data.already == 1){
                                         if(get_data.user_type == 1){
-                                        window.location.href = "/";
+                                        window.location.href = BASE_URL;
                                         }else{
-                                        window.location.href = "/";
+                                        window.location.href = BASE_URL;
                                         }
                                     }else if(get_data.already == 0){
-                                        window.location.href = "/";
+                                        window.location.href = BASE_URL;
                                     }
                                 }
                             }
