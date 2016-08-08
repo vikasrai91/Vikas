@@ -1,3 +1,7 @@
+<script type="text/javascript">
+    // set BASE_URL
+    var BASE_URL = "<?php echo rtrim(SITE_LINK, '/'); ?>";
+</script>
 <!-- Header section start here -->
       <header class="header">
          <div class="container">

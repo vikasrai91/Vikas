@@ -177,7 +177,7 @@
             var formData = new FormData($('#shipment_form1')[0]);
           //formData.append('file', $('input[type=file]')[0].files[0]);
               $.ajax({
-                    url:'/ships/uploadImage',
+                    url: BASE_URL + '/ships/uploadImage',
                     data: formData,
                     type: 'post',
                     contentType: false,
@@ -272,7 +272,7 @@
           }
           var data1 = $('#shipment_form1').serialize();
               $.ajax({
-            url: "/ships/shipmentRequest", 
+            url: BASE_URL + "/ships/shipmentRequest", 
             type: "POST",             
             data: data1+'&form=1',
           beforeSend: function(){
@@ -324,7 +324,7 @@
             //form.submit();
             var data1 = $('#shipment_form2').serialize();
               $.ajax({
-            url: "/ships/shipmentRequest", 
+            url: BASE_URL + "/ships/shipmentRequest", 
             type: "POST",             
             data: data1+'&form=2', 
             beforeSend: function(){
@@ -358,7 +358,7 @@
             "data[User][email]": {
                 required: true,
                 email: true,
-                remote:{ url: "/users/uniqueMail", type : "post" }
+                remote:{ url: BASE_URL + "/users/uniqueMail", type : "post" }
             },
             "data[User][password]": {
                 required: true,
@@ -393,7 +393,7 @@
           function deleteFile(fileName, id){
 
               $.ajax({
-                url: "/ships/deleteuploadFile", 
+                url: BASE_URL + "/ships/deleteuploadFile", 
                 type: "POST",             
                 data: 'fileName='+fileName,        
                 success: function(r_data)   

@@ -178,7 +178,7 @@
           }
           var data1 = $('#shipment_form1').serialize();
               $.ajax({
-            url: "/shipthestuff/ships/shipmentRequest", 
+            url: BASE_URL + "/shipthestuff/ships/shipmentRequest", 
             type: "POST",             
             data: data1+'&form=1',       
           success: function(r_data)   
@@ -193,7 +193,7 @@
         $('#shipment_form2').on('submit', function (e) {
           var data1 = $('#shipment_form1').serialize();
               $.ajax({
-            url: "/shipthestuff/ships/shipmentRequest", 
+            url: BASE_URL + "/shipthestuff/ships/shipmentRequest", 
             type: "POST",             
             data: data1+'&form=1',       
           success: function(r_data)   
@@ -213,7 +213,7 @@
             "data[User][email]": {
                 required: true,
                 email: true,
-                remote:{ url: "/shipthestuff/users/uniqueMail", type : "post" }
+                remote:{ url: BASE_URL + "/shipthestuff/users/uniqueMail", type : "post" }
             },
             "data[User][password]": {
                 required: true,
@@ -242,7 +242,7 @@
             //form.submit();
             var data = $('#UserSignupForm').serialize();
             $.ajax({
-              url: "/shipthestuff/users/signup", 
+              url: BASE_URL + "/shipthestuff/users/signup", 
               type: "POST",             
               data: data,       
             success: function(r_data)   
