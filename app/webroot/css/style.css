@@ -129,8 +129,9 @@ a:focus {
 /** slider start here **/
 
 .background-text {
-    background-color: #7699b0;
-    opacity: 0.8;
+    /*removed as per client feedback*/
+    /*background-color: #7699b0;
+    opacity: 0.8;*/
     padding: 20px;
 }
 
@@ -168,6 +169,7 @@ a:focus {
 
 .read-more-btn {
     margin-top: 30px;
+    margin-left: 20px;
 }
 
 .carousel-custom .carousel-indicators {
