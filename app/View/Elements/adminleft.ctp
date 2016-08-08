@@ -33,10 +33,10 @@
 			<li><?php //echo $this->Html->link(__('Banner images', true), '/admin/users/bannerImage'); ?></li>
 		</ul>
 		<ul class="admintoggel">
-			<li><a href="javascript:void(0);" class="Admins">View</a></li>
+			<li><a href="javascript:void(0);" class="Admins">Shipments</a></li>
 		</ul>
 		<ul class="sublist-menu <?php echo (($this->params['controller']=='orders' && $this->params['action'] !='admin_payments' && $this->params['action'] !='admin_transaction' && $this->params['action'] !='admin_transactionlab' && $this->params['action']!='admin_mark_paid'  && $this->params['action']!='admin_view')?'hide1':'hide'); ?>">
-			<li><?php //echo $this->Html->link(__('Orders', true), '/admin/orders/index');?></li>
+			<li><?php echo $this->Html->link(__('Users', true), '/admins/ship');?></li>
 			<li><?php //echo $this->Html->link(__('Doctors not paid payment', true), '/admin/orders/');?></li>
 			<li><?php //echo $this->Html->link(__('Lab waiting for payment', true), '/admin/orders/');?></li>
 

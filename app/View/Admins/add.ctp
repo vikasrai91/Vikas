@@ -1,10 +1,31 @@
 <div class="admins form">
-<?php echo $this->element("admins/common",array("place"=>'Search by username,domain',"flag"=>false,"pageheader"=>'Admins',"buttontitle"=>'Add Admin',"listflag"=>false,"action"=>'add')); ?>
-<?php echo $this->Form->create('Admin');?>
+<?php echo $this->element("admins/common",array("place"=>'Search by username,domain',"flag"=>false,"pageheader"=>'User',"buttontitle"=>'Add User',"listflag"=>false,"action"=>'add')); ?>
+<?php echo $this->Form->create('User');?>
 	<fieldset>
-		<legend><?php echo __('Add Admin'); ?></legend>
-	<?php
-		echo $this->Form->input('username',array("maxlength"=>'200',"label"=>"Username/Email"));
+		<legend><?php echo __('Add User'); ?></legend>
+
+	
+	<label for="UserCountry">User type</label>
+			<select name="data[User][country_id]" id="UserCountry" style="maxlength='200';" >
+				<option value="0">(choose one)</option>
+			
+					<option value="1">Customer</option>
+					<option value="2">Carrier</option>
+					
+			</select>
+			<label for="UserCountry">Account type</label>
+			<select name="data[User][country_id]" id="UserCountry" style="maxlength='200';" >
+				<option value="0">(choose one)</option>
+			
+					<option value="1">Personal</option>
+					<option value="2">Business</option>
+					
+			</select>
+		<?php		
+		echo $this->Form->input('username',array("maxlength"=>'200',"label"=>"First Name"));
+		echo $this->Form->input('username',array("maxlength"=>'200',"label"=>"Last Name"));
+		echo $this->Form->input('username',array("maxlength"=>'200',"label"=>"Email"));
+		echo $this->Form->input('username',array("maxlength"=>'200',"label"=>"Phone Number"));
 		echo $this->Form->input('password',array("maxlength"=>'20'));
 		echo $this->Form->input('confirm password',array('type'=>'password',"maxlength"=>'20'));
 		echo $this->Form->input('status',array("type"=>"checkbox","label"=>'Active'));

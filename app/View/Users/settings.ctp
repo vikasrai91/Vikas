@@ -94,13 +94,37 @@
                           ?>
                         </li>
                         <li>
-                          <a href="profile_addresses">Update Communication Preferences</a>
+                         <?php
+                           echo $this->Html->link(
+                                 'Update Communication Preferences',
+                                 '/update-comminication',
+                                 array('class' => 'button', 'target' => '_self')
+                              );
+                          ?>
+
+                        <!--   <a href="profile_addresses">Update Communication Preferences</a> -->
                         </li>
                         <li>
-                          <a href="profile_addresses">Manage Linked Applications</a>
+                        <?php
+                           echo $this->Html->link(
+                                 'Manage Linked Applications',
+                                 '/manage-linked',
+                                 array('class' => 'button', 'target' => '_self')
+                              );
+                          ?>
+                          <!-- <a href="profile_addresses">Manage Linked Applications</a> -->
                         </li>
                         <li>
-                          <a href="profile_addresses">Close Account</a>
+
+                          <!-- <?php
+                           echo $this->Html->link(
+                                 'Close Account',
+                                 '/close-account',
+                                 array('class' => 'button', 'target' => '_self')
+                              );
+                          ?> -->
+                          <a href="/users/deleteAccount" onclick="return confirm('Are you sure you want to delete Account?');">Close Account</a>
+                         <!--  <a href="profile_addresses">Close Account</a> -->
                         </li>
                     </ul>
                   </div>

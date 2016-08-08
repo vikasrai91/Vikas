@@ -16,12 +16,12 @@
       <![endif]-->
 	<?php
 		echo $this->Html->meta('icon');
-		echo $this->Html->css(array('bootstrap.min', 'font-awesome', 'sticky-footer'));
+		echo $this->Html->css(array('bootstrap.min', 'font-awesome', 'sticky-footer', 'custom', 'custom-switch', 'custom-checkbox', 'custom-font'));
 	if($this->params['controller'] == 'users'){
-		echo $this->Html->css(array('login', 'custom-checkbox-login', 'custom-font-login'));
+		echo $this->Html->css(array('login', 'custom-checkbox-login', 'custom-font-login', 'style2'));
 		}
 	elseif($this->params['controller'] == 'ships'){
-		echo $this->Html->css(array('bootstrap-datepicker', 'style2', 'custom-switch', 'custom-checkbox', 'custom-font'));
+		echo $this->Html->css(array('bootstrap-datepicker', 'style2'));
 	}
 	?>
 	<?php echo $this->Html->script(array('jQuery-2.1.4.min', 'bootstrap.min', 'jquery.validate.min', 'bootstrap-datepicker')); 
@@ -30,11 +30,10 @@
 </head>
 <body>
 	 <?php 
-	 if($this->params['action'] == 'listingRequest'){
-		echo $this->element("list_header");
-	}else{
 		echo $this->element("header");
-	}
+		if($this->Session->read('Auth.User') != ''){
+			echo $this->element("list_header");
+		}
 	 ?>
      <div class="wrapper">
       <div class="container">

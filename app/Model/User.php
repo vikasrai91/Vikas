@@ -49,6 +49,9 @@ class User extends AppModel {
 
 	);
 
+
+	
+
 public function validateConfirmPasswords() { 
     return $this->data[$this->alias]['password'] === $this->data[$this->alias]['confirm_password'];
 }

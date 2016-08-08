@@ -1,4 +1,4 @@
-<?php   print_r($completeListing); exit; ?>
+
 <div class="container shippment-information complete-listings">
          <ul class="nav nav-tabs">
             <li <?php echo ($completeListing[0]['Shipment']['status'] == 1) ? 'class="active"' : 'class="not-active"'; ?>>
@@ -71,6 +71,8 @@
                      <ul class="list-group">
                      <?php if($completeListing[0]['Shipment']['status'] != 0){ ?>
                        <li class="list-group-item"><a href="#"><i class="glyphicon glyphicon-arrow-up"></i>  Purchase Upgrade</a></li>
+                     
+<?php  if($this->Session->read('Auth.User.id')==$completeListing[0]['Shipment']['user_id']){ ?>  
                        <li class="list-group-item">
                        <?php
                               echo $this->Html->link("<i class='glyphicon glyphicon-trash'></i>  Delete",
@@ -80,6 +82,8 @@
                         ?>
                        </li>
                        <?php } ?>
+
+<?php } if($this->Session->read('Auth.User.id')==$completeListing[0]['Shipment']['user_id']){ ?>                       
                        <li class="list-group-item">
                         <?php
                               echo $this->Html->link("<i class='glyphicon glyphicon-pencil'></i>  Edit Shipment",
@@ -87,8 +91,20 @@
                                         array('escape' => false)
                                     );
                         ?>
-
                        </li>
+
+<?php    }  if($this->Session->read('Auth.User.id')!=$completeListing[0]['Shipment']['user_id']){ ?>
+                       <li class="list-group-item">
+                        <?php
+               
+                              echo $this->Html->link("<i class='glyphicon glyphicon-envelope'></i>  Message",
+                                        array('controller' => 'users', 'action' => 'myCompose', base64_encode($completeListing[0]['Shipment']['id'])),
+                                        array('escape' => false)
+                                    );
+                            
+                        ?>
+                       </li>
+                       <?php } ?>
                              <li class=" list-group-item dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                      <i class="glyphicon glyphicon-plus"></i> More

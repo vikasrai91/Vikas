@@ -17,11 +17,12 @@
       <![endif]-->
 	<?php
 		echo $this->Html->meta('icon');
-		echo $this->Html->css(array('bootstrap.min', 'style', 'font-awesome', 'sticky-footer'));
+		echo $this->Html->css(array('bootstrap.min', 'style', 'font-awesome', 'sticky-footer', 'custom'));
 	?>
 	<?php echo $this->Html->script(array('jQuery-2.1.4.min', 'bootstrap.min')); ?>
 </head>
 <body>
+	<?php echo $this->element("header"); ?>
 	 <?php echo $this->element("home_header"); ?>
 
 			<?php echo $this->Flash->render(); ?>

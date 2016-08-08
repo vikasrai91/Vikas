@@ -94,15 +94,16 @@ class ShipsController extends AppController {
  * @description		: NA
  */
 	public function completeListing($id = null){
+			
 		if($id != 'null'){
 			if(isset($this->request->data) && !empty($this->request->data)){
 				$updateAddress = $this->request->data;
-				$updateAddress['PickupDelivery']['id'] = base64_decode($id);
+				 $updateAddress['PickupDelivery']['id'] = base64_decode($id);
 				if(!$this->PickupDelivery->save($updateAddress)){
 					throw new NotFoundException();
 				}
 			}
-			$completeListing = $this->Shipment->findAllById(base64_decode($id));
+		 $completeListing = $this->Shipment->findAllById(base64_decode($id));
 			if($completeListing){
 				$this->set('completeListing', $completeListing);
 			}else{ throw new NotFoundException(); }
@@ -111,6 +112,32 @@ class ShipsController extends AppController {
 			throw new NotFoundException();
 		}
 	}
+
+
+
+
+/*
+ * @function name	: openjobdetail
+ * @purpose			: to show complete detail of Open job
+ * @created by		: mahavir singh
+ * @created on		: 29 june 2016
+ * @description		: NA
+ */
+/*	public function openjobdetail($id = null){
+         $this->loadModel('Shipment');
+         
+		 $completeListing = $this->Shipment->findAllById(base64_decode($id));
+			if($completeListing){
+				$this->set('completeListing', $completeListing);
+			}
+		  
+             
+	}*/
+
+
+
+
+
 
 /*
  * @function name	: uploadImage

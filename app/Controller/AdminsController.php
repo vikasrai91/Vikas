@@ -229,11 +229,11 @@ class AdminsController extends AppController {
  *
  * @return void
  */
-	public function index() {
+	/*public function index() {
 		$this->Admin->recursive = 0;
 		$this->conditions	= array(array("Admin.account_id"=>$this->Session->read("admin.Admin.account_id")));
 		//$this->bulkactions();
-	/* code to perform search functionality */
+	/* code to perform search functionality 
 		if(isset($this->data) && !empty($this->data['Admin']['searchval'])){
 			$this->Session->write('searchval',$this->data['Admin']['searchval']);
 			$this->conditions	= array("OR"=>array("username like"=>"%".$this->data['Admin']['searchval']."%","domain like"=>"%".$this->data['Admin']['searchval']."%","date(created)"=>$this->data['Admin']['searchval']));
@@ -248,9 +248,9 @@ class AdminsController extends AppController {
 		}elseif(empty($this->conditions)){
 			$this->Session->delete('searchval');
 		}
-	/* end of code to perform search functionality */
+	/* end of code to perform search functionality 
 		$this->set('admins', $this->paginate($this->conditions));
-	}
+	}*/
 	
 
 /**
@@ -372,12 +372,40 @@ class AdminsController extends AppController {
 	     $this->UserDetail->id=$id;
 			if ($this->User->save($this->request->data) && $this->UserDetail->save($this->request->data)) {
 				$this->Session->setFlash(__('The user has been saved.'), 'default', array("class"=>"success_message"));
-				$this->redirect(array('action' => 'index'));
+				$this->redirect(array('action' => 'user'));
 			} else {
 				$this->Session->setFlash(__('The User could not be saved. Please, try again.'));
 			}
 		} else {
 			$this->request->data = $this->User->read(null, $id);
+		}
+	}
+	
+	public function editShipment($id = null) {
+		//echo "edit";die;
+		$this->loadModel("Shipment");
+		$this->loadModel("PickupDelivery");
+		$this->Shipment->recursive = 0;	
+		$this->Shipment->id = $id;
+		if (!$this->Shipment->exists()) {
+			throw new NotFoundException(__('Invalid Shipment'));
+		}
+		/*else{
+			$users = $this->User->find('all',array('conditions'=>array(
+           'id'=>$this->User->id)
+           ));
+			$this->set('user',$users);
+		}*/
+		if ($this->request->is('post') || $this->request->is('put')) {
+	     $this->UserDetail->id=$id;
+			if ($this->User->save($this->request->data) && $this->UserDetail->save($this->request->data)) {
+				$this->Session->setFlash(__('The user has been saved.'), 'default', array("class"=>"success_message"));
+				$this->redirect(array('action' => 'user'));
+			} else {
+				$this->Session->setFlash(__('The User could not be saved. Please, try again.'));
+			}
+		} else {
+			$this->request->data = $this->Shipment->read(null, $id);
 		}
 	}
 
@@ -388,17 +416,20 @@ class AdminsController extends AppController {
  * @return void
  */
 	public function delete($id = null) {
+		$this->loadModel("User");
+		$this->loadModel("UserDetail");
 		
-		$this->Admin->id = $id;
-		if (!$this->Admin->exists()) {
-			throw new NotFoundException(__('Invalid admin'));
+		$this->User->id = $id;
+		if (!$this->User->exists()) {
+			throw new NotFoundException(__('Invalid User'));
 		}
-		if ($this->Admin->delete()) {
-			$this->Session->setFlash(__('Admin deleted.'), 'default', array("class"=>"success_message"));
-			$this->redirect(array('action'=>'index'));
+		$this->UserDetail->id = $id;
+		if ($this->User->delete() && $this->UserDetail->delete()) {
+			$this->Session->setFlash(__('User deleted.'), 'default', array("class"=>"success_message"));
+			$this->redirect(array('action'=>'user'));
 		}
-		$this->Session->setFlash(__('Admin was not deleted.'));
-		$this->redirect(array('action' => 'index'));
+		$this->Session->setFlash(__('User was not deleted.'));
+		$this->redirect(array('action' => 'user'));
 	}
 	
 	
@@ -523,4 +554,30 @@ class AdminsController extends AppController {
 		$this->render('index');
 
 	}
+	
+	
+	/* end of function */
+	/*
+	 * @function name	: ship
+	 * @purpose			: shipment show the all record
+	 * @arguments		: NA
+	 * @return			: none
+	 * @created by		: nitish kumar
+	 * @created on		: 5 aug 2016
+	 * @description		: NA
+	 */
+	
+	public function ship(){
+		
+		 $this->loadModel('Shipment');
+          
+	$Shipment = $this->Shipment->find('all',array('conditions'=>array(
+           'status'=>'1')
+           ));
+          // print_r($Shipment); exit;
+		$this->set('shiplist',$Shipment);
+		$this->render('shiplist');
+	}
+	
+	
 }

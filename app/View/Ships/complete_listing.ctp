@@ -364,7 +364,7 @@
          </div>
       </div>
 
-<?php echo $this->Html->script('http://maps.google.com/maps/api/js?key=AIzaSyBDQjIHPPkARigFwTycuQqY7jTEHSykWfc&sensor=true'); ?>
+<?php echo $this->Html->script('http://maps.google.com/maps/api/js?key=AIzaSyBDQjIHPPkARigFwTycuQqY7jTEHSykWfc&sensor=false'); ?>
 <?php echo $this->Html->script('frontend/complete_listing'); ?>
 <?php echo $this->element("user/confirm_shipment"); ?>
 <style type="text/css">

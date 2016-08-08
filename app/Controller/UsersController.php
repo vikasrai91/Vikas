@@ -426,12 +426,14 @@ public function beforefilter() {
 		$this->loadModel('Currency');
 		$this->loadModel('Timezone');
 		$this->loadModel('User');
+
 		$countries = $this->Country->find('list', array('fields' => array('Country.country_name')));
 		
 		$this->set('countries', $countries);
 		$userdetailData = $this->UserDetail->find('first' ,array('conditions' => array('UserDetail.id' => $this->Session->read('Auth.User.UserDetail.id'))));
 		$this->set('userdetailData',$userdetailData);
 		if($settingType == 1){
+
 			if($this->request->is('post') && !empty($this->request->data)){
 			  $this->UserDetail->create();
 			  $this->UserDetail->id = $this->Session->read('Auth.User.UserDetail.id');if($this->UserDetail->save($this->request->data)){
@@ -441,6 +443,7 @@ public function beforefilter() {
 		$this->render('update_email');
 		}
 		elseif($settingType == 2){
+
 			if($this->request->is('post') && !empty($this->request->data)){
 			  $this->UserDetail->create();
 			  $this->UserDetail->id = $this->Session->read('Auth.User.UserDetail.id');if($this->UserDetail->save($this->request->data)){
@@ -451,6 +454,7 @@ public function beforefilter() {
 			$this->render('update_address');
 		}
 		elseif($settingType == 3){
+
 			if($this->request->is('post') && !empty($this->request->data)){
 			  $this->UserDetail->create();
 			  $this->UserDetail->id = $this->Session->read('Auth.User.UserDetail.id');if($this->UserDetail->save($this->request->data)){
@@ -503,6 +507,7 @@ public function beforefilter() {
 			}
 		$this->render('edit_profile');
 		}
+		
 
 	}
 /*End settings function */
@@ -517,9 +522,28 @@ public function beforefilter() {
 	 */
 
 	public function myAccount() {
+        $this->loadModel('UserDetail');
+		$this->loadModel('User');
 
+
+        $this->loadModel('User');
 		$myacountdetails = $this->User->find('all',array('conditions'=>array('UserDetail.id'=>$this->Session->read('Auth.User.UserDetail.id'))));
 		$this->set('user_details',$myacountdetails);
+
+	if($this->request->is('post') && !empty($this->request->data)){
+
+			  $this->UserDetail->create();
+			  $this->UserDetail->id = $this->Session->read('Auth.User.UserDetail.id');
+			  if($this->UserDetail->save($this->request->data)){
+			  	$this->User->create();
+			  	$this->User->id = $this->Session->read('Auth.User.id');
+			  	$this->User->save($this->request->data);
+			  	$currentUserData = $this->User->find('first' ,array('conditions' => array('User.id' => $this->Session->read('Auth.User.id'))));
+				$this->Session->write('Auth.User.UserDetail.profile_picture', $currentUserData['UserDetail']['profile_picture']);
+				$this->Session->write('Auth.User.account_type', $currentUserData['User']['account_type']);
+			  	$this->redirect('/users/myAccount');
+			  }				
+			}
 		$this->render('my_account');
 
 	}
@@ -537,6 +561,7 @@ public function beforefilter() {
 	 */
 
  public function editMyAccount() {
+
            $this->loadModel('UserDetail');
 
   $user_id = $this->request->data['UserDetail']['user_id'];
@@ -544,12 +569,19 @@ public function beforefilter() {
   $l_name = $this->request->data['UserDetail']['l_name'];
   $phone_number = $this->request->data['UserDetail']['phone_number'];
   /*$profile_picture = $this->request->data['UserDetail']['profile_picture'];*/
-  $gender = $this->request->data['UserDetail']['gender'];
+   $gender = $this->request->data['UserDetail']['gender'];
+
+
   $notification_by_email = $this->request->data['UserDetail']['notification_by_email'];
+
+	if($notification_by_email=='on'){
+	  $notification_by_email='1';
+	}
   $notification_by_sms = $this->request->data['UserDetail']['notification_by_sms'];
+	if($notification_by_sms=='on'){
+	  $notification_by_sms='1';
+	}
   
-
-
     if($this->request->is('post') && !empty($this->request->data)){
  $this->UserDetail->create();
 $data = array('UserDetail' => array('f_name' => $f_name, 'l_name' => $l_name, 'phone_number' => $phone_number, 'gender' =>$gender, 'notification_by_email'=>$notification_by_email, 'notification_by_sms' =>$notification_by_sms));
@@ -565,24 +597,6 @@ if($this->UserDetail->save($data)){
 		 
 }
 
-public function changeMyPassword() {
-	//echo"changeMyPassword";die;
-
-		$myacountdetails = $this->User->find('all',array('conditions'=>array('UserDetail.id'=>$this->Session->read('Auth.User.UserDetail.id'))));
-		if($this->request->is('post') && !empty($this->request->data)){
-			  $this->User->create();
-			   $this->User->id = $this->Session->read('Auth.User.UserDetail.user_id');
-			  if($this->User->save($this->request->data)){
-			  	$this->Session->setFlash('Hello '.$myacountdetails[0]['UserDetail']['f_name'].'  '.$myacountdetails[0]['UserDetail']['l_name'].'Your Password has been updated successfully.');
-			  	$this->redirect('/users/MyAccount');
-			  }		
-			}
-
-
-		// $this->render('my_account');
-
-	}
-
 	/*End inbox function */
 
 	/*
@@ -594,9 +608,21 @@ public function changeMyPassword() {
 	 * @created on		: 13 july 2016
 	 */
 
-	public function myInbox() {
+	public function myInbox($id=null) {
+      $replyId = base64_decode($id);
+      //print_r("hello");
+      //print_r($replyId);
+    $this->loadModel('Message');
 
-		
+	if($id != 'null'){
+
+		$inbox =  $updateAddress['inbox']['id'] = base64_decode($id);
+		$inboxdata = $this->Message->find('all',array('conditions'=>array('Message.shipment_id'=>$inbox)));
+		$this->set('inboxdetails',$inboxdata);
+		  $this->render('my_inbox');
+
+	}
+
 
 	}
 
@@ -612,19 +638,110 @@ public function changeMyPassword() {
 	 * @created on		: 13 july 2016
 	 */
 
-	public function myCompose() {
-		  $this->loadModel('UserDetail');
-          $this->loadModel('Message');
+	public function myCompose($id=null) {
 
-         if (!empty($this->data)) {
-         	print_r($this->data);
-         	if ($this->Message->save($this->data)) {
-                $this->Session->setFlash('Your user data has been saved.');
-                $this->redirect(array('action' => 'myInbox'));
-            }
-        }
+	 $this->loadModel('Shipment');
+	 $this->loadModel('User');
+    if($id != 'null'){
+
+	$composeid =  $updateAddress['messageid']['id'] = base64_decode($id);
+	$compisedata = $this->Shipment->find('all',array('conditions'=>array('Shipment.id'=>$composeid)));
+		$this->set('composedetails',$compisedata);
+        $this->render('my_compose');
+  }
+  
+
+	}
+   
+   
+		/*End replyCompose function */
+
+	/*
+	 * @function name	: replyCompose
+	 * @purpose			: to send in reply message 
+	 * @arguments		: NA
+	 * @return			: none
+	 * @created by		: nitish kumar
+	 * @created on		: 22 july 2016
+	 */
+
+	public function replyCompose($id=null) {
+
+    $this->loadModel('Message');
+	
+    if($id != 'null'){
+
+	$replyId =  $updateAddress['replyid']['id'] = base64_decode($id);
+	$replydata = $this->Message->find('all',array('conditions'=>array('Message.id'=>$replyId)));
+
+		$this->set('replydetails',$replydata);
+        $this->render('reply_compose');
+  }
+  
+
 	}
 
+
+   /*End addcompose function*/
+   /*
+   * @function name   : addCompose
+   * @purpose         : to send a message
+   * @arguments       : NA
+   * @created by      : nitish kumar
+   * @created on      : 21 july 2016
+   */
+  // addCompose new user data function  (C)
+
+   public function addCompose(){
+    
+     $this->loadModel('Message');
+   
+
+ 	$shipment_id = $this->request->data['message']['shipment_id'];
+	$message_to = $this->request->data['message']['message_to'];
+	$message_from = $this->request->data['message']['message_from'];
+	$subject = $this->request->data['message']['subject'];
+	$message = $this->request->data['message']['message'];
+	$created_on = $this->request->data['message']['created_on'];
+
+ 
+ $data1 = array('Message' => array('shipment_id' => $shipment_id, 'message_from' => $message_from, 'message_to' => $message_to, 'message' =>$message, 'subject'=>$subject, 'created_on' =>$created_on));
+
+if($this->Message->save($data1)){
+		$this->Session->setFlash('Message Is Successfully Send.',
+										'default', array('class' => 'success')
+											);
+    $this->redirect('/users/myCompose/'.base64_encode($shipment_id));
+ 
+
+}
+ 
+   }
+
+
+    /*End addReplyCompose function*/
+   /*
+   * @function name   : addReplyCompose
+   * @purpose         : to send a reply message
+   * @arguments       : NA
+   * @created by      : nitish kumar
+   * @created on      : 22 july 2016
+   */
+  
+
+   public function addReplyCompose(){
+    
+     $this->loadModel('Message');
+
+      if (!empty($this->data)) {
+      
+            if ($this->Message->save($this->data)) {
+                $this->Session->setFlash('Your user data has been saved.');
+               $this->redirect('/users/replyCompose/'.base64_encode($shipment_id));
+            }
+        }
+
+ }
 
 	
 	/*End deliveries function */
@@ -639,23 +756,7 @@ public function changeMyPassword() {
 	 */
 
 	public function myDeliveries() {
-          /*  $this->loadModel('Shipment');
-            $this->loadModel('PickupDelivery');
 
-		$myshiment = $this->Shipment->find('all',array('conditions'=>array('Shipment.user_id'=>$this->Session->read('Auth.User.UserDetail.user_id'))));
-		foreach ($myshiment as  $value) {
-
-		$shiemen_id = $value['Shipment']['id'];
-
-		$myDelivery  = $this->PickupDelivery->find('all',array('conditions'=>array('PickupDelivery.shipment_id'=>$shiemen_id)));
-	     //  $this->set('pickup_delive',$myDelivery);
-		}
-		//print_r($myDelivery);
-	   //exit;
-
-   
-		$this->render('my_account');
-*/
 		
 	}
 
@@ -671,41 +772,97 @@ public function changeMyPassword() {
 	 * @created on		: 13 july 2016
 	 */
 
-	public function readmail() {
+	public function readmail($id=null) {
 
+	 $this->loadModel('Message');
+	 $this->loadModel('User');
+
+
+
+ $this->Message->create();
+$data = array('Message' => array('status' =>'1'));
+
+$this->Message->id=base64_decode($id);   
+if($this->Message->save($data)){
+
+	if($id != 'null'){
+
+		$mess_id =  $updateAddress['mess']['id'] = base64_decode($id);
+		$messagedata = $this->Message->find('all',array('conditions'=>array('Message.id'=>$mess_id)));
+		
+	$userId = $messagedata[0]['Message']['message_to'];
+	
+		$this->set('messagedetails',$messagedata);
+
+      $useremaildetails = $this->User
+->find('first',array('conditions'=>array(
+           'User.id'=>$userId)));
+
+		$this->set('useremaildetails',$useremaildetails);
+
+		$this->render('readmail');
+		//   $this->redirect('/users/readmail/'.base64_encode($mess_id));
+ 
+	 
+	}
+}
 		
 	}
 
 	/* end of function */
 
-		/*
+	 /*
 	 * @function name	: dashboard
 	 * @purpose			: for user dashboard for all detail
 	 * @arguments		: NA
 	 * @return			: none
-	 * @created by		: mahavir singh
-	 * @created on		: 08 july 2016
+	 * @created by		: nitish kumar
+	 * @created on		: 15 july 2016
 	 */
 
 	public function dashboard() {
 
 		 $this->loadModel('Shipment');
+		 $this->loadModel('Message');
           
 	$dashboardopenjob = $this->Shipment->find('all',array('conditions'=>array(
            'status'=>'1'),
            'limit'=>5, 
            'order'=>array('Shipment.id ASC')));
-
 		$this->set('userDeshbord',$dashboardopenjob);
-		
+	    $msgid=array();
+		$msgcount=array();	
+	foreach ($dashboardopenjob as $key) {
+		 $theshimentid = $key['Shipment']['id'];
+		$dashboard_new = $this->Message->find('count', array(
+        'conditions' => array('Message.shipment_id' => $theshimentid)
+    ));
+
+    array_push($msgid,$theshimentid);
+    array_push($msgcount,$dashboard_new);
+    
+		//$dashboard_new = $this->Messages->find('all',array('conditions'=>array('Messages.shipment_id'=>$theshimentid)));
+		/*$i=0;
+		while($dashboard_new<=$i){
+
+     $testData = $dashboard_new[$i]['Messages']['shipment_id'];
+     $i++;
+		}*/
+		//$dashboard_new['Messages']['shipment_id'];
+		//exit;
+		//print_r($dashboard_new);
+		}
+		//print_r($msgid);
+		//print_r($msgcount);
+			//exit;
+	$this->set('msgid',$msgid);
+	$this->set('dashboardMessage',$msgcount);
     $dashboardRunningjob = $this->Shipment->find('all',array('conditions'=>array(
            'status'=>'0'),
            'limit'=>5, 
            'order'=>array('Shipment.id ASC')));
 
 		$this->set('userDeshbordRunningjob',$dashboardRunningjob);
-
-
 		$this->render('dashboard');
 
 	}
@@ -734,5 +891,37 @@ public function changeMyPassword() {
 	}
 
 	/* end of function */
+
+
+	/*
+	 * @function name	: delete
+	 * @purpose			: to delete from user account
+	 * @arguments		: NA
+	 * @return			: none
+	 * @created by		: nitish kumar
+	 * @created on		: 18 july 2016
+	 * @description		: NA
+	 */
+	function deleteAccount()
+    {
+    	$this->loadModel('UserDetail');
+		$this->loadModel('User');
+		$this->loadModel('Shipment');
+
+    	 $id = $this->Session->read('Auth.User.id');
+    	 if($id!=''){
+    	 	$this->User->delete($id);
+    	 }
+      $user_id = $this->Session->read('Auth.User.UserDetail.id');
+       // $user_id = $this->Session->read('Auth.User.Shipment.id');
+     if($user_id!=''){
+     	$this->UserDetail->delete($user_id);
+     	//$this->Shipment->delete($user_id);
+     }
+         $this->Session->setFlash('The user with id: '.$id.' has been deleted.');
+         $this->logout();
+         exit;
+        $this->redirect(array('action' => 'myAccount'));
+    }
 }
 ?>

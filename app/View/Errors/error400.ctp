@@ -13,17 +13,18 @@
  * @since         CakePHP(tm) v 0.10.0.1076
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
+echo $this->Html->image('404_error.jpg', array('alt' => '404', 'style' => 'margin:3px;'));
 ?>
-<h2><?php echo $message; ?></h2>
+<!-- <h2><?php echo $message; ?></h2>
 <p class="error">
 	<strong><?php echo __d('cake', 'Error'); ?>: </strong>
 	<?php printf(
 		__d('cake', 'The requested address %s was not found on this server.'),
 		"<strong>'{$url}'</strong>"
 	); ?>
-</p>
-<?php
+</p> -->
+<!-- <?php
 if (Configure::read('debug') > 0):
 	echo $this->element('exception_stack_trace');
 endif;
-?>
+?> -->

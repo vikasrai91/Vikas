@@ -1,4 +1,4 @@
-      <div class="container page-bottom-margin">
+     <div class="container page-bottom-margin">
          <div class="col-sm-12">
             <div class="header-page-top clearfix">
                <div class=" col-sm-8">
@@ -14,13 +14,13 @@
                <div class="box-header with-border">
                   <!--    <div class="col-sm-1"><h3 class="box-title">Inbox</h3></div> -->
                   <div class="col-sm-3 col-xs-3 compose-messgae">
-                  <?php
+                 <!--  <?php
                            echo $this->Html->link(
                                  'Compose',
                                  '/users/myCompose',
                                  array('class' => 'btn btn-primary', 'target' => '_self')
                               );
-                    ?>
+                    ?> -->
                      <!--<a href="compose-message.html" class="">Compose</a>-->
                   </div>
                   <div class="col-sm-8 pull-right text-right search">
@@ -39,28 +39,78 @@
                   <div class="table-responsive mailbox-messages">
                      <table class="table table-hover ">
                         <tbody>
+                         <?php foreach ($inboxdetails as $rowinbox) {
+                          // print_r($rowinbox);
+                          // exit;
+
+                        ?> 
                            <tr class="unread-message">
-                              <td class="mailbox-name "><a href="read-mail.html">Alexander Pierce</a></td>
+                              <td class="mailbox-name ">
+                               <?php
+
+                           echo $this->Html->link(
+                                 $rowinbox['UserDetail']['f_name'].' '. $rowinbox['UserDetail']['l_name'],
+                                 '/users/readmail/'.base64_encode($rowinbox['Message']['id']),
+                                 array('class' => 'button', 'target' => '_self')
+                              );
+                          ?>
+                              </td>
+                              <td class="mailbox-subject">
+                              <?php if($rowinbox['Message']['status']!='1'){   ?>
+
+                              <b><!-- AdminLTE 2.0 Issue --><?php echo $rowinbox['Message']['subject'] ?></b>
+                              <?php }else{
+
+                               echo $rowinbox['Message']['subject'];
+                              } ?>
+
+
+                              </td>
+                              <td class="mailbox-date"><?php echo $rowinbox['Message']['created_on'] ?></td>
+                           </tr>
+
+                           <?php } ?>
+                          <!--  <tr>
+                              <td class="mailbox-name"><?php
+                           echo $this->Html->link(
+                                 'Alexander Pierce',
+                                 '/users/readmail',
+                                 array('class' => 'button', 'target' => '_self')
+                              );
+                          ?></td>
                               <td class="mailbox-subject"><b>AdminLTE 2.0 Issue</b> - Trying to find a solution to this problem...</td>
                               <td class="mailbox-date">5 mins ago</td>
                            </tr>
                            <tr>
-                              <td class="mailbox-name"><a href="read-mail.html">Alexander Pierce</a></td>
+                              <td class="mailbox-name"><?php
+                           echo $this->Html->link(
+                                 'Alexander Pierce',
+                                 '/users/readmail',
+                                 array('class' => 'button', 'target' => '_self')
+                              );
+                          ?></td>
                               <td class="mailbox-subject"><b>AdminLTE 2.0 Issue</b> - Trying to find a solution to this problem...</td>
                               <td class="mailbox-date">5 mins ago</td>
                            </tr>
                            <tr>
-                              <td class="mailbox-name"><a href="read-mail.html">Alexander Pierce</a></td>
+                              <td class="mailbox-name"><?php
+                           echo $this->Html->link(
+                                 'Alexander Pierce',
+                                 '/users/readmail',
+                                 array('class' => 'button', 'target' => '_self')
+                              );
+                          ?></td>
                               <td class="mailbox-subject"><b>AdminLTE 2.0 Issue</b> - Trying to find a solution to this problem...</td>
                               <td class="mailbox-date">5 mins ago</td>
                            </tr>
                            <tr>
-                              <td class="mailbox-name"><a href="read-mail.html">Alexander Pierce</a></td>
-                              <td class="mailbox-subject"><b>AdminLTE 2.0 Issue</b> - Trying to find a solution to this problem...</td>
-                              <td class="mailbox-date">5 mins ago</td>
-                           </tr>
-                           <tr>
-                              <td class="mailbox-name"><a href="read-mail.html">Alexander Pierce</a></td>
+                              <td class="mailbox-name"><?php
+                           echo $this->Html->link(
+                                 'Alexander Pierce',
+                                 '/users/readmail',
+                                 array('class' => 'button', 'target' => '_self')
+                              );
+                          ?></td>
                               <td class="mailbox-subject"><b>AdminLTE 2.0 Issue</b> - Trying to find a solution to this problem...</td>
                               <td class="mailbox-date">5 mins ago</td>
                            </tr>
@@ -88,7 +138,7 @@
                               <td class="mailbox-name"><a href="read-mail.html">Alexander Pierce</a></td>
                               <td class="mailbox-subject"><b>AdminLTE 2.0 Issue</b> - Trying to find a solution to this problem...</td>
                               <td class="mailbox-date">5 mins ago</td>
-                           </tr>
+                           </tr> -->
                         </tbody>
                      </table>
                   </div>

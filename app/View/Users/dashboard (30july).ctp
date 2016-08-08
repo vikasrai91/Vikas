@@ -33,34 +33,12 @@
                                 <td>14</td>
                                 <td>
                                  <?php
-                                // print_r($msgid);
-                                 /*$temp = '';
-                                 $separator=";";
-                                 foreach ($dashboardMessage as $msg)
-                                 {
-									 $temp .=  $msg; 
-									 if($msg != sizeof($dashboardMessage)-2){
-											$temp .= $separator; 
-									   }
-								 }*/
-								 $i=0;
-								 while($msgid[$i]!=" ")
-								 {
-									 if($msgid[$i] == $openjob['Shipment']['id'])
-									 {
-										$msg=$dashboardMessage[$i];
-										break;
-									 }
-									 $i++;
-										 
-								 }
-                                 //print_r($msg);
+                                 //print_r($dashboardMessage);
                                 //echo  $dashboardMessage;
-                              echo $this->Html->link($msg,
+                              echo $this->Html->link($dashboardMessage,
                                         array('controller' => 'users', 'action' => 'myInbox', base64_encode($openjob['Shipment']['id'])),
                                         array('escape' => false)
                                     );
-								
                                       ?>
 
                                 </td>

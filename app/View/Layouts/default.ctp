@@ -1,63 +1,44 @@
-<?php
-/**
- * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
- * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
- *
- * Licensed under The MIT License
- * For full copyright and license information, please see the LICENSE.txt
- * Redistributions of files must retain the above copyright notice.
- *
- * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
- * @link          http://cakephp.org CakePHP(tm) Project
- * @package       app.View.Layouts
- * @since         CakePHP(tm) v 0.10.0.1076
- * @license       http://www.opensource.org/licenses/mit-license.php MIT License
- */
-
-$cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework');
-$cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
-?>
 <!DOCTYPE html>
 <html>
 <head>
-	<?php echo $this->Html->charset(); ?>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>
-		<?php echo $cakeDescription ?>:
-		<?php echo $this->fetch('title'); ?>
+		<?php echo $title_for_layout ?>
 	</title>
+	<!-- Tell the browser to be responsive to screen width -->
+      <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+      <!-- Font-->
+      <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+      <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+      <![endif]-->
 	<?php
 		echo $this->Html->meta('icon');
-
-		echo $this->Html->css('cake.generic');
-
-		echo $this->fetch('meta');
-		echo $this->fetch('css');
-		echo $this->fetch('script');
+		echo $this->Html->css(array('bootstrap.min', 'font-awesome', 'sticky-footer', 'custom'));
+	if($this->params['controller'] == 'users'){
+		echo $this->Html->css(array('login', 'custom-checkbox-login', 'custom-font-login'));
+		}
+	elseif($this->params['controller'] == 'ships'){
+		echo $this->Html->css(array('bootstrap-datepicker', 'style2', 'custom-switch', 'custom-checkbox', 'custom-font'));
+	}
+	?>
+	<?php echo $this->Html->script(array('jQuery-2.1.4.min', 'bootstrap.min', 'jquery.validate.min', 'bootstrap-datepicker')); 
+		echo $this->Html->script('https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places');
 	?>
 </head>
 <body>
-	<div id="container">
-		<div id="header">
-			<h1><?php echo $this->Html->link($cakeDescription, 'http://cakephp.org'); ?></h1>
-		</div>
-		<div id="content">
-
+	 <?php 
+		echo $this->element("header");
+	 ?>
+     <div class="wrapper">
+      <div class="container">
 			<?php echo $this->Flash->render(); ?>
-
 			<?php echo $this->fetch('content'); ?>
 		</div>
-		<div id="footer">
-			<?php echo $this->Html->link(
-					$this->Html->image('cake.power.gif', array('alt' => $cakeDescription, 'border' => '0')),
-					'http://www.cakephp.org/',
-					array('target' => '_blank', 'escape' => false, 'id' => 'cake-powered')
-				);
-			?>
-			<p>
-				<?php echo $cakeVersion; ?>
-			</p>
-		</div>
 	</div>
+	<?php echo $this->element("footer"); ?>
 	<?php echo $this->element('sql_dump'); ?>
 </body>
 </html>

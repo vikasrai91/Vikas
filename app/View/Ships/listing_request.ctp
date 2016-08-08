@@ -1,32 +1,4 @@
-<!DOCTYPE html>
-<html>
-	<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Dashboard</title>
-	<!-- Tell the browser to be responsive to screen width -->
-	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-	<!-- Bootstrap 3.3.5 -->
-	<!-- link rel="stylesheet" href="css/bootstrap.min.css">
-	<link rel="stylesheet" href="css/font-awesome.css">
-	<link rel="stylesheet" href="css/style.css">
-	<link rel="stylesheet" href="css/custom-checkbox.css">
-	<link rel="stylesheet" href="css/custom-font.css">
-	<link rel="stylesheet" href="css/sticky-footer.css"> -->
-	<!-- Font-->
-	<!-- <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'> -->
-	<!-- Ionicons -->
-	<!--     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"> -->
-	<!-- iCheck -->   
-	<!-- Morris chart -->
-	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-	<!--[if lt IE 9]>
-	<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-	<![endif]-->
-	</head>
-		<div class="nav-full-width">
+<!-- <div class="nav-full-width">
 			<div class="container">
 				<nav class="navbar navbar-inverse">
 					<div class="container-fluid">
@@ -45,14 +17,15 @@
 							<li><a href="#">Payments</a></li>
 							<li><a href="#">Invitation</a></li>
 						</ul>
-					</div>
+					</div> 
 					</div>
 				</nav>
 			</div>
-		</div>
+		</div> -->
 
 		<div class="container page-bottom-margin thanku-message">
 			<div class="col-sm-12">
+			<?php if($this->Session->read('Shipform.f1.Shipment.id') != '' ) {  } elseif($this->Session->read('Shipform') != ''){ ?>
 				<div class="text-center top-header-thanks">
 					<div class="text-blue">
 						<h3>Thanks for your request!</h3>
@@ -69,7 +42,7 @@
 						<!-- <button class="btn btn-blue">Save Shipment</button> -->
 						<h3 class="text-center">Not ready to book?</h3>
 				</div>
-				
+			<?php } ?>
 					
 				<div class=" col-sm-10 col-sm-offset-1 thanku-box">
 					<div class="col-sm-12 col-lg-6 box-padding">
@@ -103,7 +76,7 @@
 						</div>
 					</div>
 					<div class="col-sm-12 col-lg-6 box-padding">
-					<form class="form-horizontal">
+						<?php echo $this->Form->create('Shipment', array('novalidate' => true, 'class' => 'form-horizontal')); ?>
 						<div class="panel panel-default">
 							<div class="panel-heading">
 								<h3 class="panel-title">Set Your Own Price</h3>
@@ -119,37 +92,45 @@
 								</div>
 									
 										<div class="col-sm-5 padding-left">
-									<input type="text" class="form-control" placeholder="₹">
+									<?php 
+									if(isset($this->params['pass'][0])){
+									if($this->params['pass'][0] != ''){
+										echo $this->Form->input('id', array(
+	                                    'type' => 'hidden',
+	                                    'div' => false, 
+	                                    'label' => false,
+	                                    'value' => base64_decode($this->params['pass'][0])
+	                                    ));
+									}}
+	                                 echo $this->Form->input('status', array(
+	                                    'type' => 'hidden',
+	                                    'div' => false, 
+	                                    'label' => false,
+	                                    'value' => '1'
+	                                    ));
+                     				?>
+									<?php 
+									if(isset($this->params['pass'][1])) 
+										{  $f_value = $this->params['pass'][1]; }else{ $f_value = ''; } 
+	                                 echo $this->Form->input('price', array(
+	                                    'placeholder' => '$', 
+	                                    'type' => 'text',
+	                                    'div' => false, 
+	                                    'label' => false, 
+	                                    'class' => 'form-control',
+	                                    'default' => base64_decode($f_value)
+	                                    ));
+                     				?>
 										</div>
 								</div>
 								<div class="text-center">
-									<button class="btn btn-yellow">Submit My Offer</button>
+									<?php echo $this->Form->submit('Submit My Offer',array('class' => 'btn btn-yellow')); ?>
 								</div>
 							</div>
 						</div>
-						</form>
+						<?php echo $this->Form->end(); ?>
 					</div>
 				</div>
 			</div>
 		</div>
-
-	   <!-- Footer Start here -->
-		<!-- <footer class="footer">
-			<div class="container">
-				<div class="col-sm-7">
-					<ul class="footer-links list-unstyled">
-					<li><a href="#">Home</a></li>
-					<li><a href="#">About</a></li>
-					<li><a href="#">Soultions</a></li>
-					<li><a href="#">Contacts</a></li>
-					<li><a href="#">Bookings</a></li>
-					</ul>
-				</div>
-					<div class="col-sm-5 copright-text text-right">
-						<p>Copyright @ 2015, SHIPTHESTUFF</p>
-					</div>
-			</div>
-		</footer> -->
-
-	<!-- jQuery 2.1.4 -->
-</html>
+<?php echo $this->Html->script('frontend/listing-request'); ?>
