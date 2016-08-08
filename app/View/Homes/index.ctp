@@ -88,20 +88,20 @@
             <?php 
             echo $this->Html->image('freight.png', array('alt' => 'freight', 'class' => 'img-responsive'));
             ?>
-                  <h3>Other Freight</h3>
+                  <h3>Freight</h3>
                   <p>Less-than-Container, Container...</p>
                </div>
             </div>
-            <!-- <div class="col-sm-4 col-lg-2 padding-l-r-10">
-               <div class="border-top-box"> -->
+            <div class="col-sm-4 col-lg-2 padding-l-r-10">
+               <div class="border-top-box">
                   <!-- <img class="img-responsive" alt="animals" src="img/animals.png"> -->
             <?php 
-            // echo $this->Html->image('animals.png', array('alt' => 'animals', 'class' => 'img-responsive'));
+            echo $this->Html->image('animals.png', array('alt' => 'animals', 'class' => 'img-responsive'));
             ?>
-                  <!-- <h3>Animals</h3>
+                  <h3>Animals</h3>
                   <p>Dogs, Cats, Horses...</p>
                </div>
-            </div> -->
+            </div>
          </div>
       </section>
       <!-- What Can We Deliver -->
