@@ -120,11 +120,16 @@
                           <input id="test" name="data[UserDetail][notification_by_email]" type="checkbox" hidden="hidden" <?php if($row_user['UserDetail']['notification_by_email']==1){ ?>checked="checked" value="1" <?php } ?>/>
                                     <label for="test" class="switch"></label>
                                 </li>
+                                <?php 
+                                  /*
+                                  // commented notification_by_sms according to client's feedback
+                                ?>
                                 <li>
                                     <p>By Sms</p>
                                     <input id="test1" name="data[UserDetail][notification_by_sms]" type="checkbox" hidden="hidden" <?php if($row_user['UserDetail']['notification_by_sms']==1){ ?>checked="checked" value="1" <?php } ?>/>
                                     <label for="test1" class="switch"></label>
                                 </li>
+                                <?php */ ?>
                             </ul>
                         </div>
                     </div>
