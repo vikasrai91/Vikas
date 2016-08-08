@@ -45,7 +45,7 @@ window.fbAsyncInit = function() {
                             $('#carrier_form5').attr('action', '/users/facebookLogin/2');
                         }
                         $.ajax({
-                            url:'/users/facebookLogin/'+user_type,
+                            url: BASE_URL + '/users/facebookLogin/'+user_type,
                             type:'POST',
                             data:JSON.stringify(response),
                             contentType: "application/json; charset=utf-8",
@@ -116,7 +116,7 @@ $(function() {
             "data[User][email]": {
                 required: true,
                 email: true,
-                remote:{ url: "/users/uniqueMail", type : "post" }
+                remote:{ url: BASE_URL + "/users/uniqueMail", type : "post" }
             },
             "data[User][password]": {
                 required: true,
@@ -154,7 +154,7 @@ $(function() {
             "data[User][email]": {
                 required: true,
                 email: true,
-                remote:{ url: "/users/uniqueMail", type : "post" }
+                remote:{ url: BASE_URL + "/users/uniqueMail", type : "post" }
             },
             "data[UserDetail][phone_number]": {
                 required: true,
@@ -186,7 +186,7 @@ $(function() {
             var data = $('#carrier_form1').serialize();
             //alert(data);
             $.ajax({
-					url: "/users/carrierRegistration", 
+					url: BASE_URL + "/users/carrierRegistration", 
 					type: "POST",             
 					data: data+'&form=1',       
 				success: function(r_data)   
@@ -225,7 +225,7 @@ $(function() {
             //alert(data);
 
             $.ajax({
-					url: "/users/carrierRegistration", 
+					url: BASE_URL + "/users/carrierRegistration", 
 					type: "POST",             
 					data: data+'&form=2',       
 				success: function(r_data)   
@@ -255,7 +255,7 @@ $(function() {
             //form.submit();
             var data = $('#carrier_form3').serialize();
             $.ajax({
-					url: "/users/carrierRegistration", 
+					url: BASE_URL + "/users/carrierRegistration", 
 					type: "POST",             
 					data: data+'&form=3',       
 				success: function(r_data)   
@@ -285,7 +285,7 @@ $(function() {
             //form.submit();
             var data = $('#carrier_form4').serialize();
             $.ajax({
-					url: "/users/carrierRegistration", 
+					url: BASE_URL + "/users/carrierRegistration", 
 					type: "POST",             
 					data: data+'&form=4',       
 				success: function(r_data)   

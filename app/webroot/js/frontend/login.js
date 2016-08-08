@@ -45,7 +45,7 @@ window.fbAsyncInit = function() {
                    if(response.id != '' && response.id != null){
                         console.log(response);
                         $.ajax({
-                            url:'/users/facebookLogin/'+user_type,
+                            url: BASE_URL + '/users/facebookLogin/'+user_type,
                             type:'POST',
                             data:JSON.stringify(response),
                             contentType: "application/json; charset=utf-8",
@@ -54,7 +54,7 @@ window.fbAsyncInit = function() {
                                    if(res_data != '' && res_data != null){
                                     var get_data = JSON.parse(res_data);
                                     if(get_data.order){
-                                        window.location.href = "/ships/listingRequest/";
+                                        window.location.href = BASE_URL + "/ships/listingRequest/";
                                     }
                                     else if(get_data.already == 1){
                                         if(get_data.user_type == 1){
