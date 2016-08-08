@@ -58,12 +58,12 @@ window.fbAsyncInit = function() {
                                     }
                                     else if(get_data.already == 1){
                                         if(get_data.user_type == 1){
-                                        window.location.href = "/";
+                                        window.location.href = BASE_URL;
                                         }else{
-                                        window.location.href = "/";
+                                        window.location.href = BASE_URL;
                                         }
                                     }else if(get_data.already == 0){
-                                        window.location.href = "/";
+                                        window.location.href = BASE_URL;
                                     }
                                 }
                             }

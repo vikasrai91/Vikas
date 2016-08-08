@@ -188,7 +188,7 @@ public function beforefilter() {
 					$data = $this->request->data;
 					$data['UserDetail']['user_id'] = $this->User->getLastInsertId();
 					$this->UserDetail->save($data);
-					$link = '<a href="'.BASE_URL.'users/verifyMail/'.$data['UserDetail']['user_id'].'/'.$emailToken.'">Verify My Email</a>';
+					$link = '<a href="'.SITE_LINK.'users/verifyMail/'.$data['UserDetail']['user_id'].'/'.$emailToken.'">Verify My Email</a>';
 					$this->getMaildata(1);
 					$this->mailBody = str_replace("{NAME}", $data['UserDetail']['f_name'], $this->mailBody);
 					$this->mailBody = str_replace("{VERIFY}", $link, $this->mailBody);
